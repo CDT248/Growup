@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Grow Up Communication — Admin</title>
+<title>Grow Up Communication — Admin Panel</title>
 
 <link
   rel="icon"
   type="image/png"
   href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png"
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-  rel="stylesheet"
 >
 
 <style>
@@ -32,23 +22,43 @@
 }
 
 :root{
+
   --green:#0d6b50;
   --green-dark:#073f31;
   --green-light:#e7f6f0;
+
   --red:#ef4444;
   --red-dark:#dc2626;
-  --white:#fff;
+
+  --gold:#f59e0b;
+
+  --white:#ffffff;
+
   --text:#14231f;
   --muted:#6b7c76;
+
   --border:#dfeae6;
-  --bg:#f5faf8;
+
+  --bg:#f4f8f6;
+
   --shadow:0 15px 40px rgba(8,63,48,.10);
+
 }
 
 body{
-  font-family:Inter,Arial,sans-serif;
+
+  font-family:
+  Inter,
+  Arial,
+  Helvetica,
+  sans-serif;
+
   background:var(--bg);
+
   color:var(--text);
+
+  min-height:100vh;
+
 }
 
 
@@ -57,91 +67,139 @@ body{
    ===================================================== */
 
 .login-screen{
+
   position:fixed;
+
   inset:0;
-  z-index:9999;
+
   background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(13,107,80,.25),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #073f31,
-      #0d6b50
-    );
-  display:grid;
-  place-items:center;
+  radial-gradient(
+    circle at top left,
+    #19795d,
+    transparent 45%
+  ),
+  linear-gradient(
+    135deg,
+    #073f31,
+    #0d6b50
+  );
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
   padding:20px;
+
+  z-index:9999;
+
 }
 
 .login-box{
-  width:min(430px,100%);
-  background:#fff;
-  border-radius:25px;
-  padding:40px;
-  box-shadow:0 30px 80px rgba(0,0,0,.25);
+
+  width:100%;
+
+  max-width:430px;
+
+  background:white;
+
+  border-radius:28px;
+
+  padding:42px;
+
+  box-shadow:
+  0 30px 80px rgba(0,0,0,.25);
+
 }
 
 .login-logo{
+
   text-align:center;
-  font-size:25px;
+
+  font-size:30px;
+
   font-weight:900;
+
   margin-bottom:8px;
+
 }
 
-.login-logo .grow{
+.login-logo .green{
   color:var(--green);
 }
 
-.login-logo .up{
+.login-logo .red{
   color:var(--red);
 }
 
-.login-logo .communication{
-  color:var(--green-dark);
-}
-
 .login-subtitle{
+
   text-align:center;
+
   color:var(--muted);
-  font-size:13px;
-  margin-bottom:28px;
+
+  margin-bottom:30px;
+
 }
 
-.login-label{
+.login-box label{
+
   display:block;
-  color:var(--green-dark);
-  font-size:12px;
-  font-weight:800;
+
+  font-weight:700;
+
   margin-bottom:8px;
+
 }
 
-.login-input{
+.login-box input{
+
   width:100%;
+
+  padding:14px 16px;
+
   border:1px solid var(--border);
+
   border-radius:12px;
-  padding:14px;
+
   outline:none;
-  font-family:inherit;
-  margin-bottom:15px;
+
+  font-size:15px;
+
+  margin-bottom:18px;
+
 }
 
-.login-input:focus{
+.login-box input:focus{
+
   border-color:var(--green);
-  box-shadow:0 0 0 3px rgba(13,107,80,.08);
+
+  box-shadow:
+  0 0 0 4px rgba(13,107,80,.10);
+
 }
 
 .login-btn{
+
   width:100%;
-  border:0;
-  border-radius:12px;
-  padding:14px;
+
+  border:none;
+
+  padding:15px;
+
+  border-radius:13px;
+
   background:var(--green);
-  color:#fff;
-  font-weight:900;
+
+  color:white;
+
+  font-size:16px;
+
+  font-weight:800;
+
   cursor:pointer;
+
 }
 
 .login-btn:hover{
@@ -149,12 +207,15 @@ body{
 }
 
 .login-error{
+
   color:var(--red);
+
   text-align:center;
-  font-size:12px;
-  font-weight:700;
-  min-height:18px;
-  margin-top:10px;
+
+  margin-top:15px;
+
+  display:none;
+
 }
 
 
@@ -163,7 +224,9 @@ body{
    ===================================================== */
 
 .app{
+
   display:none;
+
 }
 
 
@@ -172,83 +235,125 @@ body{
    ===================================================== */
 
 .header{
+
   position:sticky;
+
   top:0;
-  z-index:1000;
-  min-height:75px;
-  background:#fff;
+
+  z-index:100;
+
+  height:72px;
+
+  background:white;
+
   border-bottom:1px solid var(--border);
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   padding:0 28px;
+
 }
 
-.brand{
-  font-size:21px;
+.logo{
+
+  font-size:22px;
+
   font-weight:900;
+
 }
 
-.brand .grow{
+.logo .green{
   color:var(--green);
 }
 
-.brand .up{
+.logo .red{
   color:var(--red);
 }
 
-.brand .communication{
+.logo .dark{
   color:var(--green-dark);
 }
 
-.header-actions{
+.header-right{
+
   display:flex;
-  align-items:center;
+
   gap:10px;
+
 }
 
 .header-btn{
-  border:0;
+
+  border:none;
+
   border-radius:10px;
-  padding:11px 16px;
-  font-size:12px;
-  font-weight:900;
+
+  padding:10px 16px;
+
   cursor:pointer;
+
+  font-weight:800;
+
 }
 
-.refresh-btn{
+.preview-btn{
+
   background:var(--green-light);
+
   color:var(--green);
+
 }
 
 .logout-btn{
-  background:#fff0f0;
-  color:var(--red);
+
+  background:#fee2e2;
+
+  color:#b91c1c;
+
 }
 
 
 /* =====================================================
-   MAIN
+   CONTAINER
    ===================================================== */
 
-.main{
-  width:min(1250px,94%);
-  margin:30px auto 60px;
+.container{
+
+  max-width:1400px;
+
+  margin:auto;
+
+  padding:30px;
+
 }
 
+
+/* =====================================================
+   TOP TITLE
+   ===================================================== */
+
 .page-title{
+
   margin-bottom:25px;
+
 }
 
 .page-title h1{
-  color:var(--green-dark);
+
   font-size:32px;
-  margin-bottom:5px;
+
+  margin-bottom:6px;
+
 }
 
 .page-title p{
+
   color:var(--muted);
-  font-size:13px;
+
 }
 
 
@@ -256,114 +361,181 @@ body{
    SECTION
    ===================================================== */
 
-.editor-section{
-  background:#fff;
+.section{
+
+  background:white;
+
   border:1px solid var(--border);
+
   border-radius:22px;
-  padding:28px;
-  margin-bottom:22px;
-  box-shadow:0 8px 25px rgba(8,63,48,.05);
+
+  padding:25px;
+
+  margin-bottom:25px;
+
+  box-shadow:var(--shadow);
+
 }
 
 .section-title{
+
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
-  gap:15px;
-  padding-bottom:18px;
+
+  align-items:center;
+
   margin-bottom:22px;
-  border-bottom:1px solid #edf3f1;
+
+  padding-bottom:15px;
+
+  border-bottom:1px solid var(--border);
+
 }
 
 .section-title h2{
+
   color:var(--green-dark);
-  font-size:20px;
+
+  font-size:21px;
+
 }
 
 .section-title span{
+
   color:var(--muted);
-  font-size:11px;
-}
 
-
-/* =====================================================
-   FORM
-   ===================================================== */
-
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:17px;
-}
-
-.form-grid.three{
-  grid-template-columns:repeat(3,1fr);
-}
-
-.form-group{
-  display:flex;
-  flex-direction:column;
-}
-
-.form-group.full{
-  grid-column:1/-1;
-}
-
-label{
-  color:#35544a;
-  font-size:11px;
-  font-weight:900;
-  margin-bottom:7px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  border:1px solid var(--border);
-  border-radius:11px;
-  padding:12px 13px;
-  font-family:inherit;
   font-size:13px;
-  color:var(--text);
-  outline:none;
-  background:#fff;
-}
 
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  border-color:var(--green);
-  box-shadow:0 0 0 3px rgba(13,107,80,.07);
 }
 
 
 /* =====================================================
-   PACKAGE / FEATURE CARDS
+   GRID
    ===================================================== */
 
-.card-grid{
+.grid{
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+
+  grid-template-columns:
+  repeat(2,minmax(0,1fr));
+
+  gap:18px;
+
 }
+
+.grid-3{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,minmax(0,1fr));
+
+  gap:18px;
+
+}
+
+.grid-4{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,minmax(0,1fr));
+
+  gap:18px;
+
+}
+
+
+/* =====================================================
+   FIELD
+   ===================================================== */
+
+.field{
+
+  margin-bottom:4px;
+
+}
+
+.field label{
+
+  display:block;
+
+  font-size:13px;
+
+  font-weight:800;
+
+  margin-bottom:7px;
+
+  color:#38534a;
+
+}
+
+.field input,
+.field textarea,
+.field select{
+
+  width:100%;
+
+  border:1px solid var(--border);
+
+  background:#fbfdfc;
+
+  border-radius:11px;
+
+  padding:12px 13px;
+
+  outline:none;
+
+  color:var(--text);
+
+  font-size:14px;
+
+}
+
+.field textarea{
+
+  min-height:100px;
+
+  resize:vertical;
+
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+
+  border-color:var(--green);
+
+  box-shadow:
+  0 0 0 4px rgba(13,107,80,.08);
+
+}
+
+
+/* =====================================================
+   CARD
+   ===================================================== */
 
 .edit-card{
+
   border:1px solid var(--border);
+
   border-radius:18px;
-  padding:22px;
-  background:#fbfefd;
+
+  padding:20px;
+
+  background:#fbfdfc;
+
 }
 
 .edit-card h3{
-  color:var(--green-dark);
-  margin-bottom:18px;
-  font-size:17px;
+
+  margin-bottom:16px;
+
+  color:var(--green);
+
 }
 
 
@@ -372,84 +544,97 @@ select:focus{
    ===================================================== */
 
 .visibility{
-  margin-top:18px;
-  padding:13px;
-  border-radius:12px;
-  background:var(--green-light);
+
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
-  gap:15px;
+
+  align-items:center;
+
+  margin-bottom:18px;
+
+  padding:12px 14px;
+
+  border-radius:12px;
+
+  background:var(--green-light);
+
 }
 
-.visibility-info strong{
-  display:block;
+.visibility strong{
+
+  font-size:14px;
+
   color:var(--green-dark);
-  font-size:12px;
-}
 
-.visibility-info small{
-  color:var(--muted);
-  font-size:10px;
 }
 
 .switch{
+
   position:relative;
-  width:48px;
-  height:26px;
-  flex-shrink:0;
+
+  width:52px;
+
+  height:28px;
+
 }
 
 .switch input{
-  opacity:0;
-  width:0;
-  height:0;
+
+  display:none;
+
 }
 
 .slider{
+
   position:absolute;
+
   inset:0;
-  background:#b9cbc5;
-  border-radius:30px;
+
   cursor:pointer;
-  transition:.2s;
+
+  border-radius:50px;
+
+  background:#cbd5d1;
+
+  transition:.25s;
+
 }
 
 .slider:before{
+
   content:"";
+
   position:absolute;
-  width:20px;
-  height:20px;
+
+  width:22px;
+
+  height:22px;
+
   left:3px;
+
   top:3px;
-  background:#fff;
+
+  background:white;
+
   border-radius:50%;
-  transition:.2s;
-  box-shadow:0 2px 5px rgba(0,0,0,.15);
+
+  transition:.25s;
+
+  box-shadow:0 2px 5px rgba(0,0,0,.2);
+
 }
 
 .switch input:checked + .slider{
+
   background:var(--green);
+
 }
 
 .switch input:checked + .slider:before{
-  transform:translateX(22px);
-}
 
+  transform:translateX(24px);
 
-/* =====================================================
-   SERVER
-   ===================================================== */
-
-.server-row{
-  display:grid;
-  grid-template-columns:1fr 2fr;
-  gap:15px;
-  margin-bottom:15px;
-  padding:17px;
-  background:#fbfefd;
-  border:1px solid var(--border);
-  border-radius:15px;
 }
 
 
@@ -458,34 +643,69 @@ select:focus{
    ===================================================== */
 
 .save-area{
+
   position:sticky;
-  bottom:18px;
-  z-index:500;
-  display:flex;
-  justify-content:center;
-  margin-top:30px;
+
+  bottom:0;
+
+  background:
+  rgba(244,248,246,.94);
+
+  backdrop-filter:blur(12px);
+
+  padding:15px 0;
+
+  z-index:50;
+
 }
 
 .save-btn{
-  border:0;
-  background:var(--green);
-  color:#fff;
-  padding:16px 38px;
+
+  width:100%;
+
+  border:none;
+
+  padding:17px;
+
   border-radius:14px;
-  font-size:14px;
+
+  background:
+  linear-gradient(
+    135deg,
+    var(--green),
+    #15916d
+  );
+
+  color:white;
+
+  font-size:17px;
+
   font-weight:900;
+
   cursor:pointer;
-  box-shadow:0 15px 35px rgba(13,107,80,.25);
+
+  box-shadow:
+  0 12px 30px rgba(13,107,80,.20);
+
 }
 
 .save-btn:hover{
-  background:var(--green-dark);
-  transform:translateY(-2px);
+
+  background:
+  linear-gradient(
+    135deg,
+    var(--green-dark),
+    var(--green)
+  );
+
 }
 
 .save-btn:disabled{
+
   opacity:.6;
+
   cursor:not-allowed;
+
 }
 
 
@@ -494,30 +714,122 @@ select:focus{
    ===================================================== */
 
 .toast{
+
   position:fixed;
-  right:20px;
-  bottom:20px;
-  z-index:10000;
-  background:var(--green-dark);
-  color:#fff;
-  padding:14px 18px;
+
+  right:25px;
+
+  bottom:25px;
+
+  background:#10251f;
+
+  color:white;
+
+  padding:14px 20px;
+
   border-radius:12px;
-  font-size:12px;
-  font-weight:800;
-  box-shadow:0 15px 35px rgba(0,0,0,.2);
-  transform:translateY(100px);
+
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+  transform:translateY(120px);
+
   opacity:0;
-  pointer-events:none;
+
   transition:.3s;
+
+  z-index:99999;
+
+  font-weight:700;
+
 }
 
 .toast.show{
+
   transform:translateY(0);
+
   opacity:1;
+
+}
+
+.toast.success{
+  border-left:5px solid #22c55e;
 }
 
 .toast.error{
-  background:var(--red-dark);
+  border-left:5px solid #ef4444;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media(max-width:1000px){
+
+  .grid-4{
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  }
+
+  .grid-3{
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  }
+
+}
+
+@media(max-width:700px){
+
+  .header{
+
+    padding:0 15px;
+
+  }
+
+  .header-right .preview-btn{
+
+    display:none;
+
+  }
+
+  .container{
+
+    padding:18px;
+
+  }
+
+  .grid,
+  .grid-3,
+  .grid-4{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .section{
+
+    padding:18px;
+
+    border-radius:17px;
+
+  }
+
+  .page-title h1{
+
+    font-size:25px;
+
+  }
+
+  .logo{
+
+    font-size:17px;
+
+  }
+
 }
 
 
@@ -526,85 +838,18 @@ select:focus{
    ===================================================== */
 
 .loading{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:8000;
-  background:rgba(255,255,255,.7);
-  backdrop-filter:blur(5px);
-  place-items:center;
-}
 
-.loading.show{
-  display:grid;
-}
+  text-align:center;
 
-.loader{
-  width:45px;
-  height:45px;
-  border:4px solid #dbeae5;
-  border-top-color:var(--green);
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-}
+  padding:50px;
 
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media(max-width:850px){
-
-  .form-grid,
-  .form-grid.three,
-  .card-grid{
-    grid-template-columns:1fr;
-  }
-
-  .server-row{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .header{
-    padding:0 15px;
-  }
-
-  .brand{
-    font-size:17px;
-  }
-
-  .header-btn{
-    padding:9px 10px;
-  }
-
-  .main{
-    width:94%;
-  }
-
-  .editor-section{
-    padding:19px;
-  }
-
-  .login-box{
-    padding:28px 22px;
-  }
+  color:var(--muted);
 
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -613,51 +858,43 @@ select:focus{
      LOGIN
      ===================================================== -->
 
-<div
-  class="login-screen"
-  id="loginScreen"
->
+<div class="login-screen" id="loginScreen">
 
-<div class="login-box">
+  <div class="login-box">
 
-<div class="login-logo">
+    <div class="login-logo">
+      <span class="green">Grow Up</span>
+      <span class="red">Communication</span>
+    </div>
 
-<span class="grow">Grow</span>
-<span class="up">Up</span>
-<span class="communication"> Communication</span>
+    <div class="login-subtitle">
+      Website Administration
+    </div>
 
-</div>
+    <label>Admin Password</label>
 
-<div class="login-subtitle">
-Website Administration Panel
-</div>
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Enter admin password"
+      autocomplete="current-password"
+    >
 
+    <button
+      class="login-btn"
+      onclick="adminLogin()"
+    >
+      LOGIN
+    </button>
 
-<label class="login-label">
-Admin Password
-</label>
+    <div
+      class="login-error"
+      id="loginError"
+    >
+      Incorrect password
+    </div>
 
-<input
-  class="login-input"
-  id="adminPassword"
-  type="password"
-  placeholder="Enter admin password"
-  onkeydown="if(event.key==='Enter')login()"
->
-
-<button
-  class="login-btn"
-  onclick="login()"
->
-LOGIN
-</button>
-
-<div
-  class="login-error"
-  id="loginError"
-></div>
-
-</div>
+  </div>
 
 </div>
 
@@ -666,1512 +903,841 @@ LOGIN
      APP
      ===================================================== -->
 
-<div
-  class="app"
-  id="app"
->
+<div class="app" id="app">
 
 
-<!-- HEADER -->
+  <!-- HEADER -->
 
-<header class="header">
+  <header class="header">
 
-<div class="brand">
+    <div class="logo" id="headerLogo">
+      <span class="green">Grow Up</span>
+      <span class="red">Communication</span>
+    </div>
 
-<span class="grow">Grow</span>
-<span class="up">Up</span>
-<span class="communication"> Communication</span>
+    <div class="header-right">
 
-</div>
+      <button
+        class="header-btn preview-btn"
+        onclick="openWebsite()"
+      >
+        🌐 Preview Website
+      </button>
 
+      <button
+        class="header-btn logout-btn"
+        onclick="logout()"
+      >
+        Logout
+      </button>
 
-<div class="header-actions">
+    </div>
 
-<button
-  class="header-btn refresh-btn"
-  onclick="loadData()"
->
-↻ Refresh
-</button>
+  </header>
 
-<button
-  class="header-btn logout-btn"
-  onclick="logout()"
->
-Logout
-</button>
 
-</div>
+  <main class="container">
 
-</header>
+    <div class="page-title">
 
+      <h1>Website Control Panel</h1>
 
-<!-- MAIN -->
+      <p>
+        এখান থেকে website-এর সব visible content পরিবর্তন করতে পারবেন।
+      </p>
 
-<main class="main">
+    </div>
 
 
-<div class="page-title">
+    <!-- =================================================
+         GENERAL
+         ================================================= -->
 
-<h1>
-Website Settings
-</h1>
+    <section class="section">
 
-<p>
-Edit every website content from this panel.
-</p>
+      <div class="section-title">
 
-</div>
+        <h2>🏢 General Website Settings</h2>
 
+        <span>Company & Footer</span>
 
-<!-- =====================================================
-     GENERAL
-     ===================================================== -->
+      </div>
 
-<section class="editor-section">
+      <div class="grid">
 
-<div class="section-title">
+        <div class="field">
 
-<h2>
-General Settings
-</h2>
+          <label>Company Name</label>
 
-<span>
-Website basic information
-</span>
+          <input
+            id="companyName"
+            type="text"
+            placeholder="Grow Up Communication"
+          >
 
-</div>
+        </div>
 
+        <div class="field">
 
-<div class="form-grid">
+          <label>Footer Text</label>
 
-<div class="form-group">
+          <input
+            id="footer"
+            type="text"
+            placeholder="© 2026 Grow Up Communication. All Rights Reserved."
+          >
 
-<label>
-Company Name
-</label>
+        </div>
 
-<input
-  id="companyName"
-  type="text"
->
+      </div>
 
-</div>
+    </section>
 
 
-<div class="form-group">
+    <!-- =================================================
+         HERO
+         ================================================= -->
 
-<label>
-Footer
-</label>
+    <section class="section">
 
-<input
-  id="footer"
-  type="text"
->
+      <div class="section-title">
 
-</div>
+        <h2>🚀 Hero Section</h2>
 
-</div>
+        <span>Homepage main section</span>
 
-</section>
+      </div>
 
+      <div class="grid">
 
-<!-- =====================================================
-     HERO
-     ===================================================== -->
+        <div class="field">
 
-<section class="editor-section">
+          <label>Small Badge Text</label>
 
-<div class="section-title">
+          <input id="heroSmall">
 
-<h2>
-Hero Section
-</h2>
+        </div>
 
-<span>
-Homepage top section
-</span>
+        <div class="field">
 
-</div>
+          <label>Button Text</label>
 
+          <input id="heroButton">
 
-<div class="form-grid">
+        </div>
 
-<div class="form-group">
+      </div>
 
-<label>
-Small Text
-</label>
+      <div class="field">
 
-<input
-  id="heroSmall"
-  type="text"
->
+        <label>Hero Title</label>
 
-</div>
+        <input id="heroTitle">
 
+      </div>
 
-<div class="form-group">
+      <div class="field">
 
-<label>
-Button Text
-</label>
+        <label>Hero Description</label>
 
-<input
-  id="heroButton"
-  type="text"
->
+        <textarea id="heroDescription"></textarea>
 
-</div>
+      </div>
 
+      <div class="field">
 
-<div class="form-group full">
+        <label>Hero Image URL</label>
 
-<label>
-Hero Title
-</label>
+        <input id="heroImage">
 
-<input
-  id="heroTitle"
-  type="text"
->
+      </div>
 
-</div>
+    </section>
 
 
-<div class="form-group full">
+    <!-- =================================================
+         PACKAGES
+         ================================================= -->
 
-<label>
-Hero Description
-</label>
+    <section class="section">
 
-<textarea
-  id="heroDescription"
-></textarea>
+      <div class="section-title">
 
-</div>
+        <h2>📦 Internet Packages</h2>
 
+        <span>Show / Hide + Edit Everything</span>
 
-<div class="form-group full">
+      </div>
 
-<label>
-Hero Image URL
-</label>
+      <div class="grid-4">
 
-<input
-  id="heroImage"
-  type="url"
->
 
-</div>
+        <!-- PACKAGE 1 -->
 
-</div>
+        <div class="edit-card">
 
-</section>
+          <h3>Package 1</h3>
 
+          <div class="visibility">
 
-<!-- =====================================================
-     PACKAGES
-     ===================================================== -->
+            <strong>Show on Website</strong>
 
-<section class="editor-section">
+            <label class="switch">
 
-<div class="section-title">
+              <input
+                type="checkbox"
+                id="package1Visible"
+              >
 
-<h2>
-Internet Packages
-</h2>
+              <span class="slider"></span>
 
-<span>
-Edit + Hide / Show
-</span>
+            </label>
 
-</div>
+          </div>
 
+          <div class="field">
+            <label>Speed</label>
+            <input id="package1Speed">
+          </div>
 
-<div class="card-grid">
+          <div class="field">
+            <label>Price</label>
+            <input id="package1Price">
+          </div>
 
+          <div class="field">
+            <label>Item 1</label>
+            <input id="package1Item1">
+          </div>
 
-<!-- PACKAGE 1 -->
+          <div class="field">
+            <label>Item 2</label>
+            <input id="package1Item2">
+          </div>
 
-<div class="edit-card">
+          <div class="field">
+            <label>Item 3</label>
+            <input id="package1Item3">
+          </div>
 
-<h3>
-Package 1 — BASIC
-</h3>
+        </div>
 
-<div class="form-grid">
 
-<div class="form-group">
+        <!-- PACKAGE 2 -->
 
-<label>
-Speed
-</label>
+        <div class="edit-card">
 
-<input
-  id="package1Speed"
-  type="text"
->
+          <h3>Package 2</h3>
 
-</div>
+          <div class="visibility">
 
+            <strong>Show on Website</strong>
 
-<div class="form-group">
+            <label class="switch">
 
-<label>
-Price
-</label>
+              <input
+                type="checkbox"
+                id="package2Visible"
+              >
 
-<input
-  id="package1Price"
-  type="text"
->
+              <span class="slider"></span>
 
-</div>
+            </label>
 
+          </div>
 
-<div class="form-group full">
+          <div class="field">
+            <label>Speed</label>
+            <input id="package2Speed">
+          </div>
 
-<label>
-Item 1
-</label>
+          <div class="field">
+            <label>Price</label>
+            <input id="package2Price">
+          </div>
 
-<input
-  id="package1Item1"
-  type="text"
->
+          <div class="field">
+            <label>Item 1</label>
+            <input id="package2Item1">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Item 2</label>
+            <input id="package2Item2">
+          </div>
 
+          <div class="field">
+            <label>Item 3</label>
+            <input id="package2Item3">
+          </div>
 
-<div class="form-group full">
+        </div>
 
-<label>
-Item 2
-</label>
 
-<input
-  id="package1Item2"
-  type="text"
->
+        <!-- PACKAGE 3 -->
 
-</div>
+        <div class="edit-card">
 
+          <h3>Package 3</h3>
 
-<div class="form-group full">
+          <div class="visibility">
 
-<label>
-Item 3
-</label>
+            <strong>Show on Website</strong>
 
-<input
-  id="package1Item3"
-  type="text"
->
+            <label class="switch">
 
-</div>
+              <input
+                type="checkbox"
+                id="package3Visible"
+              >
 
-</div>
+              <span class="slider"></span>
 
+            </label>
 
-<div class="visibility">
+          </div>
 
-<div class="visibility-info">
+          <div class="field">
+            <label>Speed</label>
+            <input id="package3Speed">
+          </div>
 
-<strong>
-Show Package 1
-</strong>
+          <div class="field">
+            <label>Price</label>
+            <input id="package3Price">
+          </div>
 
-<small>
-Hide করলে website থেকে package টি লুকাবে
-</small>
+          <div class="field">
+            <label>Item 1</label>
+            <input id="package3Item1">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Item 2</label>
+            <input id="package3Item2">
+          </div>
 
-<label class="switch">
+          <div class="field">
+            <label>Item 3</label>
+            <input id="package3Item3">
+          </div>
 
-<input
-  id="package1Visible"
-  type="checkbox"
->
+        </div>
 
-<span class="slider"></span>
 
-</label>
+        <!-- PACKAGE 4 -->
 
-</div>
+        <div class="edit-card">
 
-</div>
+          <h3>Package 4</h3>
 
+          <div class="visibility">
 
-<!-- PACKAGE 2 -->
+            <strong>Show on Website</strong>
 
-<div class="edit-card">
+            <label class="switch">
 
-<h3>
-Package 2 — POPULAR
-</h3>
+              <input
+                type="checkbox"
+                id="package4Visible"
+              >
 
-<div class="form-grid">
+              <span class="slider"></span>
 
-<div class="form-group">
+            </label>
 
-<label>
-Speed
-</label>
+          </div>
 
-<input
-  id="package2Speed"
-  type="text"
->
+          <div class="field">
+            <label>Speed</label>
+            <input id="package4Speed">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Price</label>
+            <input id="package4Price">
+          </div>
 
+          <div class="field">
+            <label>Item 1</label>
+            <input id="package4Item1">
+          </div>
 
-<div class="form-group">
+          <div class="field">
+            <label>Item 2</label>
+            <input id="package4Item2">
+          </div>
 
-<label>
-Price
-</label>
+          <div class="field">
+            <label>Item 3</label>
+            <input id="package4Item3">
+          </div>
 
-<input
-  id="package2Price"
-  type="text"
->
+        </div>
 
-</div>
+      </div>
 
+    </section>
 
-<div class="form-group full">
 
-<label>
-Item 1
-</label>
+    <!-- =================================================
+         FEATURES
+         ================================================= -->
 
-<input
-  id="package2Item1"
-  type="text"
->
+    <section class="section">
 
-</div>
+      <div class="section-title">
 
+        <h2>⭐ Features</h2>
 
-<div class="form-group full">
+        <span>Edit icon, title and description</span>
 
-<label>
-Item 2
-</label>
+      </div>
 
-<input
-  id="package2Item2"
-  type="text"
->
+      <div class="grid-4">
 
-</div>
 
+        <div class="edit-card">
 
-<div class="form-group full">
+          <h3>Feature 1</h3>
 
-<label>
-Item 3
-</label>
+          <div class="field">
+            <label>Icon</label>
+            <input id="feature1Icon">
+          </div>
 
-<input
-  id="package2Item3"
-  type="text"
->
+          <div class="field">
+            <label>Title</label>
+            <input id="feature1Title">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Description</label>
+            <textarea id="feature1Text"></textarea>
+          </div>
 
-</div>
+        </div>
 
 
-<div class="visibility">
+        <div class="edit-card">
 
-<div class="visibility-info">
+          <h3>Feature 2</h3>
 
-<strong>
-Show Package 2
-</strong>
+          <div class="field">
+            <label>Icon</label>
+            <input id="feature2Icon">
+          </div>
 
-<small>
-Hide করলে website থেকে package টি লুকাবে
-</small>
+          <div class="field">
+            <label>Title</label>
+            <input id="feature2Title">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Description</label>
+            <textarea id="feature2Text"></textarea>
+          </div>
 
-<label class="switch">
+        </div>
 
-<input
-  id="package2Visible"
-  type="checkbox"
->
 
-<span class="slider"></span>
+        <div class="edit-card">
 
-</label>
+          <h3>Feature 3</h3>
 
-</div>
+          <div class="field">
+            <label>Icon</label>
+            <input id="feature3Icon">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Title</label>
+            <input id="feature3Title">
+          </div>
 
+          <div class="field">
+            <label>Description</label>
+            <textarea id="feature3Text"></textarea>
+          </div>
 
-<!-- PACKAGE 3 -->
+        </div>
 
-<div class="edit-card">
 
-<h3>
-Package 3 — FAST
-</h3>
+        <div class="edit-card">
 
-<div class="form-grid">
+          <h3>Feature 4</h3>
 
-<div class="form-group">
+          <div class="field">
+            <label>Icon</label>
+            <input id="feature4Icon">
+          </div>
 
-<label>
-Speed
-</label>
+          <div class="field">
+            <label>Title</label>
+            <input id="feature4Title">
+          </div>
 
-<input
-  id="package3Speed"
-  type="text"
->
+          <div class="field">
+            <label>Description</label>
+            <textarea id="feature4Text"></textarea>
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="form-group">
+    </section>
 
-<label>
-Price
-</label>
 
-<input
-  id="package3Price"
-  type="text"
->
+    <!-- =================================================
+         SERVERS
+         ================================================= -->
 
-</div>
+    <section class="section">
 
+      <div class="section-title">
 
-<div class="form-group full">
+        <h2>🖥 Server Links</h2>
 
-<label>
-Item 1
-</label>
+        <span>Edit server name and URL</span>
 
-<input
-  id="package3Item1"
-  type="text"
->
+      </div>
 
-</div>
+      <div class="grid-3">
 
 
-<div class="form-group full">
+        <div class="edit-card">
 
-<label>
-Item 2
-</label>
+          <h3>Server 1</h3>
 
-<input
-  id="package3Item2"
-  type="text"
->
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server1Name">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server1Link">
+          </div>
 
+        </div>
 
-<div class="form-group full">
 
-<label>
-Item 3
-</label>
+        <div class="edit-card">
 
-<input
-  id="package3Item3"
-  type="text"
->
+          <h3>Server 2</h3>
 
-</div>
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server2Name">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server2Link">
+          </div>
 
+        </div>
 
-<div class="visibility">
 
-<div class="visibility-info">
+        <div class="edit-card">
 
-<strong>
-Show Package 3
-</strong>
+          <h3>Server 3</h3>
 
-<small>
-Hide করলে website থেকে package টি লুকাবে
-</small>
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server3Name">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server3Link">
+          </div>
 
-<label class="switch">
+        </div>
 
-<input
-  id="package3Visible"
-  type="checkbox"
->
 
-<span class="slider"></span>
+        <div class="edit-card">
 
-</label>
+          <h3>Server 4</h3>
 
-</div>
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server4Name">
+          </div>
 
-</div>
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server4Link">
+          </div>
 
+        </div>
 
-<!-- PACKAGE 4 -->
 
-<div class="edit-card">
+        <div class="edit-card">
 
-<h3>
-Package 4 — PREMIUM
-</h3>
+          <h3>Server 5</h3>
 
-<div class="form-grid">
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server5Name">
+          </div>
 
-<div class="form-group">
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server5Link">
+          </div>
 
-<label>
-Speed
-</label>
+        </div>
 
-<input
-  id="package4Speed"
-  type="text"
->
 
-</div>
+        <div class="edit-card">
 
+          <h3>Server 6</h3>
 
-<div class="form-group">
+          <div class="field">
+            <label>Server Name</label>
+            <input id="server6Name">
+          </div>
 
-<label>
-Price
-</label>
+          <div class="field">
+            <label>Server Link</label>
+            <input id="server6Link">
+          </div>
 
-<input
-  id="package4Price"
-  type="text"
->
+        </div>
 
-</div>
+      </div>
 
+    </section>
 
-<div class="form-group full">
 
-<label>
-Item 1
-</label>
+    <!-- =================================================
+         COVERAGE
+         ================================================= -->
 
-<input
-  id="package4Item1"
-  type="text"
->
+    <section class="section">
 
-</div>
+      <div class="section-title">
 
+        <h2>📍 Coverage Areas</h2>
 
-<div class="form-group full">
+        <span>Change name + Show / Hide</span>
 
-<label>
-Item 2
-</label>
+      </div>
 
-<input
-  id="package4Item2"
-  type="text"
->
+      <div class="grid-3">
 
-</div>
 
+        <div class="edit-card">
 
-<div class="form-group full">
+          <h3>Area 1</h3>
 
-<label>
-Item 3
-</label>
+          <div class="visibility">
 
-<input
-  id="package4Item3"
-  type="text"
->
+            <strong>Show on Website</strong>
 
-</div>
+            <label class="switch">
 
-</div>
+              <input
+                type="checkbox"
+                id="area1Visible"
+              >
 
+              <span class="slider"></span>
 
-<div class="visibility">
+            </label>
 
-<div class="visibility-info">
+          </div>
 
-<strong>
-Show Package 4
-</strong>
+          <div class="field">
+            <label>Area Name</label>
+            <input id="area1">
+          </div>
 
-<small>
-Hide করলে website থেকে package টি লুকাবে
-</small>
+        </div>
 
-</div>
 
-<label class="switch">
+        <div class="edit-card">
 
-<input
-  id="package4Visible"
-  type="checkbox"
->
+          <h3>Area 2</h3>
 
-<span class="slider"></span>
+          <div class="visibility">
 
-</label>
+            <strong>Show on Website</strong>
 
-</div>
+            <label class="switch">
 
-</div>
+              <input
+                type="checkbox"
+                id="area2Visible"
+              >
 
+              <span class="slider"></span>
 
-</div>
+            </label>
 
-</section>
+          </div>
 
+          <div class="field">
+            <label>Area Name</label>
+            <input id="area2">
+          </div>
 
-<!-- =====================================================
-     FEATURES
-     ===================================================== -->
+        </div>
 
-<section class="editor-section">
 
-<div class="section-title">
+        <div class="edit-card">
 
-<h2>
-Features
-</h2>
+          <h3>Area 3</h3>
 
-<span>
-Edit all feature information
-</span>
+          <div class="visibility">
 
-</div>
+            <strong>Show on Website</strong>
 
+            <label class="switch">
 
-<div class="card-grid">
+              <input
+                type="checkbox"
+                id="area3Visible"
+              >
 
+              <span class="slider"></span>
 
-<div class="edit-card">
+            </label>
 
-<h3>
-Feature 1
-</h3>
+          </div>
 
-<div class="form-group">
+          <div class="field">
+            <label>Area Name</label>
+            <input id="area3">
+          </div>
 
-<label>
-Icon
-</label>
+        </div>
 
-<input
-  id="feature1Icon"
-  type="text"
->
 
-</div>
+        <div class="edit-card">
 
-<br>
+          <h3>Area 4</h3>
 
-<div class="form-group">
+          <div class="visibility">
 
-<label>
-Title
-</label>
+            <strong>Show on Website</strong>
 
-<input
-  id="feature1Title"
-  type="text"
->
+            <label class="switch">
 
-</div>
+              <input
+                type="checkbox"
+                id="area4Visible"
+              >
 
-<br>
+              <span class="slider"></span>
 
-<div class="form-group">
+            </label>
 
-<label>
-Description
-</label>
+          </div>
 
-<textarea
-  id="feature1Text"
-></textarea>
+          <div class="field">
+            <label>Area Name</label>
+            <input id="area4">
+          </div>
 
-</div>
+        </div>
 
-</div>
 
+        <div class="edit-card">
 
-<div class="edit-card">
+          <h3>Area 5</h3>
 
-<h3>
-Feature 2
-</h3>
+          <div class="visibility">
 
-<div class="form-group">
+            <strong>Show on Website</strong>
 
-<label>
-Icon
-</label>
+            <label class="switch">
 
-<input
-  id="feature2Icon"
-  type="text"
->
+              <input
+                type="checkbox"
+                id="area5Visible"
+              >
 
-</div>
+              <span class="slider"></span>
 
-<br>
+            </label>
 
-<div class="form-group">
+          </div>
 
-<label>
-Title
-</label>
+          <div class="field">
+            <label>Area Name</label>
+            <input id="area5">
+          </div>
 
-<input
-  id="feature2Title"
-  type="text"
->
+        </div>
 
-</div>
+      </div>
 
-<br>
+    </section>
 
-<div class="form-group">
 
-<label>
-Description
-</label>
+    <!-- =================================================
+         CONTACT
+         ================================================= -->
 
-<textarea
-  id="feature2Text"
-></textarea>
+    <section class="section">
 
-</div>
+      <div class="section-title">
 
-</div>
+        <h2>📞 Contact Information</h2>
 
+        <span>All contact information</span>
 
-<div class="edit-card">
+      </div>
 
-<h3>
-Feature 3
-</h3>
+      <div class="grid">
 
-<div class="form-group">
+        <div class="field">
 
-<label>
-Icon
-</label>
+          <label>Phone</label>
 
-<input
-  id="feature3Icon"
-  type="text"
->
+          <input id="phone">
 
-</div>
+        </div>
 
-<br>
+        <div class="field">
 
-<div class="form-group">
+          <label>Email</label>
 
-<label>
-Title
-</label>
+          <input id="email">
 
-<input
-  id="feature3Title"
-  type="text"
->
+        </div>
 
-</div>
+      </div>
 
-<br>
+      <div class="field">
 
-<div class="form-group">
+        <label>Address</label>
 
-<label>
-Description
-</label>
+        <input id="address">
 
-<textarea
-  id="feature3Text"
-></textarea>
+      </div>
 
-</div>
+    </section>
 
-</div>
 
+    <!-- SAVE -->
 
-<div class="edit-card">
+    <div class="save-area">
 
-<h3>
-Feature 4
-</h3>
+      <button
+        class="save-btn"
+        id="saveButton"
+        onclick="saveWebsite()"
+      >
+        💾 SAVE ALL WEBSITE CHANGES
+      </button>
 
-<div class="form-group">
+    </div>
 
-<label>
-Icon
-</label>
-
-<input
-  id="feature4Icon"
-  type="text"
->
-
-</div>
-
-<br>
-
-<div class="form-group">
-
-<label>
-Title
-</label>
-
-<input
-  id="feature4Title"
-  type="text"
->
-
-</div>
-
-<br>
-
-<div class="form-group">
-
-<label>
-Description
-</label>
-
-<textarea
-  id="feature4Text"
-></textarea>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     SERVERS
-     ===================================================== -->
-
-<section class="editor-section">
-
-<div class="section-title">
-
-<h2>
-Servers
-</h2>
-
-<span>
-Edit server name and link
-</span>
-
-</div>
-
-
-<div id="serverEditor">
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 1 Name
-</label>
-
-<input
-  id="server1Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 1 Link
-</label>
-
-<input
-  id="server1Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 2 Name
-</label>
-
-<input
-  id="server2Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 2 Link
-</label>
-
-<input
-  id="server2Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 3 Name
-</label>
-
-<input
-  id="server3Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 3 Link
-</label>
-
-<input
-  id="server3Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 4 Name
-</label>
-
-<input
-  id="server4Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 4 Link
-</label>
-
-<input
-  id="server4Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 5 Name
-</label>
-
-<input
-  id="server5Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 5 Link
-</label>
-
-<input
-  id="server5Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-<div class="server-row">
-
-<div class="form-group">
-
-<label>
-Server 6 Name
-</label>
-
-<input
-  id="server6Name"
-  type="text"
->
-
-</div>
-
-<div class="form-group">
-
-<label>
-Server 6 Link
-</label>
-
-<input
-  id="server6Link"
-  type="url"
->
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     COVERAGE
-     ===================================================== -->
-
-<section class="editor-section">
-
-<div class="section-title">
-
-<h2>
-Coverage Areas
-</h2>
-
-<span>
-Edit + Hide / Show
-</span>
-
-</div>
-
-
-<div class="card-grid">
-
-
-<!-- AREA 1 -->
-
-<div class="edit-card">
-
-<h3>
-Area 1
-</h3>
-
-<div class="form-group">
-
-<label>
-Area Name
-</label>
-
-<input
-  id="area1"
-  type="text"
->
-
-</div>
-
-
-<div class="visibility">
-
-<div class="visibility-info">
-
-<strong>
-Show Area 1
-</strong>
-
-<small>
-Hide করলে website থেকে area টি লুকাবে
-</small>
-
-</div>
-
-<label class="switch">
-
-<input
-  id="area1Visible"
-  type="checkbox"
->
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-</div>
-
-
-<!-- AREA 2 -->
-
-<div class="edit-card">
-
-<h3>
-Area 2
-</h3>
-
-<div class="form-group">
-
-<label>
-Area Name
-</label>
-
-<input
-  id="area2"
-  type="text"
->
-
-</div>
-
-
-<div class="visibility">
-
-<div class="visibility-info">
-
-<strong>
-Show Area 2
-</strong>
-
-<small>
-Hide করলে website থেকে area টি লুকাবে
-</small>
-
-</div>
-
-<label class="switch">
-
-<input
-  id="area2Visible"
-  type="checkbox"
->
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-</div>
-
-
-<!-- AREA 3 -->
-
-<div class="edit-card">
-
-<h3>
-Area 3
-</h3>
-
-<div class="form-group">
-
-<label>
-Area Name
-</label>
-
-<input
-  id="area3"
-  type="text"
->
-
-</div>
-
-
-<div class="visibility">
-
-<div class="visibility-info">
-
-<strong>
-Show Area 3
-</strong>
-
-<small>
-Hide করলে website থেকে area টি লুকাবে
-</small>
-
-</div>
-
-<label class="switch">
-
-<input
-  id="area3Visible"
-  type="checkbox"
->
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-</div>
-
-
-<!-- AREA 4 -->
-
-<div class="edit-card">
-
-<h3>
-Area 4
-</h3>
-
-<div class="form-group">
-
-<label>
-Area Name
-</label>
-
-<input
-  id="area4"
-  type="text"
->
-
-</div>
-
-
-<div class="visibility">
-
-<div class="visibility-info">
-
-<strong>
-Show Area 4
-</strong>
-
-<small>
-Hide করলে website থেকে area টি লুকাবে
-</small>
-
-</div>
-
-<label class="switch">
-
-<input
-  id="area4Visible"
-  type="checkbox"
->
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-</div>
-
-
-<!-- AREA 5 -->
-
-<div class="edit-card">
-
-<h3>
-Area 5
-</h3>
-
-<div class="form-group">
-
-<label>
-Area Name
-</label>
-
-<input
-  id="area5"
-  type="text"
->
-
-</div>
-
-
-<div class="visibility">
-
-<div class="visibility-info">
-
-<strong>
-Show Area 5
-</strong>
-
-<small>
-Hide করলে website থেকে area টি লুকাবে
-</small>
-
-</div>
-
-<label class="switch">
-
-<input
-  id="area5Visible"
-  type="checkbox"
->
-
-<span class="slider"></span>
-
-</label>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-     ===================================================== -->
-
-<section class="editor-section">
-
-<div class="section-title">
-
-<h2>
-Contact Information
-</h2>
-
-<span>
-Website contact details
-</span>
-
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label>
-Phone
-</label>
-
-<input
-  id="phone"
-  type="text"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Email
-</label>
-
-<input
-  id="email"
-  type="email"
->
-
-</div>
-
-
-<div class="form-group full">
-
-<label>
-Address
-</label>
-
-<input
-  id="address"
-  type="text"
->
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SAVE -->
-
-<div class="save-area">
-
-<button
-  class="save-btn"
-  id="saveBtn"
-  onclick="saveData()"
->
-💾 SAVE ALL CHANGES
-</button>
-
-</div>
-
-
-</main>
-
-</div>
-
-
-<!-- LOADING -->
-
-<div
-  class="loading"
-  id="loading"
->
-
-<div class="loader"></div>
+  </main>
 
 </div>
 
@@ -2186,40 +1752,26 @@ Address
 
 <script>
 
-/* =====================================================
-   API
-   ===================================================== */
+/* =========================================================
+   CONFIG
+   ========================================================= */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwsrBm8cD4yYOTyuJkW8YHrJj0yBnobPHOdVaE6jWn0mEi0Hh8rg8buOZBWKn-Lq362/exec";
 
+const ADMIN_PASSWORD = "123456";
 
-/* =====================================================
-   ADMIN PASSWORD
-   ===================================================== */
-
-const ADMIN_PASSWORD =
-"123456";
+const WEBSITE_URL =
+"https://cdt248.github.io/shemanto/";
 
 
-/* =====================================================
-   STORAGE
-   ===================================================== */
-
-const ADMIN_LOGIN_KEY =
-"growUpAdminLogin";
-
-
-/* =====================================================
+/* =========================================================
    DEFAULT DATA
-   ===================================================== */
+   ========================================================= */
 
 const DEFAULT_DATA = {
 
   companyName:"Grow Up Communication",
-
-  footer:
-  "© 2026 Grow Up Communication. All Rights Reserved.",
 
   heroSmall:"FAST • RELIABLE • UNLIMITED",
 
@@ -2281,25 +1833,6 @@ const DEFAULT_DATA = {
   feature4Text:
   "Our support team is always ready to help you.",
 
-  area1:"AREA 1",
-  area1Visible:true,
-
-  area2:"AREA 2",
-  area2Visible:true,
-
-  area3:"Haji ashraf ali road",
-  area3Visible:true,
-
-  area4:"AREA 4",
-  area4Visible:true,
-
-  area5:"AREA 5",
-  area5Visible:true,
-
-  phone:"+880 1826-705233",
-  email:"rahiyanemon33@gmail.com",
-  address:"Chittagong, Bangladesh",
-
   server1Name:"GOOGLE FTP",
   server1Link:"https://google.com",
 
@@ -2316,51 +1849,53 @@ const DEFAULT_DATA = {
   server5Link:"https://netflix.com",
 
   server6Name:"BDIX SERVER",
-  server6Link:"https://github.com"
+  server6Link:"https://github.com",
+
+  area1:"AREA 1",
+  area2:"AREA 2",
+  area3:"Haji ashraf ali road",
+  area4:"AREA 4",
+  area5:"AREA 5",
+
+  area1Visible:true,
+  area2Visible:true,
+  area3Visible:true,
+  area4Visible:true,
+  area5Visible:true,
+
+  phone:"+880 1826-705233",
+
+  email:"rahiyanemon33@gmail.com",
+
+  address:"Chittagong, Bangladesh",
+
+  footer:
+  "© 2026 Grow Up Communication. All Rights Reserved."
 
 };
 
 
-/* =====================================================
+/* =========================================================
    HELPERS
-   ===================================================== */
+   ========================================================= */
 
-function el(id){
+function safeValue(value, fallback=""){
 
-  return document.getElementById(id);
-
-}
-
-
-function value(id){
-
-  const element =
-    el(id);
-
-  if(!element) return "";
-
-  return element.value;
-
-}
-
-
-function setValue(id,value){
-
-  const element =
-    el(id);
-
-  if(!element) return;
-
-  element.value =
+  if(
     value === undefined ||
     value === null
-      ? ""
-      : value;
+  ){
+
+    return fallback;
+
+  }
+
+  return String(value);
 
 }
 
 
-function toBool(value,fallback=true){
+function toBool(value, fallback=true){
 
   if(
     value === undefined ||
@@ -2379,528 +1914,549 @@ function toBool(value,fallback=true){
   }
 
   const v =
-    String(value)
-    .trim()
-    .toLowerCase();
+  String(value)
+  .trim()
+  .toLowerCase();
 
-  if(
+  return (
     v === "true" ||
     v === "1" ||
     v === "yes" ||
     v === "on"
-  ){
-
-    return true;
-
-  }
-
-  if(
-    v === "false" ||
-    v === "0" ||
-    v === "no" ||
-    v === "off"
-  ){
-
-    return false;
-
-  }
-
-  return fallback;
-
-}
-
-
-function setChecked(id,value){
-
-  const element =
-    el(id);
-
-  if(!element) return;
-
-  element.checked =
-    toBool(value,true);
-
-}
-
-
-/* =====================================================
-   TOAST
-   ===================================================== */
-
-let toastTimer;
-
-
-function showToast(message,error=false){
-
-  const toast =
-    el("toast");
-
-  toast.textContent =
-    message;
-
-  toast.classList.toggle(
-    "error",
-    error
   );
 
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer =
-    setTimeout(function(){
-
-      toast.classList.remove("show");
-
-    },3000);
-
 }
 
 
-/* =====================================================
-   LOADING
-   ===================================================== */
-
-function setLoading(show){
-
-  const loading =
-    el("loading");
-
-  if(show){
-
-    loading.classList.add("show");
-
-  }else{
-
-    loading.classList.remove("show");
-
-  }
-
-}
-
-
-/* =====================================================
+/* =========================================================
    LOGIN
-   ===================================================== */
+   ========================================================= */
 
-function login(){
+function adminLogin(){
 
   const password =
-    value("adminPassword");
+  document.getElementById(
+    "adminPassword"
+  ).value;
 
+  const error =
+  document.getElementById(
+    "loginError"
+  );
 
-  if(
-    password ===
-    ADMIN_PASSWORD
-  ){
+  if(password === ADMIN_PASSWORD){
 
     sessionStorage.setItem(
-      ADMIN_LOGIN_KEY,
+      "growUpAdmin",
       "true"
     );
 
-    el("loginScreen").style.display =
-      "none";
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
 
-    el("app").style.display =
-      "block";
+    document.getElementById(
+      "app"
+    ).style.display = "block";
 
-    loadData();
+    loadWebsiteData();
 
   }else{
 
-    el("loginError").textContent =
-      "Incorrect admin password.";
+    error.style.display = "block";
 
   }
 
 }
 
 
-function logout(){
+document
+.getElementById("adminPassword")
+.addEventListener(
+  "keydown",
+  function(e){
 
-  sessionStorage.removeItem(
-    ADMIN_LOGIN_KEY
-  );
+    if(e.key === "Enter"){
 
-  location.reload();
+      adminLogin();
 
-}
+    }
+
+  }
+);
 
 
-/* =====================================================
+/* =========================================================
    CHECK LOGIN
-   ===================================================== */
+   ========================================================= */
 
-(function(){
+function checkLogin(){
 
-  const logged =
+  if(
     sessionStorage.getItem(
-      ADMIN_LOGIN_KEY
-    );
+      "growUpAdmin"
+    ) === "true"
+  ){
 
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
 
-  if(logged === "true"){
+    document.getElementById(
+      "app"
+    ).style.display = "block";
 
-    el("loginScreen").style.display =
-      "none";
-
-    el("app").style.display =
-      "block";
-
-    loadData();
-
-  }
-
-})();
-
-
-/* =====================================================
-   FILL FORM
-   ===================================================== */
-
-function fillForm(inputData){
-
-  const data =
-    Object.assign(
-      {},
-      DEFAULT_DATA,
-      inputData || {}
-    );
-
-
-  /* GENERAL */
-
-  setValue(
-    "companyName",
-    data.companyName
-  );
-
-  setValue(
-    "footer",
-    data.footer
-  );
-
-
-  /* HERO */
-
-  setValue(
-    "heroSmall",
-    data.heroSmall
-  );
-
-  setValue(
-    "heroTitle",
-    data.heroTitle
-  );
-
-  setValue(
-    "heroDescription",
-    data.heroDescription
-  );
-
-  setValue(
-    "heroButton",
-    data.heroButton
-  );
-
-  setValue(
-    "heroImage",
-    data.heroImage
-  );
-
-
-  /* PACKAGES */
-
-  for(let i=1;i<=4;i++){
-
-    setValue(
-      `package${i}Speed`,
-      data[`package${i}Speed`]
-    );
-
-    setValue(
-      `package${i}Price`,
-      data[`package${i}Price`]
-    );
-
-    setValue(
-      `package${i}Item1`,
-      data[`package${i}Item1`]
-    );
-
-    setValue(
-      `package${i}Item2`,
-      data[`package${i}Item2`]
-    );
-
-    setValue(
-      `package${i}Item3`,
-      data[`package${i}Item3`]
-    );
-
-    setChecked(
-      `package${i}Visible`,
-      data[`package${i}Visible`]
-    );
-
-  }
-
-
-  /* FEATURES */
-
-  for(let i=1;i<=4;i++){
-
-    setValue(
-      `feature${i}Icon`,
-      data[`feature${i}Icon`]
-    );
-
-    setValue(
-      `feature${i}Title`,
-      data[`feature${i}Title`]
-    );
-
-    setValue(
-      `feature${i}Text`,
-      data[`feature${i}Text`]
-    );
-
-  }
-
-
-  /* AREAS */
-
-  for(let i=1;i<=5;i++){
-
-    setValue(
-      `area${i}`,
-      data[`area${i}`]
-    );
-
-    setChecked(
-      `area${i}Visible`,
-      data[`area${i}Visible`]
-    );
-
-  }
-
-
-  /* CONTACT */
-
-  setValue(
-    "phone",
-    data.phone
-  );
-
-  setValue(
-    "email",
-    data.email
-  );
-
-  setValue(
-    "address",
-    data.address
-  );
-
-
-  /* SERVERS */
-
-  for(let i=1;i<=6;i++){
-
-    setValue(
-      `server${i}Name`,
-      data[`server${i}Name`]
-    );
-
-    setValue(
-      `server${i}Link`,
-      data[`server${i}Link`]
-    );
+    loadWebsiteData();
 
   }
 
 }
 
 
-/* =====================================================
-   LOAD DATA
-   ===================================================== */
+/* =========================================================
+   LOAD WEBSITE DATA
+   ========================================================= */
 
-async function loadData(){
+async function loadWebsiteData(){
 
-  setLoading(true);
+  showToast(
+    "Loading website data...",
+    "success"
+  );
 
   try{
 
     const response =
-      await fetch(
-        API_URL +
-        "?t=" +
-        Date.now(),
-        {
-          method:"GET",
-          cache:"no-store"
-        }
-      );
-
+    await fetch(
+      API_URL +
+      "?t=" +
+      Date.now(),
+      {
+        method:"GET",
+        cache:"no-store"
+      }
+    );
 
     const result =
-      await response.json();
-
+    await response.json();
 
     if(
-      !result ||
       !result.success
     ){
 
       throw new Error(
-        result?.message ||
-        "Could not load data."
+        result.message ||
+        "Failed to load data"
       );
 
     }
 
-
-    fillForm(
-      result.data
+    const data =
+    Object.assign(
+      {},
+      DEFAULT_DATA,
+      result.data || {}
     );
 
+    fillForm(data);
 
     showToast(
-      "Website data loaded."
+      "Website data loaded",
+      "success"
     );
-
 
   }catch(error){
 
     console.error(error);
 
+    fillForm(DEFAULT_DATA);
+
     showToast(
-      "Failed to load website data.",
-      true
+      "Could not load Sheet. Default data loaded.",
+      "error"
     );
-
-  }finally{
-
-    setLoading(false);
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   FILL FORM
+   ========================================================= */
+
+function fillForm(data){
+
+  const fields = [
+
+    "companyName",
+
+    "heroSmall",
+    "heroTitle",
+    "heroDescription",
+    "heroButton",
+    "heroImage",
+
+    "package1Speed",
+    "package1Price",
+    "package1Item1",
+    "package1Item2",
+    "package1Item3",
+
+    "package2Speed",
+    "package2Price",
+    "package2Item1",
+    "package2Item2",
+    "package2Item3",
+
+    "package3Speed",
+    "package3Price",
+    "package3Item1",
+    "package3Item2",
+    "package3Item3",
+
+    "package4Speed",
+    "package4Price",
+    "package4Item1",
+    "package4Item2",
+    "package4Item3",
+
+    "feature1Icon",
+    "feature1Title",
+    "feature1Text",
+
+    "feature2Icon",
+    "feature2Title",
+    "feature2Text",
+
+    "feature3Icon",
+    "feature3Title",
+    "feature3Text",
+
+    "feature4Icon",
+    "feature4Title",
+    "feature4Text",
+
+    "server1Name",
+    "server1Link",
+
+    "server2Name",
+    "server2Link",
+
+    "server3Name",
+    "server3Link",
+
+    "server4Name",
+    "server4Link",
+
+    "server5Name",
+    "server5Link",
+
+    "server6Name",
+    "server6Link",
+
+    "area1",
+    "area2",
+    "area3",
+    "area4",
+    "area5",
+
+    "phone",
+    "email",
+    "address",
+    "footer"
+
+  ];
+
+  fields.forEach(function(id){
+
+    const element =
+    document.getElementById(id);
+
+    if(element){
+
+      element.value =
+      safeValue(
+        data[id],
+        DEFAULT_DATA[id] || ""
+      );
+
+    }
+
+  });
+
+
+  /* Visibility */
+
+  for(let i=1;i<=4;i++){
+
+    const checkbox =
+    document.getElementById(
+      "package" +
+      i +
+      "Visible"
+    );
+
+    if(checkbox){
+
+      checkbox.checked =
+      toBool(
+        data[
+          "package" +
+          i +
+          "Visible"
+        ],
+        true
+      );
+
+    }
+
+  }
+
+
+  for(let i=1;i<=5;i++){
+
+    const checkbox =
+    document.getElementById(
+      "area" +
+      i +
+      "Visible"
+    );
+
+    if(checkbox){
+
+      checkbox.checked =
+      toBool(
+        data[
+          "area" +
+          i +
+          "Visible"
+        ],
+        true
+      );
+
+    }
+
+  }
+
+
+  updateHeaderLogo(
+    safeValue(
+      data.companyName,
+      DEFAULT_DATA.companyName
+    )
+  );
+
+}
+
+
+/* =========================================================
+   UPDATE HEADER LOGO
+   ========================================================= */
+
+function updateHeaderLogo(name){
+
+  const logo =
+  document.getElementById(
+    "headerLogo"
+  );
+
+  if(!logo) return;
+
+  const words =
+  String(name || "Grow Up Communication")
+  .trim()
+  .split(/\s+/);
+
+  if(words.length >= 2){
+
+    const first =
+    words.slice(0,-1).join(" ");
+
+    const last =
+    words[words.length-1];
+
+    logo.innerHTML =
+    '<span class="green">' +
+    escapeHTML(first) +
+    '</span> ' +
+    '<span class="red">' +
+    escapeHTML(last) +
+    '</span>';
+
+  }else{
+
+    logo.innerHTML =
+    '<span class="green">' +
+    escapeHTML(name) +
+    '</span>';
+
+  }
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
    COLLECT FORM DATA
-   ===================================================== */
+   ========================================================= */
 
 function collectData(){
 
   const data = {};
 
+  const fields = [
 
-  /* GENERAL */
+    "companyName",
 
-  data.companyName =
-    value("companyName");
+    "heroSmall",
+    "heroTitle",
+    "heroDescription",
+    "heroButton",
+    "heroImage",
 
-  data.footer =
-    value("footer");
+    "package1Speed",
+    "package1Price",
+    "package1Item1",
+    "package1Item2",
+    "package1Item3",
+
+    "package2Speed",
+    "package2Price",
+    "package2Item1",
+    "package2Item2",
+    "package2Item3",
+
+    "package3Speed",
+    "package3Price",
+    "package3Item1",
+    "package3Item2",
+    "package3Item3",
+
+    "package4Speed",
+    "package4Price",
+    "package4Item1",
+    "package4Item2",
+    "package4Item3",
+
+    "feature1Icon",
+    "feature1Title",
+    "feature1Text",
+
+    "feature2Icon",
+    "feature2Title",
+    "feature2Text",
+
+    "feature3Icon",
+    "feature3Title",
+    "feature3Text",
+
+    "feature4Icon",
+    "feature4Title",
+    "feature4Text",
+
+    "server1Name",
+    "server1Link",
+
+    "server2Name",
+    "server2Link",
+
+    "server3Name",
+    "server3Link",
+
+    "server4Name",
+    "server4Link",
+
+    "server5Name",
+    "server5Link",
+
+    "server6Name",
+    "server6Link",
+
+    "area1",
+    "area2",
+    "area3",
+    "area4",
+    "area5",
+
+    "phone",
+    "email",
+    "address",
+    "footer"
+
+  ];
 
 
-  /* HERO */
+  fields.forEach(function(id){
 
-  data.heroSmall =
-    value("heroSmall");
+    const element =
+    document.getElementById(id);
 
-  data.heroTitle =
-    value("heroTitle");
+    if(element){
 
-  data.heroDescription =
-    value("heroDescription");
+      data[id] =
+      element.value;
 
-  data.heroButton =
-    value("heroButton");
+    }
 
-  data.heroImage =
-    value("heroImage");
+  });
 
 
-  /* PACKAGES */
+  /* Visibility */
 
   for(let i=1;i<=4;i++){
 
-    data[`package${i}Speed`] =
-      value(`package${i}Speed`);
+    const checkbox =
+    document.getElementById(
+      "package" +
+      i +
+      "Visible"
+    );
 
-    data[`package${i}Price`] =
-      value(`package${i}Price`);
-
-    data[`package${i}Item1`] =
-      value(`package${i}Item1`);
-
-    data[`package${i}Item2`] =
-      value(`package${i}Item2`);
-
-    data[`package${i}Item3`] =
-      value(`package${i}Item3`);
-
-    data[`package${i}Visible`] =
-      el(`package${i}Visible`).checked;
+    data[
+      "package" +
+      i +
+      "Visible"
+    ] =
+    checkbox
+    ? checkbox.checked
+    : true;
 
   }
 
-
-  /* FEATURES */
-
-  for(let i=1;i<=4;i++){
-
-    data[`feature${i}Icon`] =
-      value(`feature${i}Icon`);
-
-    data[`feature${i}Title`] =
-      value(`feature${i}Title`);
-
-    data[`feature${i}Text`] =
-      value(`feature${i}Text`);
-
-  }
-
-
-  /* AREAS */
 
   for(let i=1;i<=5;i++){
 
-    data[`area${i}`] =
-      value(`area${i}`);
+    const checkbox =
+    document.getElementById(
+      "area" +
+      i +
+      "Visible"
+    );
 
-    data[`area${i}Visible`] =
-      el(`area${i}Visible`).checked;
-
-  }
-
-
-  /* CONTACT */
-
-  data.phone =
-    value("phone");
-
-  data.email =
-    value("email");
-
-  data.address =
-    value("address");
-
-
-  /* SERVERS */
-
-  for(let i=1;i<=6;i++){
-
-    data[`server${i}Name`] =
-      value(`server${i}Name`);
-
-    data[`server${i}Link`] =
-      value(`server${i}Link`);
+    data[
+      "area" +
+      i +
+      "Visible"
+    ] =
+    checkbox
+    ? checkbox.checked
+    : true;
 
   }
 
@@ -2910,108 +2466,193 @@ function collectData(){
 }
 
 
-/* =====================================================
-   SAVE DATA
-   ===================================================== */
+/* =========================================================
+   SAVE
+   ========================================================= */
 
-async function saveData(){
+async function saveWebsite(){
 
   const button =
-    el("saveBtn");
+  document.getElementById(
+    "saveButton"
+  );
 
+  button.disabled = true;
 
-  const data =
-    collectData();
-
-
-  button.disabled =
-    true;
-
-  button.textContent =
-    "Saving...";
-
-  setLoading(true);
+  button.innerText =
+  "⏳ SAVING...";
 
 
   try{
 
+    const data =
+    collectData();
+
     const response =
-      await fetch(
-        API_URL,
-        {
-          method:"POST",
+    await fetch(
+      API_URL,
+      {
+        method:"POST",
 
-          headers:{
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
+        headers:{
+          "Content-Type":
+          "text/plain;charset=utf-8"
+        },
 
-          body:
-            JSON.stringify({
-              action:"save",
-              data:data
-            })
-        }
-      );
+        body:JSON.stringify({
+
+          action:"save",
+
+          data:data
+
+        })
+
+      }
+    );
 
 
     const result =
-      await response.json();
+    await response.json();
 
 
-    if(
-      !result ||
-      !result.success
-    ){
+    if(!result.success){
 
       throw new Error(
-        result?.message ||
-        "Save failed."
+        result.message ||
+        "Save failed"
       );
 
     }
 
 
-    showToast(
-      "✓ All changes saved successfully!"
+    localStorage.setItem(
+      "growUpWebsiteData",
+      JSON.stringify(data)
     );
 
 
-    /*
-     * Reload from server after save
-     * so the Admin Panel shows the
-     * actual saved values.
-     */
+    updateHeaderLogo(
+      data.companyName
+    );
 
-    await loadData();
+
+    button.innerText =
+    "✓ SAVED SUCCESSFULLY";
+
+    showToast(
+      "All website changes saved successfully!",
+      "success"
+    );
+
+
+    setTimeout(function(){
+
+      button.innerText =
+      "💾 SAVE ALL WEBSITE CHANGES";
+
+    },2000);
 
 
   }catch(error){
 
     console.error(error);
 
+    button.innerText =
+    "❌ SAVE FAILED";
+
     showToast(
       "Save failed: " +
       error.message,
-      true
+      "error"
     );
 
-  }finally{
 
-    button.disabled =
-      false;
+    setTimeout(function(){
 
-    button.textContent =
-      "💾 SAVE ALL CHANGES";
+      button.innerText =
+      "💾 SAVE ALL WEBSITE CHANGES";
 
-    setLoading(false);
+    },2500);
 
   }
 
+
+  button.disabled = false;
+
 }
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+function showToast(message,type){
+
+  const toast =
+  document.getElementById(
+    "toast"
+  );
+
+  toast.textContent =
+  message;
+
+  toast.className =
+  "toast show " +
+  (type || "success");
+
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+
+  window.toastTimer =
+  setTimeout(function(){
+
+    toast.className =
+    "toast";
+
+  },3000);
+
+}
+
+
+/* =========================================================
+   WEBSITE PREVIEW
+   ========================================================= */
+
+function openWebsite(){
+
+  window.open(
+    WEBSITE_URL,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+function logout(){
+
+  sessionStorage.removeItem(
+    "growUpAdmin"
+  );
+
+  location.reload();
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+checkLogin();
 
 </script>
 
 </body>
-
 </html>
