@@ -21,10 +21,6 @@ fetchpriority="high"
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
   margin:0;
   padding:0;
@@ -49,11 +45,6 @@ body{
   color:#14231f;
   overflow-x:hidden;
 }
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
 
 :root{
   --green:#0d6b50;
@@ -1125,6 +1116,21 @@ footer{
 
 
 /* =========================================================
+   HIDDEN PACKAGE / AREA
+========================================================= */
+
+/*
+   Admin Panel থেকে FALSE এলে
+   নির্দিষ্ট Package/Area website-এ দেখাবে না।
+*/
+
+.package.is-hidden,
+.area.is-hidden{
+  display:none !important;
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -1460,7 +1466,7 @@ footer{
     <div class="packages">
 
 
-      <div class="package">
+      <div class="package" id="package1">
 
         <div class="package-top">
 
@@ -1503,7 +1509,7 @@ footer{
       </div>
 
 
-      <div class="package">
+      <div class="package" id="package2">
 
         <div class="package-top">
 
@@ -1546,7 +1552,7 @@ footer{
       </div>
 
 
-      <div class="package">
+      <div class="package" id="package3">
 
         <div class="package-top">
 
@@ -1589,7 +1595,7 @@ footer{
       </div>
 
 
-      <div class="package">
+      <div class="package" id="package4">
 
         <div class="package-top">
 
@@ -2186,6 +2192,11 @@ const DEFAULT_DATA = {
   heroImage:
   "https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop",
 
+
+  /* =======================================================
+     PACKAGE DATA
+  ======================================================= */
+
   package1Speed:"20 Mbps",
   package1Price:"500৳",
   package1Item1:"Unlimited Internet",
@@ -2210,17 +2221,59 @@ const DEFAULT_DATA = {
   package4Item2:"4K Streaming",
   package4Item3:"Priority Support",
 
+
+  /* =======================================================
+     PACKAGE VISIBILITY
+     
+     true  = SHOW
+     false = HIDE
+  ======================================================= */
+
+  package1Visible:true,
+  package2Visible:true,
+  package3Visible:true,
+  package4Visible:true,
+
+
+  /* =======================================================
+     AREAS
+  ======================================================= */
+
   area1:"AREA 1",
   area2:"AREA 2",
   area3:"Haji ashraf ali road",
   area4:"AREA 4",
   area5:"AREA 5",
 
+
+  /* =======================================================
+     AREA VISIBILITY
+     
+     true  = SHOW
+     false = HIDE
+  ======================================================= */
+
+  area1Visible:true,
+  area2Visible:true,
+  area3Visible:true,
+  area4Visible:true,
+  area5Visible:true,
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
+
   phone:"+880 1826-705233",
   email:"rahiyanemon33@gmail.com",
   address:"Chittagong, Bangladesh",
 
   footer:"© 2026 Grow Up Communication. All Rights Reserved.",
+
+
+  /* =======================================================
+     FEATURES
+  ======================================================= */
 
   feature1Icon:"⚡",
   feature1Title:"Fast Internet",
@@ -2241,6 +2294,11 @@ const DEFAULT_DATA = {
   feature4Title:"24/7 Support",
   feature4Text:
   "Our support team is always ready to help you.",
+
+
+  /* =======================================================
+     SERVERS
+  ======================================================= */
 
   server1Name:"GOOGLE FTP",
   server1Link:"https://google.com",
@@ -2304,6 +2362,106 @@ function setLink(id,value,fallback){
     safeValue(value,fallback);
 
   el.href = url;
+}
+
+
+/* =========================================================
+   BOOLEAN HELPER
+========================================================= */
+
+/*
+   Google Sheet theke value ashte pare:
+
+   TRUE
+   FALSE
+   "TRUE"
+   "FALSE"
+   true
+   false
+   1
+   0
+
+   Sob handle korbe.
+*/
+
+function isVisible(value,fallback=true){
+
+  if(
+    value === undefined ||
+    value === null ||
+    String(value).trim() === ""
+  ){
+    return fallback;
+  }
+
+  if(typeof value === "boolean"){
+    return value;
+  }
+
+  const text =
+    String(value)
+    .trim()
+    .toLowerCase();
+
+  if(
+    text === "false" ||
+    text === "0" ||
+    text === "hide" ||
+    text === "hidden" ||
+    text === "no"
+  ){
+    return false;
+  }
+
+  if(
+    text === "true" ||
+    text === "1" ||
+    text === "show" ||
+    text === "visible" ||
+    text === "yes"
+  ){
+    return true;
+  }
+
+  return fallback;
+}
+
+
+/* =========================================================
+   SHOW / HIDE ELEMENT
+========================================================= */
+
+function setVisibility(
+  id,
+  value,
+  fallback=true
+){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  const visible =
+    isVisible(
+      value,
+      fallback
+    );
+
+  if(visible){
+
+    el.classList.remove(
+      "is-hidden"
+    );
+
+  }else{
+
+    el.classList.add(
+      "is-hidden"
+    );
+
+  }
+
 }
 
 
@@ -2380,10 +2538,6 @@ function loadHeroImage(url){
   if(!img || !url) return;
 
 
-  /*
-    Same image hole abar load korbe na.
-  */
-
   if(
     currentHeroImage === url
   ){
@@ -2401,11 +2555,6 @@ function loadHeroImage(url){
   preloader.onload =
     function(){
 
-      /*
-        Image completely loaded.
-        Ekhon visible image swap.
-      */
-
       img.src = url;
 
       currentHeroImage =
@@ -2416,11 +2565,6 @@ function loadHeroImage(url){
 
   preloader.onerror =
     function(){
-
-      /*
-        New image fail korle
-        current image-i thakbe.
-      */
 
       console.log(
         "Hero image failed:",
@@ -2452,7 +2596,9 @@ function applyData(data){
     );
 
 
-  /* TITLE */
+  /* =======================================================
+     TITLE
+  ======================================================= */
 
   document.title =
     safeValue(
@@ -2461,7 +2607,9 @@ function applyData(data){
     );
 
 
-  /* HERO */
+  /* =======================================================
+     HERO
+  ======================================================= */
 
   setText(
     "heroSmall",
@@ -2486,7 +2634,9 @@ function applyData(data){
   );
 
 
-  /* PACKAGES */
+  /* =======================================================
+     PACKAGES
+  ======================================================= */
 
   for(
     let i=1;
@@ -2521,10 +2671,23 @@ function applyData(data){
 
     }
 
+
+    /*
+      Package SHOW / HIDE
+    */
+
+    setVisibility(
+      "package"+i,
+      merged["package"+i+"Visible"],
+      DEFAULT_DATA["package"+i+"Visible"]
+    );
+
   }
 
 
-  /* FEATURES */
+  /* =======================================================
+     FEATURES
+  ======================================================= */
 
   for(
     let i=1;
@@ -2553,7 +2716,9 @@ function applyData(data){
   }
 
 
-  /* AREAS */
+  /* =======================================================
+     AREAS
+  ======================================================= */
 
   for(
     let i=1;
@@ -2567,10 +2732,23 @@ function applyData(data){
       DEFAULT_DATA["area"+i]
     );
 
+
+    /*
+      Area SHOW / HIDE
+    */
+
+    setVisibility(
+      "area"+i,
+      merged["area"+i+"Visible"],
+      DEFAULT_DATA["area"+i+"Visible"]
+    );
+
   }
 
 
-  /* CONTACT */
+  /* =======================================================
+     CONTACT
+  ======================================================= */
 
   setText(
     "phone",
@@ -2597,7 +2775,9 @@ function applyData(data){
   );
 
 
-  /* SERVERS */
+  /* =======================================================
+     SERVERS
+  ======================================================= */
 
   for(
     let i=1;
@@ -2620,7 +2800,9 @@ function applyData(data){
   }
 
 
-  /* HERO IMAGE */
+  /* =======================================================
+     HERO IMAGE
+  ======================================================= */
 
   loadHeroImage(
     merged.heroImage
@@ -2739,7 +2921,7 @@ async function loadWebsite(){
     ){
 
       /*
-        Sheet data save kore rakhi.
+        Latest Sheet data cache e save.
       */
 
       saveLocalData(
@@ -2748,7 +2930,7 @@ async function loadWebsite(){
 
 
       /*
-        Ekbar apply.
+        Latest data apply.
       */
 
       applyData(
@@ -2776,9 +2958,8 @@ async function loadWebsite(){
 (function(){
 
   /*
-    Cached data immediately.
-    Ete old default data flash korbe na
-    jodi previous saved data thake.
+    First cached data load.
+    Eta website ke fast rakhe.
   */
 
   const cached =
