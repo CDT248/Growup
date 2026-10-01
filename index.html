@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Grow Up Communication</title>
 
 <link
- rel="icon"
- href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png"
+    rel="icon"
+    type="image/png"
+    href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png"
 >
 
 <style>
@@ -27,18 +29,91 @@ html{
 body{
     background:#f5f5f5;
     color:#222;
+
+    /* IMPORTANT:
+       Website stays hidden until Google Sheet data loads */
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease;
 }
+
+body.loaded{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* LOADER */
+
+#pageLoader{
+    position:fixed;
+    inset:0;
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    z-index:999999;
+
+    color:#555;
+}
+
+.loader-circle{
+    width:45px;
+    height:45px;
+
+    border:4px solid #eee;
+    border-top:4px solid red;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+    margin-bottom:15px;
+}
+
+.loader-text{
+    font-size:16px;
+    font-weight:600;
+}
+
+body.loaded #pageLoader{
+    display:none;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* HEADER */
 
 header{
     width:100%;
     background:#fff;
+
     padding:18px 8%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     position:sticky;
     top:0;
+
     z-index:999;
+
     box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
@@ -54,9 +129,13 @@ header{
 
 nav a{
     text-decoration:none;
+
     margin-left:30px;
+
     color:#222;
+
     font-weight:600;
+
     transition:.3s;
 }
 
@@ -64,32 +143,52 @@ nav a:hover{
     color:red;
 }
 
+
+/* HERO */
+
 .hero{
     width:100%;
+
     min-height:95vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     padding:80px 8%;
-    background:linear-gradient(to right,#ffffff,#f3f3f3);
+
+    background:linear-gradient(
+        to right,
+        #ffffff,
+        #f3f3f3
+    );
+
     overflow:hidden;
 }
 
 .hero-text{
     width:50%;
+
     animation:leftMove 1.5s ease;
 }
 
 .hero-text h4{
     color:red;
+
     margin-bottom:20px;
+
     letter-spacing:2px;
+
     font-size:18px;
 }
 
 .hero-text h1{
     font-size:68px;
+
     line-height:1.2;
+
     margin-bottom:25px;
 }
 
@@ -99,19 +198,29 @@ nav a:hover{
 
 .hero-text p{
     font-size:18px;
+
     color:#666;
+
     line-height:1.8;
+
     margin-bottom:35px;
 }
 
 .hero-btn{
     display:inline-block;
+
     padding:16px 40px;
+
     background:red;
+
     color:#fff;
+
     text-decoration:none;
+
     border-radius:8px;
+
     font-weight:600;
+
     transition:.3s;
 }
 
@@ -121,44 +230,63 @@ nav a:hover{
 
 .hero-image{
     width:45%;
+
     animation:rightMove 1.5s ease;
 }
 
 .hero-image img{
     width:100%;
+
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.15);
 }
 
+
+/* ANIMATION */
+
 @keyframes leftMove{
+
     from{
         opacity:0;
         transform:translateX(-120px);
     }
+
     to{
         opacity:1;
         transform:translateX(0);
     }
+
 }
 
 @keyframes rightMove{
+
     from{
         opacity:0;
         transform:translateX(120px);
     }
+
     to{
         opacity:1;
         transform:translateX(0);
     }
+
 }
+
+
+/* TITLE */
 
 .section-title{
     text-align:center;
+
     margin-bottom:60px;
 }
 
 .section-title h2{
     font-size:42px;
+
     margin-bottom:15px;
 }
 
@@ -166,22 +294,40 @@ nav a:hover{
     color:#777;
 }
 
+
+/* PACKAGE */
+
 .packages{
     padding:100px 8%;
+
     background:#fff;
 }
 
 .package-container{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px,1fr)
+        );
+
     gap:30px;
 }
 
 .card{
+
     background:#fff;
+
     border-radius:15px;
+
     overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.1);
+
     transition:.4s;
 }
 
@@ -190,8 +336,11 @@ nav a:hover{
 }
 
 .card-top{
+
     padding:35px 20px;
+
     text-align:center;
+
     color:#fff;
 }
 
@@ -217,28 +366,42 @@ nav a:hover{
 
 .card-top h1{
     font-size:50px;
+
     margin-top:10px;
 }
 
 .card-body{
+
     padding:30px;
+
     text-align:center;
 }
 
 .card-body p{
+
     margin:12px 0;
+
     color:#555;
 }
 
 .btn{
+
     display:inline-block;
+
     margin-top:20px;
+
     padding:13px 30px;
+
     background:red;
+
     color:#fff;
+
     text-decoration:none;
+
     border-radius:6px;
+
     font-weight:600;
+
     transition:.3s;
 }
 
@@ -246,23 +409,43 @@ nav a:hover{
     background:#111;
 }
 
+
+/* FEATURES */
+
 .features{
+
     padding:100px 8%;
+
     background:#eef2f5;
 }
 
 .feature-container{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
     gap:30px;
 }
 
 .feature-box{
+
     background:#fff;
+
     padding:40px 25px;
+
     border-radius:15px;
+
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.08);
+
     transition:.3s;
 }
 
@@ -271,560 +454,1235 @@ nav a:hover{
 }
 
 .icon{
+
     width:90px;
     height:90px;
+
     border:5px solid red;
+
     border-radius:50%;
+
     margin:auto;
+
     margin-bottom:25px;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     font-size:35px;
+
     color:red;
 }
 
+
+/* SERVER */
+
 .server{
+
     padding:100px 8%;
+
     background:#fff;
 }
 
 .server-box{
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:20px;
 }
 
 .server-item{
+
     padding:15px 30px;
+
     border:2px solid green;
+
     border-radius:6px;
+
     color:green;
+
     font-weight:600;
+
     transition:.3s;
+
     text-decoration:none;
+
     display:inline-block;
 }
 
 .server-item:hover{
+
     background:green;
+
     color:#fff;
 }
 
+
+/* COVERAGE */
+
 .coverage{
+
     padding:100px 8%;
+
     background:#eef2f5;
 }
 
 .coverage-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
     gap:20px;
 }
 
 .coverage-box{
+
     background:#fff;
+
     padding:20px;
+
     border-radius:10px;
+
     text-align:center;
+
     font-weight:600;
+
     border:2px solid #ddd;
+
     transition:.3s;
 }
 
 .coverage-box:hover{
+
     background:red;
+
     color:#fff;
+
     border-color:red;
 }
 
+
+/* CONTACT */
+
 .contact{
+
     padding:100px 8%;
+
     background:#fff;
+
     text-align:center;
 }
 
 .contact-box{
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:30px;
+
     margin-top:40px;
 }
 
 .contact-item{
+
     width:300px;
+
     background:#f5f5f5;
+
     padding:30px;
+
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.08);
 }
 
+
+/* FOOTER */
+
 footer{
+
     background:#111827;
+
     color:#fff;
+
     text-align:center;
+
     padding:25px;
 }
 
-.loading{
-    text-align:center;
-    padding:40px;
-    color:#777;
-}
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
     .hero{
+
         flex-direction:column;
+
         text-align:center;
     }
 
     .hero-text{
+
         width:100%;
+
         margin-bottom:50px;
     }
 
     .hero-image{
+
         width:100%;
     }
 
     .hero-text h1{
+
         font-size:45px;
     }
 
     nav{
+
         display:none;
     }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
 
-<div class="logo" id="companyName">
-Grow <span>Up</span>
+<!-- PAGE LOADER -->
+
+<div id="pageLoader">
+
+    <div class="loader-circle"></div>
+
+    <div class="loader-text">
+        Loading website...
+    </div>
+
 </div>
 
-<nav>
-<a href="#">HOME</a>
-<a href="#packages">PACKAGES</a>
-<a href="#features">FEATURES</a>
-<a href="#coverage">COVERAGE</a>
-<a href="#contact">CONTACT</a>
-</nav>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo" id="companyName">
+        Grow <span>Up</span>
+    </div>
+
+    <nav>
+
+        <a href="#">HOME</a>
+
+        <a href="#packages">
+            PACKAGES
+        </a>
+
+        <a href="#features">
+            FEATURES
+        </a>
+
+        <a href="#coverage">
+            COVERAGE
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
+
+    </nav>
 
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-<div class="hero-text">
+    <div class="hero-text">
 
-<h4 id="heroSmall">FAST • RELIABLE • UNLIMITED</h4>
+        <h4 id="heroSmall">
+            FAST • RELIABLE • UNLIMITED
+        </h4>
 
-<h1 id="heroTitle">
-Experience Lightning <br>
-Fast <span>Internet</span>
-</h1>
+        <h1 id="heroTitle">
+            Experience Lightning
+            <br>
+            Fast <span>Internet</span>
+        </h1>
 
-<p id="heroDescription">
-Grow Up Communication provides ultra-fast internet
-service for gaming, streaming, office work and
-24/7 online experience.
-</p>
+        <p id="heroDescription">
+            Grow Up Communication provides
+            ultra-fast internet service for gaming,
+            streaming, office work and 24/7 online
+            experience.
+        </p>
 
-<a href="#packages" class="hero-btn" id="heroButton">
-GET STARTED
-</a>
+        <a
+            href="#packages"
+            class="hero-btn"
+            id="heroButton"
+        >
+            GET STARTED
+        </a>
 
-</div>
+    </div>
 
-<div class="hero-image">
 
-<img
-id="heroImage"
-src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop"
-alt="Internet"
+    <div class="hero-image">
+
+        <img
+            id="heroImage"
+            src=""
+            alt="Internet"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- PACKAGES -->
+
+<section
+    class="packages"
+    id="packages"
 >
 
-</div>
+    <div class="section-title">
+
+        <h2>
+            OUR PACKAGES
+        </h2>
+
+        <p>
+            Choose your best internet package
+        </p>
+
+    </div>
+
+
+    <div class="package-container">
+
+
+        <!-- PACKAGE 1 -->
+
+        <div class="card">
+
+            <div class="card-top red">
+
+                <h3 id="package1Speed"></h3>
+
+                <h1 id="package1Price"></h1>
+
+            </div>
+
+            <div class="card-body">
+
+                <p id="package1Item1"></p>
+
+                <p id="package1Item2"></p>
+
+                <p id="package1Item3"></p>
+
+                <a
+                    href="#contact"
+                    class="btn"
+                >
+                    CONTACT NOW
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PACKAGE 2 -->
+
+        <div class="card">
+
+            <div class="card-top blue">
+
+                <h3 id="package2Speed"></h3>
+
+                <h1 id="package2Price"></h1>
+
+            </div>
+
+            <div class="card-body">
+
+                <p id="package2Item1"></p>
+
+                <p id="package2Item2"></p>
+
+                <p id="package2Item3"></p>
+
+                <a
+                    href="#contact"
+                    class="btn"
+                >
+                    CONTACT NOW
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PACKAGE 3 -->
+
+        <div class="card">
+
+            <div class="card-top orange">
+
+                <h3 id="package3Speed"></h3>
+
+                <h1 id="package3Price"></h1>
+
+            </div>
+
+            <div class="card-body">
+
+                <p id="package3Item1"></p>
+
+                <p id="package3Item2"></p>
+
+                <p id="package3Item3"></p>
+
+                <a
+                    href="#contact"
+                    class="btn"
+                >
+                    CONTACT NOW
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PACKAGE 4 -->
+
+        <div class="card">
+
+            <div class="card-top green">
+
+                <h3 id="package4Speed"></h3>
+
+                <h1 id="package4Price"></h1>
+
+            </div>
+
+            <div class="card-body">
+
+                <p id="package4Item1"></p>
+
+                <p id="package4Item2"></p>
+
+                <p id="package4Item3"></p>
+
+                <a
+                    href="#contact"
+                    class="btn"
+                >
+                    CONTACT NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<section class="packages" id="packages">
 
-<div class="section-title">
-<h2>OUR PACKAGES</h2>
-<p>Choose your best internet package</p>
-</div>
+<!-- FEATURES -->
 
-<div class="package-container">
+<section
+    class="features"
+    id="features"
+>
 
-<div class="card">
-<div class="card-top red">
-<h3 id="package1Speed">20 Mbps</h3>
-<h1 id="package1Price">500৳</h1>
-</div>
+    <div class="section-title">
 
-<div class="card-body">
-<p id="package1Item1">Unlimited Internet</p>
-<p id="package1Item2">Youtube & Facebook</p>
-<p id="package1Item3">24/7 Support</p>
-<a href="#contact" class="btn">CONTACT NOW</a>
-</div>
-</div>
+        <h2>
+            WHY CHOOSE US?
+        </h2>
 
-<div class="card">
-<div class="card-top blue">
-<h3 id="package2Speed">30 Mbps</h3>
-<h1 id="package2Price">700৳</h1>
-</div>
+        <p>
+            Best internet service provider
+        </p>
 
-<div class="card-body">
-<p id="package2Item1">Unlimited Internet</p>
-<p id="package2Item2">Gaming Support</p>
-<p id="package2Item3">24/7 Support</p>
-<a href="#contact" class="btn">CONTACT NOW</a>
-</div>
-</div>
+    </div>
 
-<div class="card">
-<div class="card-top orange">
-<h3 id="package3Speed">40 Mbps</h3>
-<h1 id="package3Price">1000৳</h1>
-</div>
 
-<div class="card-body">
-<p id="package3Item1">Unlimited Internet</p>
-<p id="package3Item2">Streaming Support</p>
-<p id="package3Item3">24/7 Support</p>
-<a href="#contact" class="btn">CONTACT NOW</a>
-</div>
-</div>
+    <div class="feature-container">
 
-<div class="card">
-<div class="card-top green">
-<h3 id="package4Speed">50 Mbps</h3>
-<h1 id="package4Price">1500৳</h1>
-</div>
 
-<div class="card-body">
-<p id="package4Item1">Unlimited Internet</p>
-<p id="package4Item2">4K Streaming</p>
-<p id="package4Item3">Priority Support</p>
-<a href="#contact" class="btn">CONTACT NOW</a>
-</div>
-</div>
+        <div class="feature-box">
 
-</div>
+            <div
+                class="icon"
+                id="feature1Icon"
+            ></div>
 
-</section>
+            <h3 id="feature1Title"></h3>
 
-<section class="features" id="features">
+            <p id="feature1Text"></p>
 
-<div class="section-title">
-<h2>WHY CHOOSE US?</h2>
-<p>Best internet service provider</p>
-</div>
+        </div>
 
-<div class="feature-container">
 
-<div class="feature-box">
-<div class="icon" id="feature1Icon">⚡</div>
-<h3 id="feature1Title">Fast Internet</h3>
-<p id="feature1Text">Enjoy super fast internet speed for gaming and streaming.</p>
-</div>
+        <div class="feature-box">
 
-<div class="feature-box">
-<div class="icon" id="feature2Icon">🌐</div>
-<h3 id="feature2Title">Fiber Connection</h3>
-<p id="feature2Text">Stable fiber optic internet with ultra-low latency.</p>
-</div>
+            <div
+                class="icon"
+                id="feature2Icon"
+            ></div>
 
-<div class="feature-box">
-<div class="icon" id="feature3Icon">🔒</div>
-<h3 id="feature3Title">Dedicated Bandwidth</h3>
-<p id="feature3Text">Smooth browsing and uninterrupted connection.</p>
-</div>
+            <h3 id="feature2Title"></h3>
 
-<div class="feature-box">
-<div class="icon" id="feature4Icon">🛠</div>
-<h3 id="feature4Title">24/7 Support</h3>
-<p id="feature4Text">Our support team is always ready to help you.</p>
-</div>
+            <p id="feature2Text"></p>
 
-</div>
+        </div>
+
+
+        <div class="feature-box">
+
+            <div
+                class="icon"
+                id="feature3Icon"
+            ></div>
+
+            <h3 id="feature3Title"></h3>
+
+            <p id="feature3Text"></p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <div
+                class="icon"
+                id="feature4Icon"
+            ></div>
+
+            <h3 id="feature4Title"></h3>
+
+            <p id="feature4Text"></p>
+
+        </div>
+
+
+    </div>
 
 </section>
+
+
+<!-- SERVER -->
 
 <section class="server">
 
-<div class="section-title">
-<h2>OUR SUPER SERVER</h2>
-<p>Click below to visit websites</p>
-</div>
+    <div class="section-title">
 
-<div class="server-box" id="serverBox">
+        <h2>
+            OUR SUPER SERVER
+        </h2>
 
-<a href="https://google.com" target="_blank" class="server-item">
-GOOGLE FTP
-</a>
+        <p>
+            Click below to visit websites
+        </p>
 
-<a href="https://youtube.com" target="_blank" class="server-item">
-MOVIE SERVER
-</a>
+    </div>
 
-<a href="https://facebook.com" target="_blank" class="server-item">
-LIVE TV
-</a>
 
-<a href="https://instagram.com" target="_blank" class="server-item">
-GAME SERVER
-</a>
-
-<a href="https://netflix.com" target="_blank" class="server-item">
-YOUTUBE CACHE
-</a>
-
-<a href="https://github.com" target="_blank" class="server-item">
-BDIX SERVER
-</a>
-
-</div>
+    <div
+        class="server-box"
+        id="serverBox"
+    ></div>
 
 </section>
 
-<section class="coverage" id="coverage">
 
-<div class="section-title">
-<h2>OUR COVERAGE AREA</h2>
-<p>Available internet service areas</p>
-</div>
+<!-- COVERAGE -->
 
-<div class="coverage-grid">
+<section
+    class="coverage"
+    id="coverage"
+>
 
-<div class="coverage-box" id="area1">AREA 1</div>
-<div class="coverage-box" id="area2">AREA 2</div>
-<div class="coverage-box" id="area3">Haji ashraf ali road</div>
-<div class="coverage-box" id="area4">AREA 4</div>
-<div class="coverage-box" id="area5">AREA 5</div>
+    <div class="section-title">
 
-</div>
+        <h2>
+            OUR COVERAGE AREA
+        </h2>
+
+        <p>
+            Available internet service areas
+        </p>
+
+    </div>
+
+
+    <div class="coverage-grid">
+
+        <div
+            class="coverage-box"
+            id="area1"
+        ></div>
+
+        <div
+            class="coverage-box"
+            id="area2"
+        ></div>
+
+        <div
+            class="coverage-box"
+            id="area3"
+        ></div>
+
+        <div
+            class="coverage-box"
+            id="area4"
+        ></div>
+
+        <div
+            class="coverage-box"
+            id="area5"
+        ></div>
+
+    </div>
 
 </section>
 
-<section class="contact" id="contact">
 
-<div class="section-title">
-<h2>CONTACT US</h2>
-<p>Need internet connection? Contact us today.</p>
-</div>
+<!-- CONTACT -->
 
-<div class="contact-box">
+<section
+    class="contact"
+    id="contact"
+>
 
-<div class="contact-item">
-<h3>📞 Phone</h3>
-<p id="phone">+880 1826-705233</p>
-</div>
+    <div class="section-title">
 
-<div class="contact-item">
-<h3>📧 Email</h3>
-<p id="email">rahiyanemon33@gmail.com</p>
-</div>
+        <h2>
+            CONTACT US
+        </h2>
 
-<div class="contact-item">
-<h3>📍 Address</h3>
-<p id="address">Chittagong, Bangladesh</p>
-</div>
+        <p>
+            Need internet connection?
+            Contact us today.
+        </p>
 
-</div>
+    </div>
+
+
+    <div class="contact-box">
+
+
+        <div class="contact-item">
+
+            <h3>
+                📞 Phone
+            </h3>
+
+            <p id="phone"></p>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <h3>
+                📧 Email
+            </h3>
+
+            <p id="email"></p>
+
+        </div>
+
+
+        <div class="contact-item">
+
+            <h3>
+                📍 Address
+            </h3>
+
+            <p id="address"></p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
-<footer id="footer">
-© 2026 Grow Up Communication. All Rights Reserved.
-</footer>
+
+<!-- FOOTER -->
+
+<footer id="footer"></footer>
+
 
 <script>
+
+
+/* GOOGLE APPS SCRIPT API */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwsrBm8cD4yYOTyuJkW8YHrJj0yBnobPHOdVaE6jWn0mEi0Hh8rg8buOZBWKn-Lq362/exec";
 
 
+/*
+==================================================
+HELPER
+==================================================
+*/
+
 function setText(id,value){
 
-    const el=document.getElementById(id);
+    const element =
+        document.getElementById(id);
 
-    if(el && value !== undefined && value !== null){
-        el.textContent=value;
+    if(!element){
+        return;
+    }
+
+    if(value === undefined || value === null){
+        element.textContent = "";
+        return;
+    }
+
+    element.textContent = String(value);
+
+}
+
+
+/*
+==================================================
+COMPANY NAME
+==================================================
+*/
+
+function setCompanyName(value){
+
+    const element =
+        document.getElementById("companyName");
+
+    if(!element || !value){
+        return;
+    }
+
+    const words =
+        String(value)
+        .trim()
+        .split(/\s+/);
+
+
+    if(words.length >= 2){
+
+        const last =
+            words.pop();
+
+        element.innerHTML =
+            escapeHTML(words.join(" "))
+            +
+            " <span>"
+            +
+            escapeHTML(last)
+            +
+            "</span>";
+
+    }else{
+
+        element.textContent = value;
+
     }
 
 }
 
 
-function loadWebsite(){
+/*
+==================================================
+HERO TITLE
+==================================================
+*/
 
-    fetch(API_URL)
+function setHeroTitle(value){
 
-    .then(response=>response.json())
+    const element =
+        document.getElementById("heroTitle");
 
-    .then(result=>{
+    if(!element || !value){
+        return;
+    }
 
-        if(!result.success){
+    const words =
+        String(value)
+        .trim()
+        .split(/\s+/);
 
-            console.log(result.message);
 
-            return;
+    if(words.length >= 2){
 
-        }
+        const last =
+            words.pop();
 
-        const d=result.data;
+        element.innerHTML =
+            escapeHTML(words.join(" "))
+            +
+            " <span>"
+            +
+            escapeHTML(last)
+            +
+            "</span>";
 
-        setText("heroSmall",d.heroSmall);
-        setText("heroDescription",d.heroDescription);
-        setText("heroButton",d.heroButton);
+    }else{
 
-        /* COMPANY */
+        element.textContent = value;
 
-        const company=document.getElementById("companyName");
-
-        if(company && d.companyName){
-
-            const words=String(d.companyName).trim().split(" ");
-
-            if(words.length>1){
-
-                const last=words.pop();
-
-                company.innerHTML=
-                words.join(" ")+" <span>"+last+"</span>";
-
-            }else{
-
-                company.textContent=d.companyName;
-
-            }
-
-        }
-
-        /* HERO TITLE */
-
-        if(d.heroTitle){
-
-            const title=document.getElementById("heroTitle");
-
-            const parts=String(d.heroTitle).split(" ");
-
-            if(parts.length>=2){
-
-                const last=parts.pop();
-
-                title.innerHTML=
-                parts.join(" ")+" <span>"+last+"</span>";
-
-            }else{
-
-                title.textContent=d.heroTitle;
-
-            }
-
-        }
-
-        /* IMAGE */
-
-        if(d.heroImage){
-
-            document.getElementById("heroImage").src=d.heroImage;
-
-        }
-
-        /* PACKAGES */
-
-        for(let i=1;i<=4;i++){
-
-            setText("package"+i+"Speed",d["package"+i+"Speed"]);
-            setText("package"+i+"Price",d["package"+i+"Price"]);
-            setText("package"+i+"Item1",d["package"+i+"Item1"]);
-            setText("package"+i+"Item2",d["package"+i+"Item2"]);
-            setText("package"+i+"Item3",d["package"+i+"Item3"]);
-
-        }
-
-        /* FEATURES */
-
-        for(let i=1;i<=4;i++){
-
-            setText("feature"+i+"Icon",d["feature"+i+"Icon"]);
-            setText("feature"+i+"Title",d["feature"+i+"Title"]);
-            setText("feature"+i+"Text",d["feature"+i+"Text"]);
-
-        }
-
-        /* AREAS */
-
-        for(let i=1;i<=5;i++){
-
-            setText("area"+i,d["area"+i]);
-
-        }
-
-        /* CONTACT */
-
-        setText("phone",d.phone);
-        setText("email",d.email);
-        setText("address",d.address);
-        setText("footer",d.footer);
-
-        /* SERVERS */
-
-        const serverBox=document.getElementById("serverBox");
-
-        let serverHTML="";
-
-        for(let i=1;i<=6;i++){
-
-            const name=d["server"+i+"Name"];
-            const link=d["server"+i+"Link"];
-
-            if(name && link){
-
-                serverHTML+=`
-                <a
-                href="${link}"
-                target="_blank"
-                class="server-item"
-                >
-                ${name}
-                </a>
-                `;
-
-            }
-
-        }
-
-        if(serverHTML){
-
-            serverBox.innerHTML=serverHTML;
-
-        }
-
-    })
-
-    .catch(error=>{
-
-        console.log("Website data loading error:",error);
-
-    });
+    }
 
 }
 
 
-loadWebsite();
+/*
+==================================================
+HTML ESCAPE
+==================================================
+*/
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/*
+==================================================
+SERVER LINKS
+==================================================
+*/
+
+function loadServers(data){
+
+    const box =
+        document.getElementById("serverBox");
+
+    if(!box){
+        return;
+    }
+
+    let html = "";
+
+    for(let i=1;i<=6;i++){
+
+        const name =
+            data["server"+i+"Name"];
+
+        const link =
+            data["server"+i+"Link"];
+
+
+        if(name && link){
+
+            html +=
+            `
+            <a
+                href="${escapeAttribute(link)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="server-item"
+            >
+                ${escapeHTML(name)}
+            </a>
+            `;
+
+        }
+
+    }
+
+    box.innerHTML = html;
+
+}
+
+
+/*
+==================================================
+ATTRIBUTE ESCAPE
+==================================================
+*/
+
+function escapeAttribute(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/"/g,"&quot;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+}
+
+
+/*
+==================================================
+APPLY WEBSITE DATA
+==================================================
+*/
+
+function applyWebsiteData(data){
+
+    if(!data){
+        return;
+    }
+
+
+    /* COMPANY */
+
+    setCompanyName(
+        data.companyName
+    );
+
+
+    /* HERO */
+
+    setText(
+        "heroSmall",
+        data.heroSmall
+    );
+
+    setHeroTitle(
+        data.heroTitle
+    );
+
+    setText(
+        "heroDescription",
+        data.heroDescription
+    );
+
+    setText(
+        "heroButton",
+        data.heroButton
+    );
+
+
+    /* HERO IMAGE */
+
+    const heroImage =
+        document.getElementById("heroImage");
+
+    if(heroImage && data.heroImage){
+
+        heroImage.src =
+            data.heroImage;
+
+    }
+
+
+    /* PACKAGES */
+
+    for(
+        let i=1;
+        i<=4;
+        i++
+    ){
+
+        setText(
+            "package"+i+"Speed",
+            data["package"+i+"Speed"]
+        );
+
+        setText(
+            "package"+i+"Price",
+            data["package"+i+"Price"]
+        );
+
+        setText(
+            "package"+i+"Item1",
+            data["package"+i+"Item1"]
+        );
+
+        setText(
+            "package"+i+"Item2",
+            data["package"+i+"Item2"]
+        );
+
+        setText(
+            "package"+i+"Item3",
+            data["package"+i+"Item3"]
+        );
+
+    }
+
+
+    /* FEATURES */
+
+    for(
+        let i=1;
+        i<=4;
+        i++
+    ){
+
+        setText(
+            "feature"+i+"Icon",
+            data["feature"+i+"Icon"]
+        );
+
+        setText(
+            "feature"+i+"Title",
+            data["feature"+i+"Title"]
+        );
+
+        setText(
+            "feature"+i+"Text",
+            data["feature"+i+"Text"]
+        );
+
+    }
+
+
+    /* SERVERS */
+
+    loadServers(data);
+
+
+    /* COVERAGE */
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        setText(
+            "area"+i,
+            data["area"+i]
+        );
+
+    }
+
+
+    /* CONTACT */
+
+    setText(
+        "phone",
+        data.phone
+    );
+
+    setText(
+        "email",
+        data.email
+    );
+
+    setText(
+        "address",
+        data.address
+    );
+
+
+    /* FOOTER */
+
+    setText(
+        "footer",
+        data.footer
+    );
+
+}
+
+
+/*
+==================================================
+LOAD WEBSITE
+==================================================
+*/
+
+async function loadWebsite(){
+
+    try{
+
+        /*
+        Cache-busting parameter
+        */
+
+        const url =
+            API_URL +
+            "?t=" +
+            Date.now();
+
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Server returned HTTP " +
+                response.status
+            );
+
+        }
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            !result ||
+            result.success !== true
+        ){
+
+            throw new Error(
+                result?.message ||
+                "Invalid server response"
+            );
+
+        }
+
+
+        /*
+        Apply ALL data first
+        */
+
+        applyWebsiteData(
+            result.data
+        );
+
+
+        /*
+        Give browser a moment
+        to paint the new data,
+        then show website.
+        */
+
+        requestAnimationFrame(()=>{
+
+            requestAnimationFrame(()=>{
+
+                document.body
+                    .classList
+                    .add("loaded");
+
+            });
+
+        });
+
+
+    }catch(error){
+
+        console.error(
+            "Website loading error:",
+            error
+        );
+
+
+        /*
+        If API fails, don't leave
+        the visitor stuck forever.
+        */
+
+        document
+            .getElementById("pageLoader")
+            .innerHTML =
+            `
+            <div style="
+                text-align:center;
+                padding:20px;
+            ">
+
+                <div style="
+                    font-size:22px;
+                    font-weight:700;
+                    color:#222;
+                    margin-bottom:10px;
+                ">
+                    Unable to load website
+                </div>
+
+                <div style="
+                    color:#777;
+                    margin-bottom:20px;
+                ">
+                    Please refresh the page.
+                </div>
+
+                <button
+                    onclick="location.reload()"
+                    style="
+                        border:0;
+                        background:red;
+                        color:white;
+                        padding:12px 25px;
+                        border-radius:7px;
+                        cursor:pointer;
+                        font-weight:600;
+                    "
+                >
+                    Refresh
+                </button>
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/*
+==================================================
+START
+==================================================
+*/
+
+if(
+    document.readyState === "loading"
+){
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        loadWebsite
+    );
+
+}else{
+
+    loadWebsite();
+
+}
 
 </script>
 
