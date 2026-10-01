@@ -1,0 +1,2989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Grow Up Communication</title>
+
+<link rel="icon"
+href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png">
+
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="dns-prefetch" href="//images.unsplash.com">
+
+<link
+rel="preload"
+as="image"
+href="https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop"
+fetchpriority="high"
+>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background:#f5f8f7;
+  color:#14231f;
+  overflow-x:hidden;
+}
+
+:root{
+  --green:#0d6b50;
+  --green-dark:#073f31;
+  --green-light:#e7f6f0;
+  --red:#ef4444;
+  --red-dark:#dc2626;
+  --gold:#f59e0b;
+  --white:#ffffff;
+  --text:#14231f;
+  --muted:#6b7c76;
+  --border:#dfeae6;
+  --shadow:0 15px 40px rgba(8,63,48,.10);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(13,107,80,.10);
+}
+
+.navbar{
+  width:min(1200px,94%);
+  min-height:76px;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-.7px;
+  color:var(--green-dark);
+  white-space:nowrap;
+}
+
+.logo .grow{
+  color:var(--green);
+}
+
+.logo .up{
+  color:var(--red);
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:27px;
+}
+
+nav a{
+  position:relative;
+
+  color:#34443f;
+  text-decoration:none;
+
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.5px;
+
+  transition:.25s;
+}
+
+nav a::after{
+  content:"";
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0;
+  height:2px;
+
+  background:var(--red);
+  border-radius:10px;
+
+  transition:.25s;
+}
+
+nav a:hover{
+  color:var(--green);
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-wrap{
+  position:relative;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(13,107,80,.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(239,68,68,.09),
+      transparent 30%
+    );
+}
+
+.hero{
+  width:min(1200px,94%);
+  min-height:650px;
+  margin:auto;
+
+  padding:80px 0;
+
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  align-items:center;
+  gap:60px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+
+  padding:9px 15px;
+
+  border-radius:100px;
+
+  background:#e6f6ef;
+  border:1px solid #c9eadc;
+
+  color:var(--green);
+
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.5px;
+
+  margin-bottom:22px;
+}
+
+.hero-badge::before{
+  content:"";
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+  background:#20b47a;
+
+  box-shadow:0 0 0 5px rgba(32,180,122,.12);
+}
+
+.hero h1{
+  max-width:680px;
+
+  font-size:clamp(43px,5.4vw,70px);
+  line-height:1.02;
+
+  letter-spacing:-3px;
+
+  color:var(--green-dark);
+
+  margin-bottom:24px;
+}
+
+.hero h1 .red{
+  color:var(--red);
+}
+
+.hero-description{
+  max-width:600px;
+
+  color:var(--muted);
+
+  font-size:17px;
+  line-height:1.8;
+
+  margin-bottom:32px;
+}
+
+.hero-buttons{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:150px;
+
+  padding:15px 23px;
+
+  border-radius:10px;
+
+  background:linear-gradient(
+    135deg,
+    var(--red),
+    #ff6b5f
+  );
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:14px;
+  font-weight:900;
+
+  box-shadow:
+    0 12px 25px rgba(239,68,68,.25);
+
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 18px 35px rgba(239,68,68,.32);
+}
+
+.hero-second-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:14px 22px;
+
+  border:1px solid #cddbd6;
+  border-radius:10px;
+
+  color:var(--green-dark);
+  background:white;
+
+  text-decoration:none;
+
+  font-size:14px;
+  font-weight:800;
+
+  transition:.3s;
+}
+
+.hero-second-btn:hover{
+  border-color:var(--green);
+  color:var(--green);
+  transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-image-area{
+  position:relative;
+}
+
+.hero-image-glow{
+  position:absolute;
+
+  width:260px;
+  height:260px;
+
+  background:rgba(13,107,80,.20);
+
+  filter:blur(70px);
+
+  border-radius:50%;
+
+  right:-70px;
+  top:-70px;
+
+  z-index:0;
+}
+
+.hero-image-box{
+  position:relative;
+  z-index:1;
+
+  height:460px;
+
+  padding:9px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13,107,80,.9),
+      rgba(239,68,68,.75)
+    );
+
+  box-shadow:
+    0 30px 70px rgba(8,63,48,.18);
+}
+
+.hero-image-inner{
+  width:100%;
+  height:100%;
+
+  border-radius:23px;
+  overflow:hidden;
+
+  background:#dfeae6;
+}
+
+.hero-image-inner img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  opacity:1;
+
+  transition:
+    transform .7s ease,
+    opacity .25s ease;
+}
+
+.hero-image-box:hover img{
+  transform:scale(1.035);
+}
+
+
+/* =========================================================
+   FLOATING HERO CARD
+========================================================= */
+
+.hero-floating{
+  position:absolute;
+
+  left:-28px;
+  bottom:35px;
+
+  z-index:5;
+
+  padding:15px 19px;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  background:rgba(255,255,255,.95);
+
+  border:1px solid rgba(255,255,255,.8);
+
+  border-radius:15px;
+
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+  animation:floatCard 3.5s ease-in-out infinite;
+}
+
+.hero-floating-icon{
+  width:43px;
+  height:43px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:12px;
+
+  background:#e6f6ef;
+
+  font-size:21px;
+}
+
+.hero-floating strong{
+  display:block;
+
+  color:var(--green-dark);
+
+  font-size:14px;
+
+  margin-bottom:3px;
+}
+
+.hero-floating small{
+  color:#71817b;
+  font-size:11px;
+}
+
+@keyframes floatCard{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-9px);
+  }
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+  width:min(1200px,94%);
+  margin:auto;
+
+  padding:90px 0;
+}
+
+.section-head{
+  text-align:center;
+
+  margin-bottom:50px;
+}
+
+.section-label{
+  display:inline-block;
+
+  color:var(--red);
+
+  font-size:12px;
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  margin-bottom:10px;
+}
+
+.section-head h2{
+  color:var(--green-dark);
+
+  font-size:42px;
+  line-height:1.1;
+
+  letter-spacing:-1.5px;
+
+  margin-bottom:12px;
+}
+
+.section-head p{
+  color:var(--muted);
+
+  font-size:15px;
+}
+
+
+/* =========================================================
+   PACKAGES
+========================================================= */
+
+.packages-section{
+  background:
+    linear-gradient(
+      180deg,
+      #f5f8f7 0%,
+      #edf7f3 100%
+    );
+}
+
+.packages{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.package{
+  position:relative;
+
+  overflow:hidden;
+
+  background:white;
+
+  border:1px solid var(--border);
+
+  border-radius:22px;
+
+  padding:30px 24px;
+
+  box-shadow:0 8px 25px rgba(8,63,48,.05);
+
+  transition:.35s;
+}
+
+.package::before{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--green),
+      var(--red)
+    );
+}
+
+.package:hover{
+  transform:translateY(-9px);
+
+  box-shadow:
+    0 22px 45px rgba(8,63,48,.13);
+
+  border-color:#cce3da;
+}
+
+.package:nth-child(2){
+  transform:translateY(-8px);
+  border-color:#f4c9c9;
+}
+
+.package:nth-child(2):hover{
+  transform:translateY(-15px);
+}
+
+.package-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:17px;
+}
+
+.package-tag{
+  padding:6px 10px;
+
+  border-radius:100px;
+
+  background:#edf8f4;
+
+  color:var(--green);
+
+  font-size:10px;
+  font-weight:900;
+}
+
+.package-speed{
+  font-size:31px;
+  font-weight:950;
+
+  color:var(--green-dark);
+
+  letter-spacing:-1px;
+}
+
+.package-price{
+  font-size:27px;
+  font-weight:950;
+
+  color:var(--red);
+
+  margin-bottom:22px;
+}
+
+.package ul{
+  list-style:none;
+}
+
+.package li{
+  position:relative;
+
+  padding:10px 0 10px 27px;
+
+  border-bottom:1px solid #edf1ef;
+
+  color:#61716b;
+
+  font-size:13px;
+}
+
+.package li:last-child{
+  border-bottom:0;
+}
+
+.package li::before{
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+  top:9px;
+
+  width:19px;
+  height:19px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#e5f6ef;
+
+  color:var(--green);
+
+  font-size:11px;
+  font-weight:900;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.feature{
+  position:relative;
+
+  background:white;
+
+  padding:30px 25px;
+
+  border-radius:22px;
+
+  border:1px solid var(--border);
+
+  box-shadow:0 8px 25px rgba(8,63,48,.05);
+
+  transition:.35s;
+
+  overflow:hidden;
+}
+
+.feature::after{
+  content:"";
+
+  position:absolute;
+
+  width:90px;
+  height:90px;
+
+  border-radius:50%;
+
+  right:-35px;
+  bottom:-35px;
+
+  background:#eaf7f2;
+
+  transition:.35s;
+}
+
+.feature:hover{
+  transform:translateY(-7px);
+
+  border-color:#bcded2;
+
+  box-shadow:var(--shadow);
+}
+
+.feature:hover::after{
+  transform:scale(1.5);
+}
+
+.feature-icon{
+  position:relative;
+  z-index:1;
+
+  width:58px;
+  height:58px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e4f7ef,
+      #fff0f0
+    );
+
+  font-size:28px;
+
+  margin-bottom:20px;
+}
+
+.feature h3{
+  position:relative;
+  z-index:1;
+
+  color:var(--green-dark);
+
+  font-size:18px;
+
+  margin-bottom:10px;
+}
+
+.feature p{
+  position:relative;
+  z-index:1;
+
+  color:var(--muted);
+
+  font-size:13px;
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   SERVER
+========================================================= */
+
+.server-section{
+  background:var(--green-dark);
+  position:relative;
+  overflow:hidden;
+}
+
+.server-section::before{
+  content:"";
+
+  position:absolute;
+
+  width:400px;
+  height:400px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.04);
+
+  left:-150px;
+  top:-150px;
+}
+
+.server-section::after{
+  content:"";
+
+  position:absolute;
+
+  width:350px;
+  height:350px;
+
+  border-radius:50%;
+
+  background:rgba(239,68,68,.08);
+
+  right:-130px;
+  bottom:-130px;
+}
+
+.server-section .section{
+  position:relative;
+  z-index:2;
+}
+
+.server-section .section-label{
+  color:#ff8585;
+}
+
+.server-section .section-head h2{
+  color:white;
+}
+
+.server-section .section-head p{
+  color:#a9c0b9;
+}
+
+.server-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.server{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+
+  padding:20px;
+
+  background:rgba(255,255,255,.07);
+
+  border:1px solid rgba(255,255,255,.10);
+
+  border-radius:17px;
+
+  transition:.3s;
+}
+
+.server:hover{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.22);
+  transform:translateY(-5px);
+}
+
+.server-left{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.server-icon{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:12px;
+
+  background:rgba(255,255,255,.10);
+
+  color:white;
+
+  font-size:18px;
+}
+
+.server-name{
+  color:white;
+
+  font-size:13px;
+  font-weight:900;
+}
+
+.server-status{
+  color:#8fe1bc;
+
+  font-size:10px;
+  font-weight:800;
+
+  margin-top:4px;
+}
+
+.server a{
+  padding:9px 12px;
+
+  border-radius:8px;
+
+  background:#fff;
+
+  color:var(--green-dark);
+
+  text-decoration:none;
+
+  font-size:10px;
+  font-weight:900;
+
+  transition:.25s;
+}
+
+.server a:hover{
+  background:#ffdddd;
+  color:var(--red-dark);
+}
+
+
+/* =========================================================
+   COVERAGE
+========================================================= */
+
+.coverage-section{
+  background:#f5f8f7;
+}
+
+.coverage{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.area{
+  position:relative;
+
+  min-height:105px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:15px;
+
+  background:white;
+
+  border:1px solid var(--border);
+
+  border-radius:18px;
+
+  color:var(--green-dark);
+
+  font-size:13px;
+  font-weight:900;
+
+  box-shadow:0 7px 20px rgba(8,63,48,.05);
+
+  overflow:hidden;
+
+  transition:.3s;
+}
+
+.area::before{
+  content:"";
+
+  position:absolute;
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--red);
+
+  top:15px;
+  left:15px;
+
+  box-shadow:
+    0 0 0 5px rgba(239,68,68,.10);
+}
+
+.area:hover{
+  transform:translateY(-5px);
+
+  border-color:#c3ded4;
+
+  box-shadow:var(--shadow);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+  background:
+    linear-gradient(
+      135deg,
+      #eaf7f2,
+      #fff5f5
+    );
+}
+
+.contact-box{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.contact-item{
+  background:white;
+
+  border:1px solid var(--border);
+
+  border-radius:20px;
+
+  padding:30px 20px;
+
+  text-align:center;
+
+  box-shadow:0 8px 25px rgba(8,63,48,.06);
+
+  transition:.3s;
+}
+
+.contact-item:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+}
+
+.contact-icon{
+  width:55px;
+  height:55px;
+
+  margin:0 auto 16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:16px;
+
+  background:#e8f7f1;
+
+  font-size:23px;
+}
+
+.contact-item h4{
+  color:var(--green-dark);
+
+  font-size:16px;
+
+  margin-bottom:9px;
+}
+
+.contact-item p{
+  color:#687872;
+
+  font-size:13px;
+
+  word-break:break-word;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  background:#062d24;
+
+  color:#91aaa2;
+
+  text-align:center;
+
+  padding:28px 20px;
+
+  font-size:12px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.fade-up{
+  animation:fadeUp .7s ease both;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   HIDDEN PACKAGE / AREA
+========================================================= */
+
+/*
+   Admin Panel থেকে FALSE এলে
+   নির্দিষ্ট Package/Area website-এ দেখাবে না।
+*/
+
+.package.is-hidden,
+.area.is-hidden{
+  display:none !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+  .hero{
+    grid-template-columns:1fr;
+
+    padding:65px 0;
+  }
+
+  .hero-content{
+    text-align:center;
+  }
+
+  .hero h1,
+  .hero-description{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-image-area{
+    max-width:720px;
+    width:100%;
+    margin:auto;
+  }
+
+  .packages,
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .server-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .coverage{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+  .navbar{
+    padding:17px 0;
+
+    flex-direction:column;
+
+    gap:15px;
+  }
+
+  nav{
+    width:100%;
+
+    justify-content:center;
+
+    gap:13px 18px;
+  }
+
+  nav a{
+    font-size:11px;
+  }
+
+  .hero{
+    width:92%;
+
+    padding:48px 0 55px;
+
+    min-height:auto;
+
+    gap:35px;
+  }
+
+  .hero h1{
+    font-size:42px;
+
+    letter-spacing:-2px;
+  }
+
+  .hero-description{
+    font-size:14px;
+    line-height:1.7;
+  }
+
+  .hero-image-box{
+    height:310px;
+    border-radius:22px;
+  }
+
+  .hero-image-inner{
+    border-radius:16px;
+  }
+
+  .hero-floating{
+    left:12px;
+    bottom:20px;
+
+    padding:12px 14px;
+  }
+
+  .hero-floating-icon{
+    width:37px;
+    height:37px;
+  }
+
+  .section{
+    padding:65px 0;
+  }
+
+  .section-head{
+    margin-bottom:35px;
+  }
+
+  .section-head h2{
+    font-size:32px;
+  }
+
+  .packages,
+  .features,
+  .server-grid,
+  .coverage,
+  .contact-box{
+    grid-template-columns:1fr;
+  }
+
+  .package:nth-child(2){
+    transform:none;
+  }
+
+  .package:nth-child(2):hover{
+    transform:translateY(-8px);
+  }
+
+  .coverage{
+    gap:12px;
+  }
+
+  .area{
+    min-height:80px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:400px){
+
+  .logo{
+    font-size:21px;
+  }
+
+  nav{
+    gap:10px 13px;
+  }
+
+  nav a{
+    font-size:10px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .hero-btn,
+  .hero-second-btn{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+      <span class="grow">Grow</span>
+      <span class="up">Up</span>
+      Communication
+    </div>
+
+    <nav>
+
+      <a href="#home">HOME</a>
+      <a href="#packages">PACKAGES</a>
+      <a href="#features">FEATURES</a>
+      <a href="#coverage">COVERAGE</a>
+      <a href="#contact">CONTACT</a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<div class="hero-wrap" id="home">
+
+  <section class="hero">
+
+    <div class="hero-content fade-up">
+
+      <div class="hero-badge" id="heroSmall">
+        FAST • RELIABLE • UNLIMITED
+      </div>
+
+      <h1 id="heroTitle">
+        Experience Lightning Fast
+        <span class="red">Internet</span>
+      </h1>
+
+      <p class="hero-description" id="heroDescription">
+        Grow Up Communication provides ultra-fast internet service
+        for gaming, streaming, office work and 24/7 online experience.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#packages"
+          class="hero-btn"
+          id="heroButton"
+        >
+          GET STARTED
+        </a>
+
+        <a
+          href="#contact"
+          class="hero-second-btn"
+        >
+          CONTACT US
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-image-area">
+
+      <div class="hero-image-glow"></div>
+
+      <div class="hero-image-box">
+
+        <div class="hero-image-inner">
+
+          <img
+            id="heroImage"
+            src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop"
+            alt="Grow Up Communication Internet"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-floating">
+
+        <div class="hero-floating-icon">
+          ⚡
+        </div>
+
+        <div>
+          <strong>High Speed Internet</strong>
+          <small>Fast • Stable • Reliable</small>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- =======================================================
+     PACKAGES
+======================================================= -->
+
+<section class="packages-section">
+
+  <div class="section" id="packages">
+
+    <div class="section-head">
+
+      <div class="section-label">
+        INTERNET PLANS
+      </div>
+
+      <h2>
+        Choose Your Speed
+      </h2>
+
+      <p>
+        Simple packages for home, gaming and streaming
+      </p>
+
+    </div>
+
+
+    <div class="packages">
+
+
+      <div class="package" id="package1">
+
+        <div class="package-top">
+
+          <span class="package-tag">
+            BASIC
+          </span>
+
+        </div>
+
+        <div
+          class="package-speed"
+          id="package1Speed"
+        >
+          20 Mbps
+        </div>
+
+        <div
+          class="package-price"
+          id="package1Price"
+        >
+          500৳
+        </div>
+
+        <ul>
+
+          <li id="package1Item1">
+            Unlimited Internet
+          </li>
+
+          <li id="package1Item2">
+            Youtube & Facebook
+          </li>
+
+          <li id="package1Item3">
+            24/7 Support
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="package" id="package2">
+
+        <div class="package-top">
+
+          <span class="package-tag">
+            POPULAR
+          </span>
+
+        </div>
+
+        <div
+          class="package-speed"
+          id="package2Speed"
+        >
+          30 Mbps
+        </div>
+
+        <div
+          class="package-price"
+          id="package2Price"
+        >
+          700৳
+        </div>
+
+        <ul>
+
+          <li id="package2Item1">
+            Unlimited Internet
+          </li>
+
+          <li id="package2Item2">
+            Gaming Support
+          </li>
+
+          <li id="package2Item3">
+            24/7 Support
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="package" id="package3">
+
+        <div class="package-top">
+
+          <span class="package-tag">
+            FAST
+          </span>
+
+        </div>
+
+        <div
+          class="package-speed"
+          id="package3Speed"
+        >
+          40 Mbps
+        </div>
+
+        <div
+          class="package-price"
+          id="package3Price"
+        >
+          1000৳
+        </div>
+
+        <ul>
+
+          <li id="package3Item1">
+            Unlimited Internet
+          </li>
+
+          <li id="package3Item2">
+            Streaming Support
+          </li>
+
+          <li id="package3Item3">
+            24/7 Support
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="package" id="package4">
+
+        <div class="package-top">
+
+          <span class="package-tag">
+            PREMIUM
+          </span>
+
+        </div>
+
+        <div
+          class="package-speed"
+          id="package4Speed"
+        >
+          50 Mbps
+        </div>
+
+        <div
+          class="package-price"
+          id="package4Price"
+        >
+          1500৳
+        </div>
+
+        <ul>
+
+          <li id="package4Item1">
+            Unlimited Internet
+          </li>
+
+          <li id="package4Item2">
+            4K Streaming
+          </li>
+
+          <li id="package4Item3">
+            Priority Support
+          </li>
+
+        </ul>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FEATURES
+======================================================= -->
+
+<section class="section" id="features">
+
+  <div class="section-head">
+
+    <div class="section-label">
+      OUR FEATURES
+    </div>
+
+    <h2>
+      Internet Made Better
+    </h2>
+
+    <p>
+      Everything you need for a smooth online experience
+    </p>
+
+  </div>
+
+
+  <div class="features">
+
+
+    <div class="feature">
+
+      <div
+        class="feature-icon"
+        id="feature1Icon"
+      >
+        ⚡
+      </div>
+
+      <h3 id="feature1Title">
+        Fast Internet
+      </h3>
+
+      <p id="feature1Text">
+        Enjoy super fast internet speed for gaming and streaming.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div
+        class="feature-icon"
+        id="feature2Icon"
+      >
+        🌐
+      </div>
+
+      <h3 id="feature2Title">
+        Fiber Connection
+      </h3>
+
+      <p id="feature2Text">
+        Stable fiber optic internet with ultra-low latency.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div
+        class="feature-icon"
+        id="feature3Icon"
+      >
+        🔒
+      </div>
+
+      <h3 id="feature3Title">
+        Dedicated Bandwidth
+      </h3>
+
+      <p id="feature3Text">
+        Smooth browsing and uninterrupted connection.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div
+        class="feature-icon"
+        id="feature4Icon"
+      >
+        🛠
+      </div>
+
+      <h3 id="feature4Title">
+        24/7 Support
+      </h3>
+
+      <p id="feature4Text">
+        Our support team is always ready to help you.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVERS
+======================================================= -->
+
+<section class="server-section">
+
+  <div class="section">
+
+    <div class="section-head">
+
+      <div class="section-label">
+        SUPER SERVER
+      </div>
+
+      <h2>
+        Fast Access
+      </h2>
+
+      <p>
+        Quick access to your favorite services
+      </p>
+
+    </div>
+
+
+    <div class="server-grid">
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            ⚡
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server1Name"
+            >
+              GOOGLE FTP
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server1Link"
+          href="https://google.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            🎬
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server2Name"
+            >
+              MOVIE SERVER
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server2Link"
+          href="https://youtube.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            📺
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server3Name"
+            >
+              LIVE TV
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server3Link"
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            🎮
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server4Name"
+            >
+              GAME SERVER
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server4Link"
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            ▶
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server5Name"
+            >
+              YOUTUBE CACHE
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server5Link"
+          href="https://netflix.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+      <div class="server">
+
+        <div class="server-left">
+
+          <div class="server-icon">
+            🌐
+          </div>
+
+          <div>
+
+            <div
+              class="server-name"
+              id="server6Name"
+            >
+              BDIX SERVER
+            </div>
+
+            <div class="server-status">
+              ● ONLINE
+            </div>
+
+          </div>
+
+        </div>
+
+        <a
+          id="server6Link"
+          href="https://github.com"
+          target="_blank"
+          rel="noopener"
+        >
+          OPEN
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     COVERAGE
+======================================================= -->
+
+<section class="coverage-section">
+
+  <div class="section" id="coverage">
+
+    <div class="section-head">
+
+      <div class="section-label">
+        COVERAGE
+      </div>
+
+      <h2>
+        Our Service Areas
+      </h2>
+
+      <p>
+        Check our available coverage locations
+      </p>
+
+    </div>
+
+
+    <div class="coverage">
+
+      <div class="area" id="area1">
+        AREA 1
+      </div>
+
+      <div class="area" id="area2">
+        AREA 2
+      </div>
+
+      <div class="area" id="area3">
+        Haji ashraf ali road
+      </div>
+
+      <div class="area" id="area4">
+        AREA 4
+      </div>
+
+      <div class="area" id="area5">
+        AREA 5
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="contact-section">
+
+  <div class="section" id="contact">
+
+    <div class="section-head">
+
+      <div class="section-label">
+        GET IN TOUCH
+      </div>
+
+      <h2>
+        Contact Us
+      </h2>
+
+      <p>
+        Have a question? We are ready to help.
+      </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">
+          📞
+        </div>
+
+        <h4>
+          Phone
+        </h4>
+
+        <p id="phone">
+          +880 1826-705233
+        </p>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">
+          ✉️
+        </div>
+
+        <h4>
+          Email
+        </h4>
+
+        <p id="email">
+          rahiyanemon33@gmail.com
+        </p>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        <div class="contact-icon">
+          📍
+        </div>
+
+        <h4>
+          Address
+        </h4>
+
+        <p id="address">
+          Chittagong, Bangladesh
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer id="footer">
+  © 2026 Grow Up Communication. All Rights Reserved.
+</footer>
+
+
+<script>
+
+/* =========================================================
+   GOOGLE APPS SCRIPT
+========================================================= */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwsrBm8cD4yYOTyuJkW8YHrJj0yBnobPHOdVaE6jWn0mEi0Hh8rg8buOZBWKn-Lq362/exec";
+
+
+/* =========================================================
+   DEFAULT DATA
+========================================================= */
+
+const DEFAULT_DATA = {
+
+  companyName:"Grow Up Communication",
+
+  heroSmall:"FAST • RELIABLE • UNLIMITED",
+
+  heroTitle:"Experience Lightning Fast Internet",
+
+  heroDescription:
+  "Grow Up Communication provides ultra-fast internet service for gaming, streaming, office work and 24/7 online experience.",
+
+  heroButton:"GET STARTED",
+
+  heroImage:
+  "https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop",
+
+
+  /* =======================================================
+     PACKAGE DATA
+  ======================================================= */
+
+  package1Speed:"20 Mbps",
+  package1Price:"500৳",
+  package1Item1:"Unlimited Internet",
+  package1Item2:"Youtube & Facebook",
+  package1Item3:"24/7 Support",
+
+  package2Speed:"30 Mbps",
+  package2Price:"700৳",
+  package2Item1:"Unlimited Internet",
+  package2Item2:"Gaming Support",
+  package2Item3:"24/7 Support",
+
+  package3Speed:"40 Mbps",
+  package3Price:"1000৳",
+  package3Item1:"Unlimited Internet",
+  package3Item2:"Streaming Support",
+  package3Item3:"24/7 Support",
+
+  package4Speed:"50 Mbps",
+  package4Price:"1500৳",
+  package4Item1:"Unlimited Internet",
+  package4Item2:"4K Streaming",
+  package4Item3:"Priority Support",
+
+
+  /* =======================================================
+     PACKAGE VISIBILITY
+     
+     true  = SHOW
+     false = HIDE
+  ======================================================= */
+
+  package1Visible:true,
+  package2Visible:true,
+  package3Visible:true,
+  package4Visible:true,
+
+
+  /* =======================================================
+     AREAS
+  ======================================================= */
+
+  area1:"AREA 1",
+  area2:"AREA 2",
+  area3:"Haji ashraf ali road",
+  area4:"AREA 4",
+  area5:"AREA 5",
+
+
+  /* =======================================================
+     AREA VISIBILITY
+     
+     true  = SHOW
+     false = HIDE
+  ======================================================= */
+
+  area1Visible:true,
+  area2Visible:true,
+  area3Visible:true,
+  area4Visible:true,
+  area5Visible:true,
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
+
+  phone:"+880 1826-705233",
+  email:"rahiyanemon33@gmail.com",
+  address:"Chittagong, Bangladesh",
+
+  footer:"© 2026 Grow Up Communication. All Rights Reserved.",
+
+
+  /* =======================================================
+     FEATURES
+  ======================================================= */
+
+  feature1Icon:"⚡",
+  feature1Title:"Fast Internet",
+  feature1Text:
+  "Enjoy super fast internet speed for gaming and streaming.",
+
+  feature2Icon:"🌐",
+  feature2Title:"Fiber Connection",
+  feature2Text:
+  "Stable fiber optic internet with ultra-low latency.",
+
+  feature3Icon:"🔒",
+  feature3Title:"Dedicated Bandwidth",
+  feature3Text:
+  "Smooth browsing and uninterrupted connection.",
+
+  feature4Icon:"🛠",
+  feature4Title:"24/7 Support",
+  feature4Text:
+  "Our support team is always ready to help you.",
+
+
+  /* =======================================================
+     SERVERS
+  ======================================================= */
+
+  server1Name:"GOOGLE FTP",
+  server1Link:"https://google.com",
+
+  server2Name:"MOVIE SERVER",
+  server2Link:"https://youtube.com",
+
+  server3Name:"LIVE TV",
+  server3Link:"https://facebook.com",
+
+  server4Name:"GAME SERVER",
+  server4Link:"https://instagram.com",
+
+  server5Name:"YOUTUBE CACHE",
+  server5Link:"https://netflix.com",
+
+  server6Name:"BDIX SERVER",
+  server6Link:"https://github.com"
+
+};
+
+
+/* =========================================================
+   HELPER
+========================================================= */
+
+function safeValue(value,fallback){
+
+  if(
+    value === undefined ||
+    value === null ||
+    String(value).trim() === ""
+  ){
+    return fallback;
+  }
+
+  return String(value);
+}
+
+
+function setText(id,value,fallback){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  el.textContent =
+    safeValue(value,fallback);
+}
+
+
+function setLink(id,value,fallback){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  const url =
+    safeValue(value,fallback);
+
+  el.href = url;
+}
+
+
+/* =========================================================
+   BOOLEAN HELPER
+========================================================= */
+
+/*
+   Google Sheet theke value ashte pare:
+
+   TRUE
+   FALSE
+   "TRUE"
+   "FALSE"
+   true
+   false
+   1
+   0
+
+   Sob handle korbe.
+*/
+
+function isVisible(value,fallback=true){
+
+  if(
+    value === undefined ||
+    value === null ||
+    String(value).trim() === ""
+  ){
+    return fallback;
+  }
+
+  if(typeof value === "boolean"){
+    return value;
+  }
+
+  const text =
+    String(value)
+    .trim()
+    .toLowerCase();
+
+  if(
+    text === "false" ||
+    text === "0" ||
+    text === "hide" ||
+    text === "hidden" ||
+    text === "no"
+  ){
+    return false;
+  }
+
+  if(
+    text === "true" ||
+    text === "1" ||
+    text === "show" ||
+    text === "visible" ||
+    text === "yes"
+  ){
+    return true;
+  }
+
+  return fallback;
+}
+
+
+/* =========================================================
+   SHOW / HIDE ELEMENT
+========================================================= */
+
+function setVisibility(
+  id,
+  value,
+  fallback=true
+){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  const visible =
+    isVisible(
+      value,
+      fallback
+    );
+
+  if(visible){
+
+    el.classList.remove(
+      "is-hidden"
+    );
+
+  }else{
+
+    el.classList.add(
+      "is-hidden"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+function setHeroTitle(value){
+
+  const el =
+    document.getElementById("heroTitle");
+
+  if(!el) return;
+
+  const text =
+    safeValue(
+      value,
+      DEFAULT_DATA.heroTitle
+    );
+
+  const words =
+    text.trim().split(/\s+/);
+
+  if(words.length > 1){
+
+    const last =
+      words.pop();
+
+    el.innerHTML =
+      escapeHTML(words.join(" ")) +
+      ' <span class="red">' +
+      escapeHTML(last) +
+      "</span>";
+
+  }else{
+
+    el.textContent = text;
+
+  }
+
+}
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+let currentHeroImage =
+  DEFAULT_DATA.heroImage;
+
+
+function loadHeroImage(url){
+
+  const img =
+    document.getElementById("heroImage");
+
+  if(!img || !url) return;
+
+
+  if(
+    currentHeroImage === url
+  ){
+    return;
+  }
+
+
+  const preloader =
+    new Image();
+
+  preloader.decoding =
+    "async";
+
+
+  preloader.onload =
+    function(){
+
+      img.src = url;
+
+      currentHeroImage =
+        url;
+
+    };
+
+
+  preloader.onerror =
+    function(){
+
+      console.log(
+        "Hero image failed:",
+        url
+      );
+
+    };
+
+
+  preloader.src = url;
+
+}
+
+
+/* =========================================================
+   APPLY DATA
+========================================================= */
+
+function applyData(data){
+
+  if(!data) return;
+
+
+  const merged =
+    Object.assign(
+      {},
+      DEFAULT_DATA,
+      data
+    );
+
+
+  /* =======================================================
+     TITLE
+  ======================================================= */
+
+  document.title =
+    safeValue(
+      merged.companyName,
+      DEFAULT_DATA.companyName
+    );
+
+
+  /* =======================================================
+     HERO
+  ======================================================= */
+
+  setText(
+    "heroSmall",
+    merged.heroSmall,
+    DEFAULT_DATA.heroSmall
+  );
+
+  setHeroTitle(
+    merged.heroTitle
+  );
+
+  setText(
+    "heroDescription",
+    merged.heroDescription,
+    DEFAULT_DATA.heroDescription
+  );
+
+  setText(
+    "heroButton",
+    merged.heroButton,
+    DEFAULT_DATA.heroButton
+  );
+
+
+  /* =======================================================
+     PACKAGES
+  ======================================================= */
+
+  for(
+    let i=1;
+    i<=4;
+    i++
+  ){
+
+    setText(
+      "package"+i+"Speed",
+      merged["package"+i+"Speed"],
+      DEFAULT_DATA["package"+i+"Speed"]
+    );
+
+    setText(
+      "package"+i+"Price",
+      merged["package"+i+"Price"],
+      DEFAULT_DATA["package"+i+"Price"]
+    );
+
+
+    for(
+      let j=1;
+      j<=3;
+      j++
+    ){
+
+      setText(
+        "package"+i+"Item"+j,
+        merged["package"+i+"Item"+j],
+        DEFAULT_DATA["package"+i+"Item"+j]
+      );
+
+    }
+
+
+    /*
+      Package SHOW / HIDE
+    */
+
+    setVisibility(
+      "package"+i,
+      merged["package"+i+"Visible"],
+      DEFAULT_DATA["package"+i+"Visible"]
+    );
+
+  }
+
+
+  /* =======================================================
+     FEATURES
+  ======================================================= */
+
+  for(
+    let i=1;
+    i<=4;
+    i++
+  ){
+
+    setText(
+      "feature"+i+"Icon",
+      merged["feature"+i+"Icon"],
+      DEFAULT_DATA["feature"+i+"Icon"]
+    );
+
+    setText(
+      "feature"+i+"Title",
+      merged["feature"+i+"Title"],
+      DEFAULT_DATA["feature"+i+"Title"]
+    );
+
+    setText(
+      "feature"+i+"Text",
+      merged["feature"+i+"Text"],
+      DEFAULT_DATA["feature"+i+"Text"]
+    );
+
+  }
+
+
+  /* =======================================================
+     AREAS
+  ======================================================= */
+
+  for(
+    let i=1;
+    i<=5;
+    i++
+  ){
+
+    setText(
+      "area"+i,
+      merged["area"+i],
+      DEFAULT_DATA["area"+i]
+    );
+
+
+    /*
+      Area SHOW / HIDE
+    */
+
+    setVisibility(
+      "area"+i,
+      merged["area"+i+"Visible"],
+      DEFAULT_DATA["area"+i+"Visible"]
+    );
+
+  }
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
+
+  setText(
+    "phone",
+    merged.phone,
+    DEFAULT_DATA.phone
+  );
+
+  setText(
+    "email",
+    merged.email,
+    DEFAULT_DATA.email
+  );
+
+  setText(
+    "address",
+    merged.address,
+    DEFAULT_DATA.address
+  );
+
+  setText(
+    "footer",
+    merged.footer,
+    DEFAULT_DATA.footer
+  );
+
+
+  /* =======================================================
+     SERVERS
+  ======================================================= */
+
+  for(
+    let i=1;
+    i<=6;
+    i++
+  ){
+
+    setText(
+      "server"+i+"Name",
+      merged["server"+i+"Name"],
+      DEFAULT_DATA["server"+i+"Name"]
+    );
+
+    setLink(
+      "server"+i+"Link",
+      merged["server"+i+"Link"],
+      DEFAULT_DATA["server"+i+"Link"]
+    );
+
+  }
+
+
+  /* =======================================================
+     HERO IMAGE
+  ======================================================= */
+
+  loadHeroImage(
+    merged.heroImage
+  );
+
+}
+
+
+/* =========================================================
+   CACHE
+========================================================= */
+
+function saveLocalData(data){
+
+  try{
+
+    localStorage.setItem(
+      "growUpWebsiteData",
+      JSON.stringify(data)
+    );
+
+  }catch(error){
+
+    console.log(
+      "Cache save failed"
+    );
+
+  }
+
+}
+
+
+function getLocalData(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "growUpWebsiteData"
+      );
+
+    if(!saved) return null;
+
+    const data =
+      JSON.parse(saved);
+
+    if(
+      data &&
+      typeof data === "object"
+    ){
+      return data;
+    }
+
+  }catch(error){
+
+    console.log(
+      "Cache read failed"
+    );
+
+  }
+
+  return null;
+
+}
+
+
+/* =========================================================
+   API LOAD
+   ONLY ONCE
+========================================================= */
+
+let apiLoaded = false;
+
+
+async function loadWebsite(){
+
+  if(apiLoaded){
+    return;
+  }
+
+  apiLoaded = true;
+
+
+  try{
+
+    const response =
+      await fetch(
+        API_URL +
+        "?t=" +
+        Date.now(),
+        {
+          method:"GET",
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "HTTP " +
+        response.status
+      );
+
+    }
+
+
+    const result =
+      await response.json();
+
+
+    if(
+      result &&
+      result.success &&
+      result.data
+    ){
+
+      /*
+        Latest Sheet data cache e save.
+      */
+
+      saveLocalData(
+        result.data
+      );
+
+
+      /*
+        Latest data apply.
+      */
+
+      applyData(
+        result.data
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Website API error:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+(function(){
+
+  /*
+    First cached data load.
+    Eta website ke fast rakhe.
+  */
+
+  const cached =
+    getLocalData();
+
+
+  if(cached){
+
+    applyData(
+      cached
+    );
+
+  }
+
+
+  /*
+    API only one time.
+  */
+
+  loadWebsite();
+
+})();
+
+</script>
+
+</body>
+</html>
