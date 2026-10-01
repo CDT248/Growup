@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Grow Up Communication</title>
 
 <link rel="icon"
-      type="image/png"
-      href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png">
+href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png">
 
 <style>
-
 :root{
   --green:#0d6b50;
   --green-dark:#073f31;
   --green-light:#e7f6f0;
   --red:#ef4444;
   --red-dark:#dc2626;
-  --white:#fff;
+  --white:#ffffff;
   --text:#14231f;
   --muted:#6b7c76;
   --border:#dfeae6;
@@ -30,23 +27,14 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-}
-
-html{
   scroll-behavior:smooth;
 }
 
 body{
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  background:#fff;
+  font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
-  line-height:1.6;
+  background:#fff;
+  overflow-x:hidden;
 }
 
 a{
@@ -56,11 +44,7 @@ a{
 
 img{
   max-width:100%;
-}
-
-.container{
-  width:min(1180px,92%);
-  margin:auto;
+  display:block;
 }
 
 /* ================= HEADER ================= */
@@ -68,14 +52,17 @@ img{
 header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.95);
+  z-index:999;
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(223,234,230,.8);
+  border-bottom:1px solid var(--border);
 }
 
 .navbar{
+  max-width:1200px;
+  margin:auto;
   min-height:76px;
+  padding:0 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -83,7 +70,7 @@ header{
 }
 
 .logo{
-  font-size:23px;
+  font-size:25px;
   font-weight:900;
   white-space:nowrap;
 }
@@ -98,18 +85,19 @@ header{
 
 .logo .communication{
   color:var(--green-dark);
+  font-weight:700;
 }
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:28px;
+  gap:30px;
 }
 
 .nav-links a{
   font-size:14px;
-  font-weight:800;
-  color:#3d514a;
+  font-weight:700;
+  color:#30423c;
   transition:.25s;
 }
 
@@ -117,11 +105,11 @@ header{
   color:var(--green);
 }
 
-.mobile-menu{
+.menu-btn{
   display:none;
   border:0;
   background:var(--green-light);
-  color:var(--green-dark);
+  color:var(--green);
   width:42px;
   height:42px;
   border-radius:12px;
@@ -129,45 +117,78 @@ header{
   cursor:pointer;
 }
 
+/* ================= COMMON ================= */
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+section{
+  padding:90px 0;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:750px;
+  margin:0 auto 50px;
+}
+
+.section-heading .label{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:50px;
+  background:var(--green-light);
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:14px;
+}
+
+.section-heading h2{
+  font-size:42px;
+  line-height:1.15;
+  color:var(--green-dark);
+  margin-bottom:15px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:15px;
+}
+
 /* ================= HERO ================= */
 
 .hero{
   position:relative;
   overflow:hidden;
-  padding:85px 0 80px;
+  padding:95px 0 100px;
   background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(13,107,80,.11),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(239,68,68,.09),
-      transparent 28%
-    ),
+    radial-gradient(circle at 90% 15%,rgba(239,68,68,.12),transparent 28%),
+    radial-gradient(circle at 5% 90%,rgba(13,107,80,.10),transparent 30%),
     #fff;
 }
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.05fr .95fr;
+  grid-template-columns:1fr 1fr;
   align-items:center;
-  gap:65px;
+  gap:70px;
 }
 
 .hero-badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
+  padding:9px 15px;
+  border-radius:50px;
   background:var(--green-light);
   color:var(--green);
-  border:1px solid #cbe7dc;
-  border-radius:50px;
-  padding:9px 16px;
   font-size:12px;
-  font-weight:900;
-  letter-spacing:.8px;
+  font-weight:800;
+  letter-spacing:.6px;
   margin-bottom:22px;
 }
 
@@ -176,16 +197,16 @@ header{
   width:8px;
   height:8px;
   border-radius:50%;
-  background:#22c55e;
-  box-shadow:0 0 0 5px rgba(34,197,94,.12);
+  background:#16a34a;
+  box-shadow:0 0 0 5px rgba(22,163,74,.12);
 }
 
 .hero h1{
-  font-size:clamp(42px,5vw,70px);
-  line-height:1.03;
-  letter-spacing:-2.8px;
+  font-size:58px;
+  line-height:1.04;
+  letter-spacing:-2px;
   color:var(--green-dark);
-  margin-bottom:22px;
+  margin-bottom:23px;
 }
 
 .hero h1 .red{
@@ -193,10 +214,10 @@ header{
 }
 
 .hero-description{
-  max-width:650px;
+  max-width:590px;
   color:var(--muted);
-  font-size:17px;
   line-height:1.8;
+  font-size:16px;
   margin-bottom:30px;
 }
 
@@ -208,14 +229,14 @@ header{
 
 .btn{
   display:inline-flex;
-  align-items:center;
   justify-content:center;
-  min-height:49px;
-  padding:0 22px;
-  border-radius:13px;
+  align-items:center;
+  min-height:50px;
+  padding:0 25px;
+  border-radius:12px;
   font-size:14px;
-  font-weight:900;
-  border:2px solid transparent;
+  font-weight:800;
+  cursor:pointer;
   transition:.25s;
 }
 
@@ -233,192 +254,106 @@ header{
 .btn-secondary{
   background:#fff;
   color:var(--green);
-  border-color:#cfe1db;
+  border:1px solid var(--border);
 }
 
 .btn-secondary:hover{
-  background:var(--green-light);
+  border-color:var(--green);
   transform:translateY(-2px);
 }
 
-/* =====================================================
-   HERO IMAGE
-===================================================== */
+/* ================= HERO IMAGE ================= */
+
+.hero-visual{
+  position:relative;
+}
+
+.hero-image-frame{
+  position:relative;
+  min-height:440px;
+  padding:13px;
+  border-radius:30px;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,var(--green),#168564 58%,var(--red));
+  box-shadow:0 30px 60px rgba(8,63,48,.20);
+}
 
 .hero-image-wrap{
-  position:relative;
   width:100%;
-  min-height:474px;
-  border-radius:30px;
-  padding:12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--green),
-      #1e8066 55%,
-      var(--red)
-    );
-
-  box-shadow:
-    0 25px 60px rgba(8,63,48,.18);
-
+  height:100%;
+  min-height:414px;
   overflow:hidden;
+  border-radius:22px;
+  background:#dfeae6;
 }
 
-.hero-image-wrap::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:rgba(255,255,255,.13);
-  top:-70px;
-  right:-60px;
-  z-index:1;
-}
-
-.hero-image-wrap::after{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  background:rgba(239,68,68,.28);
-  bottom:-50px;
-  left:-40px;
-  z-index:1;
-}
-
-/*
-   IMPORTANT:
-   Image starts from right side.
-*/
-
-.hero-image{
-  position:relative;
-  z-index:2;
-
-  display:block;
-
+#heroImage{
   width:100%;
-  height:450px;
-
+  height:100%;
+  min-height:414px;
   object-fit:cover;
 
-  border-radius:22px;
-
-  background:#dff1eb;
-
-  /*
-     Initial position
-  */
+  /* smooth slide */
   opacity:0;
-  transform:
-    translate3d(120px,0,0)
-    scale(1.035);
+  transform:translate3d(110px,0,0) scale(1.04);
 
-  /*
-     Smooth animation
-  */
   transition:
-    opacity 1s cubic-bezier(.22,1,.36,1),
+    opacity 1s ease,
     transform 1.15s cubic-bezier(.22,1,.36,1);
-
-  will-change:
-    opacity,
-    transform;
 }
 
-/*
-   Image visible position
-*/
-
-.hero-image.show{
+#heroImage.show{
   opacity:1;
-
-  transform:
-    translate3d(0,0,0)
-    scale(1);
+  transform:translate3d(0,0,0) scale(1);
 }
-
-
-/* ================= FLOATING CARD ================= */
 
 .hero-floating-card{
   position:absolute;
-  z-index:5;
-  left:-28px;
+  left:-25px;
   bottom:35px;
-
   background:#fff;
-
-  border:1px solid var(--border);
-
-  border-radius:17px;
-
+  border-radius:18px;
   padding:17px 20px;
+  min-width:220px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
 
-  min-width:210px;
-
-  box-shadow:
-    0 18px 35px rgba(8,63,48,.18);
+.hero-floating-card .small{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:5px;
 }
 
 .hero-floating-card strong{
-  display:block;
   color:var(--green-dark);
-  font-size:15px;
-  margin-bottom:2px;
+  font-size:17px;
 }
 
-.hero-floating-card span{
-  color:var(--muted);
-  font-size:12px;
+.hero-floating-card .online{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-top:9px;
+  color:#15803d;
+  font-size:11px;
+  font-weight:800;
 }
 
-
-/* ================= SECTION ================= */
-
-.section{
-  padding:85px 0;
+.hero-floating-card .online span{
+  width:7px;
+  height:7px;
+  background:#16a34a;
+  border-radius:50%;
 }
-
-.section-light{
-  background:#f8fcfa;
-}
-
-.section-head{
-  max-width:720px;
-  margin:0 auto 45px;
-  text-align:center;
-}
-
-.section-label{
-  color:var(--red);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-
-.section-title{
-  color:var(--green-dark);
-  font-size:clamp(30px,4vw,44px);
-  line-height:1.12;
-  letter-spacing:-1.5px;
-  margin-bottom:13px;
-}
-
-.section-text{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.8;
-}
-
 
 /* ================= PACKAGES ================= */
+
+.packages{
+  background:#f7fbfa;
+}
 
 .package-grid{
   display:grid;
@@ -439,68 +374,52 @@ header{
 
 .package-card:hover{
   transform:translateY(-7px);
-  box-shadow:0 22px 45px rgba(8,63,48,.14);
-}
-
-.package-card::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:var(--green);
+  border-color:#b8d8ce;
 }
 
 .package-tag{
   display:inline-block;
   padding:6px 10px;
-  border-radius:8px;
   background:var(--green-light);
   color:var(--green);
+  border-radius:7px;
   font-size:10px;
   font-weight:900;
   letter-spacing:.8px;
   margin-bottom:18px;
 }
 
-.package-speed{
-  font-size:31px;
-  font-weight:950;
+.package-card h3{
+  font-size:29px;
   color:var(--green-dark);
-  line-height:1.1;
+  margin-bottom:7px;
 }
 
 .package-price{
-  margin-top:8px;
   color:var(--red);
-  font-size:22px;
-  font-weight:950;
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:20px;
 }
 
 .package-list{
   list-style:none;
-  margin-top:22px;
-  display:flex;
-  flex-direction:column;
+  display:grid;
   gap:11px;
 }
 
 .package-list li{
-  color:#5b6e67;
   font-size:13px;
-  padding-left:20px;
-  position:relative;
+  color:#61716c;
+  display:flex;
+  gap:8px;
 }
 
 .package-list li::before{
   content:"✓";
-  position:absolute;
-  left:0;
   color:#16a34a;
   font-weight:900;
 }
-
 
 /* ================= FEATURES ================= */
 
@@ -511,10 +430,10 @@ header{
 }
 
 .feature-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:22px;
   padding:28px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#fff;
   box-shadow:var(--shadow);
   transition:.3s;
 }
@@ -526,51 +445,46 @@ header{
 .feature-icon{
   width:55px;
   height:55px;
-  border-radius:16px;
   display:flex;
   align-items:center;
   justify-content:center;
   background:var(--green-light);
+  border-radius:15px;
   font-size:25px;
   margin-bottom:20px;
 }
 
 .feature-card h3{
   color:var(--green-dark);
+  margin-bottom:9px;
   font-size:18px;
-  margin-bottom:8px;
 }
 
 .feature-card p{
   color:var(--muted);
+  line-height:1.7;
   font-size:13px;
-  line-height:1.75;
 }
 
+/* ================= SERVERS ================= */
 
-/* ================= SERVER ================= */
-
-.server-section{
+.servers{
   background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(239,68,68,.16),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #073f31,
-      #0d6b50
-    );
-
+    radial-gradient(circle at 90% 10%,rgba(239,68,68,.15),transparent 30%),
+    linear-gradient(135deg,#073f31,#0d6b50);
   color:#fff;
 }
 
-.server-section .section-title{
+.servers .section-heading .label{
+  background:rgba(255,255,255,.12);
   color:#fff;
 }
 
-.server-section .section-text{
+.servers .section-heading h2{
+  color:#fff;
+}
+
+.servers .section-heading p{
   color:rgba(255,255,255,.72);
 }
 
@@ -581,15 +495,12 @@ header{
 }
 
 .server-card{
+  padding:22px;
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.13);
   border-radius:18px;
-  padding:20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  transition:.25s;
+  backdrop-filter:blur(8px);
+  transition:.3s;
 }
 
 .server-card:hover{
@@ -597,78 +508,70 @@ header{
   transform:translateY(-4px);
 }
 
-.server-name{
-  color:#fff;
-  font-size:14px;
-  font-weight:900;
-  margin-bottom:5px;
+.server-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.server-card h3{
+  font-size:16px;
 }
 
 .server-status{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  color:#bbf7d0;
-  font-size:11px;
-  font-weight:800;
+  color:#86efac;
+  font-size:10px;
+  font-weight:900;
 }
 
 .server-status::before{
   content:"";
-  width:7px;
-  height:7px;
+  display:inline-block;
+  width:6px;
+  height:6px;
   border-radius:50%;
   background:#22c55e;
-  box-shadow:0 0 0 4px rgba(34,197,94,.13);
+  margin-right:5px;
 }
 
 .server-open{
-  flex-shrink:0;
+  display:inline-flex;
+  padding:9px 14px;
+  border-radius:9px;
   background:#fff;
   color:var(--green-dark);
-  padding:8px 13px;
-  border-radius:9px;
   font-size:11px;
   font-weight:900;
+  margin-top:5px;
 }
-
 
 /* ================= COVERAGE ================= */
 
-.coverage-grid{
+.coverage{
+  background:#f7fbfa;
+}
+
+.area-grid{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:15px;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
 .area-card{
-  min-height:105px;
   background:#fff;
   border:1px solid var(--border);
   border-radius:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding:22px;
   text-align:center;
-  padding:18px;
-  color:var(--green-dark);
-  font-weight:900;
-  font-size:14px;
   box-shadow:var(--shadow);
-  transition:.25s;
+  color:var(--green-dark);
+  font-weight:800;
+  font-size:14px;
 }
-
-.area-card:hover{
-  color:var(--red);
-  transform:translateY(-4px);
-}
-
 
 /* ================= CONTACT ================= */
-
-.contact-section{
-  background:#f8fcfa;
-}
 
 .contact-grid{
   display:grid;
@@ -677,87 +580,103 @@ header{
 }
 
 .contact-card{
-  background:#fff;
   border:1px solid var(--border);
+  background:#fff;
   border-radius:20px;
-  padding:25px;
+  padding:28px;
+  text-align:center;
   box-shadow:var(--shadow);
 }
 
 .contact-icon{
-  width:48px;
-  height:48px;
-  border-radius:14px;
-  background:var(--green-light);
+  width:55px;
+  height:55px;
+  margin:0 auto 15px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:21px;
-  margin-bottom:16px;
+  border-radius:15px;
+  background:var(--green-light);
+  font-size:23px;
 }
 
-.contact-card small{
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  margin-bottom:5px;
-}
-
-.contact-card strong{
+.contact-card h3{
+  font-size:16px;
   color:var(--green-dark);
+  margin-bottom:8px;
+}
+
+.contact-card p,
+.contact-card a{
+  color:var(--muted);
   font-size:14px;
   word-break:break-word;
 }
 
-
 /* ================= FOOTER ================= */
 
 footer{
-  background:#052f25;
-  color:#b9cbc5;
-  text-align:center;
-  padding:28px 15px;
-  font-size:13px;
-}
-
-
-/* ================= TOAST ================= */
-
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translate(-50%,20px);
-  z-index:10000;
-
   background:#073f31;
   color:#fff;
+  padding:28px 20px;
+  text-align:center;
+}
 
-  padding:12px 18px;
-
-  border-radius:12px;
-
+footer p{
+  color:rgba(255,255,255,.7);
   font-size:13px;
-  font-weight:700;
-
-  opacity:0;
-  pointer-events:none;
-
-  transition:.3s;
+  line-height:1.6;
 }
 
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
+/* ================= MOBILE MENU ================= */
 
+@media(max-width:850px){
 
-/* ================= MOBILE ================= */
+  .menu-btn{
+    display:block;
+  }
 
-@media(max-width:1000px){
+  .nav-links{
+    position:absolute;
+    left:0;
+    right:0;
+    top:76px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:10px 20px 20px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 15px 30px rgba(0,0,0,.08);
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:14px 10px;
+    border-bottom:1px solid #eef3f1;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .hero h1{
+    font-size:47px;
+  }
+
+  .hero-image-frame{
+    min-height:390px;
+  }
+
+  .hero-image-wrap,
+  #heroImage{
+    min-height:364px;
+  }
 
   .package-grid{
     grid-template-columns:repeat(2,1fr);
@@ -767,214 +686,115 @@ footer{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .coverage-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
   .server-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
-}
-
-
-@media(max-width:800px){
-
-  .navbar{
-    min-height:68px;
-  }
-
-  .mobile-menu{
-    display:block;
-  }
-
-  .nav-links{
-    position:absolute;
-    top:68px;
-    left:0;
-    right:0;
-
-    display:none;
-
-    flex-direction:column;
-    align-items:stretch;
-
-    gap:0;
-
-    background:#fff;
-
-    border-bottom:1px solid var(--border);
-
-    box-shadow:
-      0 12px 25px rgba(0,0,0,.06);
-  }
-
-  .nav-links.active{
-    display:flex;
-  }
-
-  .nav-links a{
-    padding:14px 25px;
-    border-bottom:1px solid #edf3f0;
-  }
-
-  .hero{
-    padding:55px 0 60px;
-  }
-
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-
-  .hero h1{
-    font-size:46px;
-  }
-
-  .hero-image-wrap{
-    min-height:404px;
-  }
-
-  .hero-image{
-    height:380px;
-  }
-
-  .hero-floating-card{
-    left:18px;
+  .area-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .contact-grid{
     grid-template-columns:1fr;
   }
-
 }
 
+@media(max-width:560px){
 
-@media(max-width:600px){
+  section{
+    padding:70px 0;
+  }
 
-  .container{
-    width:min(92%,520px);
+  .navbar{
+    min-height:68px;
+  }
+
+  .nav-links{
+    top:68px;
   }
 
   .logo{
-    font-size:19px;
+    font-size:20px;
+  }
+
+  .hero{
+    padding:70px 0 80px;
   }
 
   .hero h1{
     font-size:39px;
-    letter-spacing:-1.7px;
+    letter-spacing:-1.4px;
   }
 
   .hero-description{
-    font-size:15px;
+    font-size:14px;
   }
 
-  .hero-image-wrap{
-    min-height:324px;
-    padding:8px;
-    border-radius:22px;
+  .hero-image-frame{
+    min-height:300px;
+    padding:9px;
+    border-radius:23px;
   }
 
-  .hero-image{
-    height:300px;
+  .hero-image-wrap,
+  #heroImage{
+    min-height:282px;
     border-radius:17px;
+  }
+
+  .hero-floating-card{
+    left:10px;
+    bottom:20px;
+    min-width:190px;
+    padding:13px 15px;
+  }
+
+  .section-heading h2{
+    font-size:32px;
   }
 
   .package-grid,
   .feature-grid,
-  .server-grid{
+  .server-grid,
+  .area-grid{
     grid-template-columns:1fr;
-  }
-
-  .coverage-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .section{
-    padding:65px 0;
-  }
-
-  .section-title{
-    font-size:31px;
   }
 
   .hero-buttons{
     flex-direction:column;
   }
 
-  .hero-buttons .btn{
+  .btn{
     width:100%;
   }
-
 }
-
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-  .hero-image{
-    transition:none;
-    transform:none;
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
 <header>
+  <div class="navbar">
 
-<div class="container navbar">
+    <a href="#home" class="logo">
+      <span class="grow">Grow</span>
+      <span class="up">Up</span>
+      <span class="communication"> Communication</span>
+    </a>
 
-<a href="#home" class="logo" id="companyLogo">
-<span class="grow">Grow</span>
-<span class="up"> Up</span>
-<span class="communication"> Communication</span>
-</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-<button
-class="mobile-menu"
-id="mobileMenu"
-type="button"
->
-☰
-</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" onclick="closeMenu()" id="navHome">HOME</a>
+      <a href="#packages" onclick="closeMenu()" id="navPackages">PACKAGES</a>
+      <a href="#features" onclick="closeMenu()" id="navFeatures">FEATURES</a>
+      <a href="#coverage" onclick="closeMenu()" id="navCoverage">COVERAGE</a>
+      <a href="#contact" onclick="closeMenu()" id="navContact">CONTACT</a>
+    </nav>
 
-<nav class="nav-links" id="navLinks">
-
-<a href="#home" data-key="navHome">
-HOME
-</a>
-
-<a href="#packages" data-key="navPackages">
-PACKAGES
-</a>
-
-<a href="#features" data-key="navFeatures">
-FEATURES
-</a>
-
-<a href="#coverage" data-key="navCoverage">
-COVERAGE
-</a>
-
-<a href="#contact" data-key="navContact">
-CONTACT
-</a>
-
-</nav>
-
-</div>
-
+  </div>
 </header>
 
 
@@ -982,370 +802,279 @@ CONTACT
 
 <section class="hero" id="home">
 
-<div class="container hero-grid">
+  <div class="container">
+
+    <div class="hero-grid">
+
+      <div>
+
+        <div class="hero-badge" id="heroSmall">
+          FAST • RELIABLE • UNLIMITED
+        </div>
+
+        <h1 id="heroTitle">
+          Experience Lightning Fast <span class="red">Internet</span>
+        </h1>
+
+        <p class="hero-description" id="heroDescription">
+          Grow Up Communication provides ultra-fast internet service
+          for gaming, streaming, office work and 24/7 online experience.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="#packages"
+            class="btn btn-primary"
+            id="heroButton">
+            GET STARTED
+          </a>
+
+          <a
+            href="#contact"
+            class="btn btn-secondary"
+            id="heroSecondaryButton">
+            CONTACT US
+          </a>
+
+        </div>
+
+      </div>
 
 
-<div>
+      <div class="hero-visual">
 
-<div class="hero-badge" id="heroSmall">
-FAST • RELIABLE • UNLIMITED
-</div>
+        <div class="hero-image-frame">
 
+          <div class="hero-image-wrap">
 
-<h1 id="heroTitle">
-Experience Lightning
-<span class="red">Fast Internet</span>
-</h1>
+            <!-- Stable image -->
+            <img
+              id="heroImage"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85"
+              alt="High Speed Internet"
+              referrerpolicy="no-referrer"
+            >
 
+          </div>
 
-<p
-class="hero-description"
-id="heroDescription"
->
-Grow Up Communication provides ultra-fast internet service
-for gaming, streaming, office work and 24/7 online experience.
-</p>
+        </div>
 
 
-<div class="hero-buttons">
+        <div class="hero-floating-card">
 
-<a
-href="#packages"
-class="btn btn-primary"
-id="heroButton"
->
-GET STARTED
-</a>
+          <div class="small" id="heroCardText">
+            Ultra Fast Connection
+          </div>
 
-<a
-href="#contact"
-class="btn btn-secondary"
-id="heroSecondaryButton"
->
-CONTACT US
-</a>
+          <strong id="heroCardTitle">
+            High Speed Internet
+          </strong>
 
-</div>
+          <div class="online">
+            <span></span>
+            ONLINE & STABLE
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-<!-- ================= IMAGE ================= -->
+    </div>
 
-<div class="hero-image-wrap">
-
-<img
-id="heroImage"
-class="hero-image"
-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbNb7gMiF0Y01LpalN7kW0jAyGC99y9QKdXDErZZP06Q&s=10"
-alt="Grow Up Communication"
-loading="eager"
-fetchpriority="high"
-referrerpolicy="no-referrer"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop';"
->
-
-
-<div class="hero-floating-card">
-
-<strong id="heroCardTitle">
-High Speed Internet
-</strong>
-
-<span id="heroCardText">
-Fast, stable and reliable connection
-</span>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- ================= PACKAGES ================= -->
 
-<section class="section" id="packages">
+<section class="packages" id="packages">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div
-class="section-label"
-id="packageSectionLabel"
->
-INTERNET PACKAGES
-</div>
+      <span class="label" id="packageSectionLabel">
+        INTERNET PACKAGES
+      </span>
 
-<h2
-class="section-title"
-id="packageSectionTitle"
->
-Choose Your Perfect Plan
-</h2>
+      <h2 id="packageSectionTitle">
+        Choose Your Perfect Plan
+      </h2>
 
-<p
-class="section-text"
-id="packageSectionText"
->
-High-speed internet packages designed for home,
-gaming, streaming and office use.
-</p>
+      <p id="packageSectionText">
+        Select the internet package that fits your daily needs.
+      </p>
 
-</div>
+    </div>
 
-<div
-class="package-grid"
-id="packageGrid"
->
-</div>
+    <div class="package-grid" id="packageGrid"></div>
 
-</div>
+  </div>
 
 </section>
 
 
 <!-- ================= FEATURES ================= -->
 
-<section
-class="section section-light"
-id="features"
->
+<section id="features">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div
-class="section-label"
-id="featureSectionLabel"
->
-WHY CHOOSE US
-</div>
+      <span class="label" id="featureSectionLabel">
+        WHY CHOOSE US
+      </span>
 
-<h2
-class="section-title"
-id="featureSectionTitle"
->
-Built For A Better Internet
-</h2>
+      <h2 id="featureSectionTitle">
+        Built For Your Online Life
+      </h2>
 
-<p
-class="section-text"
-id="featureSectionText"
->
-Enjoy fast speed, stable connectivity and professional
-customer support.
-</p>
+      <p id="featureSectionText">
+        Fast, stable and reliable internet with professional support.
+      </p>
 
-</div>
+    </div>
 
-<div
-class="feature-grid"
-id="featureGrid"
->
-</div>
+    <div class="feature-grid" id="featureGrid"></div>
 
-</div>
+  </div>
 
 </section>
 
 
 <!-- ================= SERVERS ================= -->
 
-<section
-class="section server-section"
-id="servers"
->
+<section class="servers">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div
-class="section-label"
-id="serverSectionLabel"
->
-LOCAL SERVICES
-</div>
+      <span class="label" id="serverSectionLabel">
+        LOCAL SERVERS
+      </span>
 
-<h2
-class="section-title"
-id="serverSectionTitle"
->
-Fast Local Servers
-</h2>
+      <h2 id="serverSectionTitle">
+        Fast Access Servers
+      </h2>
 
-<p
-class="section-text"
-id="serverSectionText"
->
-Access popular local and online services through
-your internet connection.
-</p>
+      <p id="serverSectionText">
+        Access supported local and online services quickly.
+      </p>
 
-</div>
+    </div>
 
-<div
-class="server-grid"
-id="serverGrid"
->
-</div>
+    <div class="server-grid" id="serverGrid"></div>
 
-</div>
+  </div>
 
 </section>
 
 
 <!-- ================= COVERAGE ================= -->
 
-<section
-class="section"
-id="coverage"
->
+<section class="coverage" id="coverage">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div
-class="section-label"
-id="coverageSectionLabel"
->
-OUR COVERAGE
-</div>
+      <span class="label" id="coverageSectionLabel">
+        COVERAGE AREA
+      </span>
 
-<h2
-class="section-title"
-id="coverageSectionTitle"
->
-Available In Your Area
-</h2>
+      <h2 id="coverageSectionTitle">
+        Available In Your Area
+      </h2>
 
-<p
-class="section-text"
-id="coverageSectionText"
->
-Check our available internet service areas.
-</p>
+      <p id="coverageSectionText">
+        Check our available service locations.
+      </p>
 
-</div>
+    </div>
 
-<div
-class="coverage-grid"
-id="coverageGrid"
->
-</div>
+    <div class="area-grid" id="areaGrid"></div>
 
-</div>
+  </div>
 
 </section>
 
 
 <!-- ================= CONTACT ================= -->
 
-<section
-class="section contact-section"
-id="contact"
->
+<section id="contact">
 
-<div class="container">
+  <div class="container">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div
-class="section-label"
-id="contactSectionLabel"
->
-CONTACT US
-</div>
+      <span class="label" id="contactSectionLabel">
+        CONTACT US
+      </span>
 
-<h2
-class="section-title"
-id="contactSectionTitle"
->
-Let's Get You Connected
-</h2>
+      <h2 id="contactSectionTitle">
+        Let's Stay Connected
+      </h2>
 
-<p
-class="section-text"
-id="contactSectionText"
->
-Contact us for new connection, package information
-or technical support.
-</p>
+      <p id="contactSectionText">
+        Contact our team for connection, package and support information.
+      </p>
 
-</div>
+    </div>
 
 
-<div class="contact-grid">
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <div class="contact-icon">📞</div>
+
+        <h3 id="contactPhoneLabel">
+          PHONE
+        </h3>
+
+        <a id="phoneLink" href="tel:+8801826705233">
+          <span id="phone">+880 1826-705233</span>
+        </a>
+
+      </div>
 
 
-<a
-class="contact-card"
-id="phoneCard"
-href="#"
->
+      <div class="contact-card">
 
-<div class="contact-icon">
-📞
-</div>
+        <div class="contact-icon">✉️</div>
 
-<small id="contactPhoneLabel">
-PHONE
-</small>
+        <h3 id="contactEmailLabel">
+          EMAIL
+        </h3>
 
-<strong id="phone">
-+880 1826-705233
-</strong>
+        <a id="emailLink" href="mailto:rahiyanemon33@gmail.com">
+          <span id="email">rahiyanemon33@gmail.com</span>
+        </a>
 
-</a>
+      </div>
 
 
-<a
-class="contact-card"
-id="emailCard"
-href="#"
->
+      <div class="contact-card">
 
-<div class="contact-icon">
-✉️
-</div>
+        <div class="contact-icon">📍</div>
 
-<small id="contactEmailLabel">
-EMAIL
-</small>
+        <h3 id="contactAddressLabel">
+          ADDRESS
+        </h3>
 
-<strong id="email">
-rahiyanemon33@gmail.com
-</strong>
+        <p id="address">
+          Chittagong, Bangladesh
+        </p>
 
-</a>
+      </div>
 
+    </div>
 
-<div class="contact-card">
-
-<div class="contact-icon">
-📍
-</div>
-
-<small id="contactAddressLabel">
-ADDRESS
-</small>
-
-<strong id="address">
-Chittagong, Bangladesh
-</strong>
-
-</div>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -1353,222 +1082,90 @@ Chittagong, Bangladesh
 <!-- ================= FOOTER ================= -->
 
 <footer>
-
-<div id="footer">
-© 2026 Grow Up Communication. All Rights Reserved.
-</div>
-
+  <p id="footer">
+    © 2026 Grow Up Communication. All Rights Reserved.
+  </p>
 </footer>
 
 
 <script>
 
 /* =====================================================
-   CORRECT GOOGLE APPS SCRIPT URL
+   GOOGLE APPS SCRIPT API
 ===================================================== */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbwsrBm8cD4yYOTyuJkW8YHrJj0yBnobPHOdVaE6jWn0mEi0Hh8rg8buOZBWKn-Lq362/exec";
 
+const CACHE_KEY = "growUpWebsiteData";
+
 
 /* =====================================================
-   IMAGE URL
+   DEFAULT HERO IMAGE
 ===================================================== */
 
 const DEFAULT_HERO_IMAGE =
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbNb7gMiF0Y01LpalN7kW0jAyGC99y9QKdXDErZZP06Q&s=10";
-
+"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85";
 
 const FALLBACK_HERO_IMAGE =
-"https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?q=80&w=1200&auto=format&fit=crop";
+"https://images.unsplash.com/photo-1544197150-b99a580bb7a8a8?auto=format&fit=crop&w=1400&q=85";
 
 
 /* =====================================================
-   DEFAULT DATA
-===================================================== */
-
-const DEFAULT_DATA = {
-
-companyName:"Grow Up Communication",
-
-heroSmall:"FAST • RELIABLE • UNLIMITED",
-
-heroTitle:"Experience Lightning Fast Internet",
-
-heroDescription:
-"Grow Up Communication provides ultra-fast internet service for gaming, streaming, office work and 24/7 online experience.",
-
-heroButton:"GET STARTED",
-
-heroSecondaryButton:"CONTACT US",
-
-heroImage:DEFAULT_HERO_IMAGE,
-
-heroCardTitle:"High Speed Internet",
-
-heroCardText:"Fast, stable and reliable connection",
-
-navHome:"HOME",
-navPackages:"PACKAGES",
-navFeatures:"FEATURES",
-navCoverage:"COVERAGE",
-navContact:"CONTACT",
-
-packageSectionLabel:"INTERNET PACKAGES",
-packageSectionTitle:"Choose Your Perfect Plan",
-packageSectionText:
-"High-speed internet packages designed for home, gaming, streaming and office use.",
-
-featureSectionLabel:"WHY CHOOSE US",
-featureSectionTitle:"Built For A Better Internet",
-featureSectionText:
-"Enjoy fast speed, stable connectivity and professional customer support.",
-
-serverSectionLabel:"LOCAL SERVICES",
-serverSectionTitle:"Fast Local Servers",
-serverSectionText:
-"Access popular local and online services through your internet connection.",
-
-coverageSectionLabel:"OUR COVERAGE",
-coverageSectionTitle:"Available In Your Area",
-coverageSectionText:
-"Check our available internet service areas.",
-
-contactSectionLabel:"CONTACT US",
-contactSectionTitle:"Let's Get You Connected",
-contactSectionText:
-"Contact us for new connection, package information or technical support.",
-
-serverOnlineText:"ONLINE",
-serverOpenText:"OPEN",
-
-contactPhoneLabel:"PHONE",
-contactEmailLabel:"EMAIL",
-contactAddressLabel:"ADDRESS",
-
-phone:"+880 1826-705233",
-email:"rahiyanemon33@gmail.com",
-address:"Chittagong, Bangladesh",
-
-footer:"© 2026 Grow Up Communication. All Rights Reserved.",
-
-feature1Icon:"⚡",
-feature1Title:"Fast Internet",
-feature1Text:
-"Enjoy super fast internet speed for gaming and streaming.",
-
-feature2Icon:"🌐",
-feature2Title:"Fiber Connection",
-feature2Text:
-"Stable fiber optic internet with ultra-low latency.",
-
-feature3Icon:"🔒",
-feature3Title:"Dedicated Bandwidth",
-feature3Text:
-"Smooth browsing and uninterrupted connection.",
-
-feature4Icon:"🛠",
-feature4Title:"24/7 Support",
-feature4Text:
-"Our support team is always ready to help you.",
-
-package1Speed:"20 Mbps",
-package1Price:"500৳",
-package1Tag:"BASIC",
-package1Item1:"Unlimited Internet",
-package1Item2:"Youtube & Facebook",
-package1Item3:"24/7 Support",
-
-package2Speed:"30 Mbps",
-package2Price:"700৳",
-package2Tag:"POPULAR",
-package2Item1:"Unlimited Internet",
-package2Item2:"Gaming Support",
-package2Item3:"24/7 Support",
-
-package3Speed:"40 Mbps",
-package3Price:"1000৳",
-package3Tag:"FAST",
-package3Item1:"Unlimited Internet",
-package3Item2:"Streaming Support",
-package3Item3:"24/7 Support",
-
-package4Speed:"50 Mbps",
-package4Price:"1500৳",
-package4Tag:"PREMIUM",
-package4Item1:"Unlimited Internet",
-package4Item2:"4K Streaming",
-package4Item3:"Priority Support"
-
-};
-
-
-/* =====================================================
-   STATE
-===================================================== */
-
-let websiteData = {
-  ...DEFAULT_DATA
-};
-
-let currentHeroImage = "";
-
-
-/* =====================================================
-   SAFE VALUE
-===================================================== */
-
-function safeValue(value){
-
-if(
-value === null ||
-value === undefined
-){
-return "";
-}
-
-return String(value);
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
+   SAFE TEXT
 ===================================================== */
 
 function escapeHTML(value){
 
-return safeValue(value)
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+function toggleMenu(){
+
+  document
+    .getElementById("navLinks")
+    .classList.toggle("open");
+
+}
+
+
+function closeMenu(){
+
+  document
+    .getElementById("navLinks")
+    .classList.remove("open");
 
 }
 
 
 /* =====================================================
-   URL CHECK
+   GET VALUE
 ===================================================== */
 
-function validURL(url){
+function getValue(data,key,defaultValue=""){
 
-try{
+  if(
+    data &&
+    data[key] !== undefined &&
+    data[key] !== null &&
+    String(data[key]).trim() !== ""
+  ){
 
-const u = new URL(url);
+    return String(data[key]);
 
-return(
-u.protocol === "http:" ||
-u.protocol === "https:"
-);
+  }
 
-}catch(e){
-
-return false;
-
-}
-
+  return defaultValue;
 }
 
 
@@ -1576,285 +1173,34 @@ return false;
    VISIBILITY
 ===================================================== */
 
-function isVisible(value){
-
-if(
-value === false ||
-value === null ||
-value === undefined
-){
-return false;
-}
-
-const text =
-safeValue(value)
-.trim()
-.toLowerCase();
-
-return ![
-"false",
-"0",
-"no",
-"hide",
-"hidden",
-"off"
-].includes(text);
-
-}
-
-
-/* =====================================================
-   ITEM VISIBILITY
-===================================================== */
-
-function itemIsVisible(
-data,
-visibilityKey,
-contentKeys
-){
-
-if(
-Object.prototype.hasOwnProperty.call(
-data,
-visibilityKey
-)
-){
-
-return isVisible(
-data[visibilityKey]
-);
-
-}
-
-return contentKeys.some(
-key =>
-safeValue(data[key]).trim() !== ""
-);
-
-}
-
-
-/* =====================================================
-   APPLY GENERAL DATA
-===================================================== */
-
-function applyGeneralData(){
-
-const d = websiteData;
-
-
-/* TITLE */
-
-document.title =
-safeValue(
-d.companyName ||
-"Grow Up Communication"
-);
-
-
-/* TEXT FIELDS */
-
-const keys = [
-
-"heroSmall",
-"heroDescription",
-"heroButton",
-"heroSecondaryButton",
-
-"heroCardTitle",
-"heroCardText",
-
-"navHome",
-"navPackages",
-"navFeatures",
-"navCoverage",
-"navContact",
-
-"packageSectionLabel",
-"packageSectionTitle",
-"packageSectionText",
-
-"featureSectionLabel",
-"featureSectionTitle",
-"featureSectionText",
-
-"serverSectionLabel",
-"serverSectionTitle",
-"serverSectionText",
-
-"coverageSectionLabel",
-"coverageSectionTitle",
-"coverageSectionText",
-
-"contactSectionLabel",
-"contactSectionTitle",
-"contactSectionText",
-
-"contactPhoneLabel",
-"contactEmailLabel",
-"contactAddressLabel",
-
-"phone",
-"email",
-"address",
-"footer"
-
-];
-
-
-keys.forEach(
-function(key){
-
-const el =
-document.getElementById(key);
-
-if(el){
-
-el.textContent =
-safeValue(d[key]);
-
-}
-
-}
-);
-
-
-/* HERO TITLE */
-
-const heroTitle =
-safeValue(d.heroTitle).trim();
-
-const heroTitleEl =
-document.getElementById(
-"heroTitle"
-);
-
-if(heroTitleEl){
-
-const words =
-heroTitle.split(/\s+/);
-
-if(words.length > 1){
-
-const last =
-words.pop();
-
-heroTitleEl.innerHTML =
-escapeHTML(
-words.join(" ")
-) +
-" <span class='red'>" +
-escapeHTML(last) +
-"</span>";
-
-}else{
-
-heroTitleEl.textContent =
-heroTitle;
-
-}
-
-}
-
-
-/* COMPANY LOGO */
-
-const logo =
-document.getElementById(
-"companyLogo"
-);
-
-if(logo){
-
-const company =
-safeValue(
-d.companyName
-).trim();
-
-if(company){
-
-const words =
-company.split(/\s+/);
-
-if(words.length >= 2){
-
-let html =
-"<span class='grow'>" +
-escapeHTML(words[0]) +
-"</span> ";
-
-html +=
-"<span class='up'>" +
-escapeHTML(words[1]) +
-"</span>";
-
-if(words.length > 2){
-
-html +=
-" <span class='communication'>" +
-escapeHTML(
-words.slice(2).join(" ")
-) +
-"</span>";
-
-}
-
-logo.innerHTML = html;
-
-}else{
-
-logo.innerHTML =
-"<span class='grow'>" +
-escapeHTML(company) +
-"</span>";
-
-}
-
-}
-
-}
-
-
-/* PHONE LINK */
-
-const phone =
-safeValue(d.phone).trim();
-
-const phoneCard =
-document.getElementById(
-"phoneCard"
-);
-
-if(phoneCard){
-
-phoneCard.href =
-phone
-? "tel:" +
-phone.replace(/[^\d+]/g,"")
-: "#";
-
-}
-
-
-/* EMAIL LINK */
-
-const email =
-safeValue(d.email).trim();
-
-const emailCard =
-document.getElementById(
-"emailCard"
-);
-
-if(emailCard){
-
-emailCard.href =
-email
-? "mailto:" + email
-: "#";
-
-}
-
+function isVisible(data,key,prefix){
+
+  const explicitKey = prefix + "Visible";
+
+  if(
+    data &&
+    data[explicitKey] !== undefined &&
+    data[explicitKey] !== null &&
+    String(data[explicitKey]).trim() !== ""
+  ){
+
+    const value =
+      String(data[explicitKey])
+      .trim()
+      .toLowerCase();
+
+    return ![
+      "false",
+      "0",
+      "no",
+      "hide",
+      "hidden",
+      "off"
+    ].includes(value);
+
+  }
+
+  return true;
 }
 
 
@@ -1862,173 +1208,167 @@ email
    HERO IMAGE
 ===================================================== */
 
-function setHeroImage(url){
+function changeHeroImage(url){
 
-const image =
-document.getElementById(
-"heroImage"
-);
+  const img =
+    document.getElementById("heroImage");
 
-if(!image){
-return;
+  let imageUrl =
+    String(url || "").trim();
+
+  if(!imageUrl){
+    imageUrl = DEFAULT_HERO_IMAGE;
+  }
+
+  const preload = new Image();
+
+  preload.referrerPolicy = "no-referrer";
+
+  preload.onload = function(){
+
+    img.classList.remove("show");
+
+    setTimeout(function(){
+
+      img.src = imageUrl;
+
+      requestAnimationFrame(function(){
+
+        requestAnimationFrame(function(){
+          img.classList.add("show");
+        });
+
+      });
+
+    },180);
+
+  };
+
+  preload.onerror = function(){
+
+    if(imageUrl !== FALLBACK_HERO_IMAGE){
+
+      changeHeroImage(FALLBACK_HERO_IMAGE);
+
+    }else{
+
+      img.src = DEFAULT_HERO_IMAGE;
+      img.classList.add("show");
+
+    }
+
+  };
+
+  preload.src = imageUrl;
 }
 
 
-let value =
-safeValue(url).trim();
+/* =====================================================
+   RENDER HERO
+===================================================== */
 
+function renderHero(data){
 
-if(!value){
+  document.getElementById("heroSmall").textContent =
+    getValue(
+      data,
+      "heroSmall",
+      "FAST • RELIABLE • UNLIMITED"
+    );
 
-value =
-DEFAULT_HERO_IMAGE;
+  const title =
+    getValue(
+      data,
+      "heroTitle",
+      "Experience Lightning Fast Internet"
+    );
 
+  const titleParts =
+    title.trim().split(" ");
+
+  if(titleParts.length > 1){
+
+    const last =
+      escapeHTML(titleParts.pop());
+
+    document.getElementById("heroTitle").innerHTML =
+      escapeHTML(titleParts.join(" ")) +
+      " <span class='red'>" +
+      last +
+      "</span>";
+
+  }else{
+
+    document.getElementById("heroTitle").textContent =
+      title;
+
+  }
+
+  document.getElementById("heroDescription").textContent =
+    getValue(
+      data,
+      "heroDescription",
+      "Grow Up Communication provides ultra-fast internet service for gaming, streaming, office work and 24/7 online experience."
+    );
+
+  document.getElementById("heroButton").textContent =
+    getValue(
+      data,
+      "heroButton",
+      "GET STARTED"
+    );
+
+  document.getElementById("heroSecondaryButton").textContent =
+    getValue(
+      data,
+      "heroSecondaryButton",
+      "CONTACT US"
+    );
+
+  document.getElementById("heroCardTitle").textContent =
+    getValue(
+      data,
+      "heroCardTitle",
+      "High Speed Internet"
+    );
+
+  document.getElementById("heroCardText").textContent =
+    getValue(
+      data,
+      "heroCardText",
+      "Ultra Fast Connection"
+    );
+
+  changeHeroImage(
+    getValue(
+      data,
+      "heroImage",
+      DEFAULT_HERO_IMAGE
+    )
+  );
 }
 
 
-/*
-   Don't reload same image.
-*/
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-if(
-currentHeroImage === value &&
-image.classList.contains("show")
-){
+function renderNavigation(data){
 
-return;
+  document.getElementById("navHome").textContent =
+    getValue(data,"navHome","HOME");
 
-}
+  document.getElementById("navPackages").textContent =
+    getValue(data,"navPackages","PACKAGES");
 
+  document.getElementById("navFeatures").textContent =
+    getValue(data,"navFeatures","FEATURES");
 
-/*
-   Preload image first.
-*/
+  document.getElementById("navCoverage").textContent =
+    getValue(data,"navCoverage","COVERAGE");
 
-const preload =
-new Image();
-
-
-preload.referrerPolicy =
-"no-referrer";
-
-
-preload.onload =
-function(){
-
-/*
-   First image.
-*/
-
-if(!currentHeroImage){
-
-image.src =
-value;
-
-currentHeroImage =
-value;
-
-
-/*
-   Start smooth slide.
-*/
-
-requestAnimationFrame(
-function(){
-
-requestAnimationFrame(
-function(){
-
-image.classList.add(
-"show"
-);
-
-});
-
-});
-
-return;
-
-}
-
-
-/*
-   New image:
-   remove old image
-   then bring new image.
-*/
-
-image.classList.remove(
-"show"
-);
-
-
-setTimeout(
-function(){
-
-image.src =
-value;
-
-currentHeroImage =
-value;
-
-requestAnimationFrame(
-function(){
-
-requestAnimationFrame(
-function(){
-
-image.classList.add(
-"show"
-);
-
-});
-
-});
-
-},
-250
-);
-
-};
-
-
-preload.onerror =
-function(){
-
-/*
-   If Google image doesn't load,
-   use fallback.
-*/
-
-if(
-value !==
-FALLBACK_HERO_IMAGE
-){
-
-setHeroImage(
-FALLBACK_HERO_IMAGE
-);
-
-}else{
-
-image.src =
-FALLBACK_HERO_IMAGE;
-
-currentHeroImage =
-FALLBACK_HERO_IMAGE;
-
-image.classList.add(
-"show"
-);
-
-}
-
-};
-
-
-preload.src =
-value;
-
+  document.getElementById("navContact").textContent =
+    getValue(data,"navContact","CONTACT");
 }
 
 
@@ -2036,188 +1376,96 @@ value;
    PACKAGES
 ===================================================== */
 
-function renderPackages(){
+function renderPackages(data){
 
-const grid =
-document.getElementById(
-"packageGrid"
-);
+  const grid =
+    document.getElementById("packageGrid");
 
-if(!grid){
-return;
-}
+  grid.innerHTML = "";
 
-grid.innerHTML = "";
+  for(let i=1;i<=15;i++){
 
-let count = 0;
+    const prefix =
+      "package" + i;
 
+    const speed =
+      getValue(data,prefix+"Speed","");
 
-for(
-let i=1;
-i<=15;
-i++
-){
+    const price =
+      getValue(data,prefix+"Price","");
 
-const speed =
-safeValue(
-websiteData[
-"package"+i+"Speed"
-]
-).trim();
+    const tag =
+      getValue(
+        data,
+        prefix+"Tag",
+        i===1 ? "BASIC" :
+        i===2 ? "POPULAR" :
+        i===3 ? "FAST" :
+        i===4 ? "PREMIUM" :
+        "PACKAGE"
+      );
 
-const price =
-safeValue(
-websiteData[
-"package"+i+"Price"
-]
-).trim();
+    const item1 =
+      getValue(data,prefix+"Item1","");
 
-const tag =
-safeValue(
-websiteData[
-"package"+i+"Tag"
-]
-).trim();
+    const item2 =
+      getValue(data,prefix+"Item2","");
 
-const item1 =
-safeValue(
-websiteData[
-"package"+i+"Item1"
-]
-).trim();
+    const item3 =
+      getValue(data,prefix+"Item3","");
 
-const item2 =
-safeValue(
-websiteData[
-"package"+i+"Item2"
-]
-).trim();
+    const hasData =
+      speed ||
+      price ||
+      item1 ||
+      item2 ||
+      item3;
 
-const item3 =
-safeValue(
-websiteData[
-"package"+i+"Item3"
-]
-).trim();
+    if(!hasData) continue;
 
+    if(!isVisible(data,prefix,prefix)) continue;
 
-const visible =
-itemIsVisible(
-websiteData,
-"package"+i+"Visible",
-[
-"package"+i+"Speed",
-"package"+i+"Price",
-"package"+i+"Tag",
-"package"+i+"Item1",
-"package"+i+"Item2",
-"package"+i+"Item3"
-]
-);
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "package-card";
 
-if(!visible){
-continue;
-}
+    let items = "";
 
+    [item1,item2,item3].forEach(function(item){
 
-if(
-!speed &&
-!price &&
-!item1 &&
-!item2 &&
-!item3
-){
-continue;
-}
+      if(item){
 
+        items +=
+          "<li>" +
+          escapeHTML(item) +
+          "</li>";
 
-count++;
+      }
 
+    });
 
-const card =
-document.createElement("div");
+    card.innerHTML =
 
-card.className =
-"package-card";
+      "<span class='package-tag'>" +
+      escapeHTML(tag) +
+      "</span>" +
 
+      "<h3>" +
+      escapeHTML(speed) +
+      "</h3>" +
 
-card.innerHTML = `
+      "<div class='package-price'>" +
+      escapeHTML(price) +
+      "</div>" +
 
-${
-tag
-? `
-<div class="package-tag">
-${escapeHTML(tag)}
-</div>
-`
-: ""
-}
+      "<ul class='package-list'>" +
+      items +
+      "</ul>";
 
-<div class="package-speed">
-${escapeHTML(speed)}
-</div>
-
-<div class="package-price">
-${escapeHTML(price)}
-</div>
-
-<ul class="package-list">
-
-${
-item1
-? `
-<li>
-${escapeHTML(item1)}
-</li>
-`
-: ""
-}
-
-${
-item2
-? `
-<li>
-${escapeHTML(item2)}
-</li>
-`
-: ""
-}
-
-${
-item3
-? `
-<li>
-${escapeHTML(item3)}
-</li>
-`
-: ""
-}
-
-</ul>
-
-`;
-
-
-grid.appendChild(card);
-
-}
-
-
-const section =
-document.getElementById(
-"packages"
-);
-
-if(section){
-
-section.style.display =
-count
-? ""
-: "none";
-
-}
-
+    grid.appendChild(card);
+  }
 }
 
 
@@ -2225,118 +1473,53 @@ count
    FEATURES
 ===================================================== */
 
-function renderFeatures(){
+function renderFeatures(data){
 
-const grid =
-document.getElementById(
-"featureGrid"
-);
+  const grid =
+    document.getElementById("featureGrid");
 
-if(!grid){
-return;
-}
+  grid.innerHTML = "";
 
-grid.innerHTML = "";
+  for(let i=1;i<=4;i++){
 
-let count = 0;
+    const prefix =
+      "feature" + i;
 
+    const icon =
+      getValue(data,prefix+"Icon","⚡");
 
-for(
-let i=1;
-i<=4;
-i++
-){
+    const title =
+      getValue(data,prefix+"Title","");
 
-const icon =
-safeValue(
-websiteData[
-"feature"+i+"Icon"
-]
-).trim();
+    const text =
+      getValue(data,prefix+"Text","");
 
-const title =
-safeValue(
-websiteData[
-"feature"+i+"Title"
-]
-).trim();
+    if(!title && !text) continue;
 
-const text =
-safeValue(
-websiteData[
-"feature"+i+"Text"
-]
-).trim();
+    if(!isVisible(data,prefix,prefix)) continue;
 
+    const card =
+      document.createElement("div");
 
-const visible =
-itemIsVisible(
-websiteData,
-"feature"+i+"Visible",
-[
-"feature"+i+"Icon",
-"feature"+i+"Title",
-"feature"+i+"Text"
-]
-);
+    card.className =
+      "feature-card";
 
+    card.innerHTML =
 
-if(!visible){
-continue;
-}
+      "<div class='feature-icon'>" +
+      escapeHTML(icon) +
+      "</div>" +
 
+      "<h3>" +
+      escapeHTML(title) +
+      "</h3>" +
 
-if(!icon && !title && !text){
-continue;
-}
+      "<p>" +
+      escapeHTML(text) +
+      "</p>";
 
-
-count++;
-
-
-const card =
-document.createElement("div");
-
-card.className =
-"feature-card";
-
-
-card.innerHTML = `
-
-<div class="feature-icon">
-${escapeHTML(icon)}
-</div>
-
-<h3>
-${escapeHTML(title)}
-</h3>
-
-<p>
-${escapeHTML(text)}
-</p>
-
-`;
-
-
-grid.appendChild(card);
-
-}
-
-
-const section =
-document.getElementById(
-"features"
-);
-
-if(section){
-
-section.style.display =
-count
-? ""
-: "none";
-
-}
-
+    grid.appendChild(card);
+  }
 }
 
 
@@ -2344,139 +1527,87 @@ count
    SERVERS
 ===================================================== */
 
-function renderServers(){
+function renderServers(data){
 
-const grid =
-document.getElementById(
-"serverGrid"
-);
+  const grid =
+    document.getElementById("serverGrid");
 
-if(!grid){
-return;
-}
+  grid.innerHTML = "";
 
-grid.innerHTML = "";
+  for(let i=1;i<=15;i++){
 
-let count = 0;
+    const prefix =
+      "server" + i;
 
+    const name =
+      getValue(data,prefix+"Name","");
 
-for(
-let i=1;
-i<=15;
-i++
-){
+    const link =
+      getValue(data,prefix+"Link","");
 
-const name =
-safeValue(
-websiteData[
-"server"+i+"Name"
-]
-).trim();
+    if(!name && !link) continue;
 
-const link =
-safeValue(
-websiteData[
-"server"+i+"Link"
-]
-).trim();
+    if(!isVisible(data,prefix,prefix)) continue;
 
+    let safeLink = "#";
 
-const visible =
-itemIsVisible(
-websiteData,
-"server"+i+"Visible",
-[
-"server"+i+"Name",
-"server"+i+"Link"
-]
-);
+    try{
 
+      const url =
+        new URL(link);
 
-if(!visible){
-continue;
-}
+      if(
+        url.protocol === "http:" ||
+        url.protocol === "https:"
+      ){
+        safeLink = url.href;
+      }
 
+    }catch(e){}
 
-if(!name && !link){
-continue;
-}
+    const card =
+      document.createElement("div");
 
+    card.className =
+      "server-card";
 
-count++;
+    card.innerHTML =
 
+      "<div class='server-top'>" +
 
-const card =
-document.createElement("div");
+      "<h3>" +
+      escapeHTML(name || "SERVER") +
+      "</h3>" +
 
-card.className =
-"server-card";
+      "<span class='server-status'>" +
+      escapeHTML(
+        getValue(
+          data,
+          "serverOnlineText",
+          "ONLINE"
+        )
+      ) +
+      "</span>" +
 
+      "</div>" +
 
-let button = "";
+      "<a class='server-open' " +
+      "href='" +
+      escapeHTML(safeLink) +
+      "' target='_blank' rel='noopener'>" +
 
+      escapeHTML(
+        getValue(
+          data,
+          "serverOpenText",
+          "OPEN"
+        )
+      ) +
 
-if(validURL(link)){
+      "</a>";
 
-button = `
-
-<a
-class="server-open"
-href="${escapeHTML(link)}"
-target="_blank"
-rel="noopener noreferrer"
->
-${escapeHTML(
-websiteData.serverOpenText ||
-"OPEN"
-)}
-</a>
-
-`;
-
-}
-
-
-card.innerHTML = `
-
-<div>
-
-<div class="server-name">
-${escapeHTML(name)}
-</div>
-
-<div class="server-status">
-${escapeHTML(
-websiteData.serverOnlineText ||
-"ONLINE"
-)}
-</div>
-
-</div>
-
-${button}
-
-`;
-
-
-grid.appendChild(card);
-
-}
-
-
-const section =
-document.getElementById(
-"servers"
-);
-
-if(section){
-
-section.style.display =
-count
-? ""
-: "none";
-
-}
-
+    grid.appendChild(card);
+  }
 }
 
 
@@ -2484,162 +1615,325 @@ count
    AREAS
 ===================================================== */
 
-function renderAreas(){
+function renderAreas(data){
 
-const grid =
-document.getElementById(
-"coverageGrid"
-);
+  const grid =
+    document.getElementById("areaGrid");
 
-if(!grid){
-return;
-}
+  grid.innerHTML = "";
 
-grid.innerHTML = "";
+  for(let i=1;i<=15;i++){
 
-let count = 0;
+    const prefix =
+      "area" + i;
 
+    const area =
+      getValue(data,prefix,"");
 
-for(
-let i=1;
-i<=15;
-i++
-){
+    if(!area) continue;
 
-const area =
-safeValue(
-websiteData[
-"area"+i
-]
-).trim();
+    if(!isVisible(data,prefix,prefix)) continue;
 
+    const card =
+      document.createElement("div");
 
-const visible =
-itemIsVisible(
-websiteData,
-"area"+i+"Visible",
-[
-"area"+i
-]
-);
+    card.className =
+      "area-card";
 
+    card.textContent =
+      area;
 
-if(
-!visible ||
-!area
-){
-continue;
-}
-
-
-count++;
-
-
-const card =
-document.createElement("div");
-
-card.className =
-"area-card";
-
-card.textContent =
-area;
-
-
-grid.appendChild(card);
-
-}
-
-
-const section =
-document.getElementById(
-"coverage"
-);
-
-if(section){
-
-section.style.display =
-count
-? ""
-: "none";
-
-}
-
+    grid.appendChild(card);
+  }
 }
 
 
 /* =====================================================
-   RENDER EVERYTHING
+   SECTION TEXT
 ===================================================== */
 
-function renderWebsite(){
+function renderSections(data){
 
-applyGeneralData();
+  document.getElementById("packageSectionLabel").textContent =
+    getValue(
+      data,
+      "packageSectionLabel",
+      "INTERNET PACKAGES"
+    );
 
-renderPackages();
+  document.getElementById("packageSectionTitle").textContent =
+    getValue(
+      data,
+      "packageSectionTitle",
+      "Choose Your Perfect Plan"
+    );
 
-renderFeatures();
+  document.getElementById("packageSectionText").textContent =
+    getValue(
+      data,
+      "packageSectionText",
+      "Select the internet package that fits your daily needs."
+    );
 
-renderServers();
 
-renderAreas();
+  document.getElementById("featureSectionLabel").textContent =
+    getValue(
+      data,
+      "featureSectionLabel",
+      "WHY CHOOSE US"
+    );
 
-setHeroImage(
-websiteData.heroImage ||
-DEFAULT_HERO_IMAGE
-);
+  document.getElementById("featureSectionTitle").textContent =
+    getValue(
+      data,
+      "featureSectionTitle",
+      "Built For Your Online Life"
+    );
 
+  document.getElementById("featureSectionText").textContent =
+    getValue(
+      data,
+      "featureSectionText",
+      "Fast, stable and reliable internet with professional support."
+    );
+
+
+  document.getElementById("serverSectionLabel").textContent =
+    getValue(
+      data,
+      "serverSectionLabel",
+      "LOCAL SERVERS"
+    );
+
+  document.getElementById("serverSectionTitle").textContent =
+    getValue(
+      data,
+      "serverSectionTitle",
+      "Fast Access Servers"
+    );
+
+  document.getElementById("serverSectionText").textContent =
+    getValue(
+      data,
+      "serverSectionText",
+      "Access supported local and online services quickly."
+    );
+
+
+  document.getElementById("coverageSectionLabel").textContent =
+    getValue(
+      data,
+      "coverageSectionLabel",
+      "COVERAGE AREA"
+    );
+
+  document.getElementById("coverageSectionTitle").textContent =
+    getValue(
+      data,
+      "coverageSectionTitle",
+      "Available In Your Area"
+    );
+
+  document.getElementById("coverageSectionText").textContent =
+    getValue(
+      data,
+      "coverageSectionText",
+      "Check our available service locations."
+    );
+
+
+  document.getElementById("contactSectionLabel").textContent =
+    getValue(
+      data,
+      "contactSectionLabel",
+      "CONTACT US"
+    );
+
+  document.getElementById("contactSectionTitle").textContent =
+    getValue(
+      data,
+      "contactSectionTitle",
+      "Let's Stay Connected"
+    );
+
+  document.getElementById("contactSectionText").textContent =
+    getValue(
+      data,
+      "contactSectionText",
+      "Contact our team for connection, package and support information."
+    );
 }
 
 
 /* =====================================================
-   CACHE
+   CONTACT
 ===================================================== */
 
-const CACHE_KEY =
-"growUpWebsiteData";
+function renderContact(data){
 
+  const phone =
+    getValue(
+      data,
+      "phone",
+      "+880 1826-705233"
+    );
+
+  const email =
+    getValue(
+      data,
+      "email",
+      "rahiyanemon33@gmail.com"
+    );
+
+  const address =
+    getValue(
+      data,
+      "address",
+      "Chittagong, Bangladesh"
+    );
+
+  document.getElementById("phone").textContent =
+    phone;
+
+  document.getElementById("phoneLink").href =
+    "tel:" + phone.replace(/[^\d+]/g,"");
+
+  document.getElementById("email").textContent =
+    email;
+
+  document.getElementById("emailLink").href =
+    "mailto:" + email;
+
+  document.getElementById("address").textContent =
+    address;
+
+  document.getElementById("contactPhoneLabel").textContent =
+    getValue(
+      data,
+      "contactPhoneLabel",
+      "PHONE"
+    );
+
+  document.getElementById("contactEmailLabel").textContent =
+    getValue(
+      data,
+      "contactEmailLabel",
+      "EMAIL"
+    );
+
+  document.getElementById("contactAddressLabel").textContent =
+    getValue(
+      data,
+      "contactAddressLabel",
+      "ADDRESS"
+    );
+
+  document.getElementById("footer").textContent =
+    getValue(
+      data,
+      "footer",
+      "© 2026 Grow Up Communication. All Rights Reserved."
+    );
+}
+
+
+/* =====================================================
+   COMPANY NAME
+===================================================== */
+
+function renderCompany(data){
+
+  const company =
+    getValue(
+      data,
+      "companyName",
+      "Grow Up Communication"
+    );
+
+  document.title =
+    company;
+
+  const logo =
+    document.querySelector(".logo");
+
+  logo.innerHTML =
+    "<span class='grow'>" +
+    escapeHTML(company.split(" ")[0] || "Grow") +
+    "</span> " +
+
+    "<span class='up'>" +
+    escapeHTML(company.split(" ")[1] || "Up") +
+    "</span> " +
+
+    "<span class='communication'>" +
+    escapeHTML(
+      company
+        .split(" ")
+        .slice(2)
+        .join(" ") ||
+      "Communication"
+    ) +
+    "</span>";
+}
+
+
+/* =====================================================
+   RENDER ALL
+===================================================== */
+
+function renderWebsite(data){
+
+  if(!data) return;
+
+  renderCompany(data);
+  renderNavigation(data);
+  renderHero(data);
+  renderSections(data);
+  renderPackages(data);
+  renderFeatures(data);
+  renderServers(data);
+  renderAreas(data);
+  renderContact(data);
+}
+
+
+/* =====================================================
+   LOAD CACHE
+===================================================== */
 
 function loadCache(){
 
-try{
+  try{
 
-const cached =
-localStorage.getItem(
-CACHE_KEY
-);
+    const cached =
+      localStorage.getItem(CACHE_KEY);
 
-if(!cached){
-return;
-}
+    if(!cached) return null;
 
+    const data =
+      JSON.parse(cached);
 
-const data =
-JSON.parse(cached);
+    if(
+      data &&
+      typeof data === "object"
+    ){
 
+      renderWebsite(data);
 
-if(
-data &&
-typeof data === "object"
-){
+      return data;
 
-websiteData = {
-...DEFAULT_DATA,
-...data
-};
+    }
 
-renderWebsite();
+  }catch(error){
 
-}
+    console.log(
+      "Cache error:",
+      error
+    );
 
-}catch(error){
+  }
 
-console.log(
-"Cache error:",
-error
-);
-
-}
-
+  return null;
 }
 
 
@@ -2649,193 +1943,90 @@ error
 
 async function loadWebsite(){
 
-/*
-   Cache first
-*/
+  /* first load cached data */
+  loadCache();
 
-loadCache();
+  try{
 
+    const response =
+      await fetch(
+        API_URL +
+        "?t=" +
+        Date.now(),
+        {
+          method:"GET",
+          cache:"no-store"
+        }
+      );
 
-try{
+    if(!response.ok){
 
-const response =
-await fetch(
-API_URL +
-"?t=" +
-Date.now(),
-{
-method:"GET",
-cache:"no-store"
+      throw new Error(
+        "Network error"
+      );
+
+    }
+
+    const result =
+      await response.json();
+
+    if(
+      result &&
+      result.success &&
+      result.data
+    ){
+
+      localStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify(result.data)
+      );
+
+      renderWebsite(
+        result.data
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Website API error:",
+      error
+    );
+
+  }
 }
-);
-
-
-if(!response.ok){
-
-throw new Error(
-"HTTP " +
-response.status
-);
-
-}
-
-
-const result =
-await response.json();
-
-
-if(
-!result ||
-result.success !== true
-){
-
-throw new Error(
-result &&
-result.message
-? result.message
-: "API error"
-);
-
-}
-
-
-websiteData = {
-...DEFAULT_DATA,
-...(result.data || {})
-};
-
-
-/*
-   Save cache
-*/
-
-try{
-
-localStorage.setItem(
-CACHE_KEY,
-JSON.stringify(
-result.data || {}
-)
-);
-
-}catch(e){
-
-console.log(
-"Cache save error:",
-e
-);
-
-}
-
-
-/*
-   Render updated website
-*/
-
-renderWebsite();
-
-
-}catch(error){
-
-console.log(
-"Google Sheet loading error:",
-error
-);
-
-
-/*
-   If API fails,
-   default/cached website remains visible.
-*/
-
-}
-
-}
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-const mobileMenu =
-document.getElementById(
-"mobileMenu"
-);
-
-const navLinks =
-document.getElementById(
-"navLinks"
-);
-
-
-mobileMenu.addEventListener(
-"click",
-function(){
-
-navLinks.classList.toggle(
-"active"
-);
-
-}
-);
-
-
-document
-.querySelectorAll(
-".nav-links a"
-)
-.forEach(
-function(link){
-
-link.addEventListener(
-"click",
-function(){
-
-navLinks.classList.remove(
-"active"
-);
-
-}
-);
-
-}
-);
 
 
 /* =====================================================
    START
 ===================================================== */
 
-/*
-   Set image immediately from the exact
-   URL supplied by you.
-*/
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
 
-const heroImage =
-document.getElementById(
-"heroImage"
+    /* Show image immediately */
+    const heroImage =
+      document.getElementById("heroImage");
+
+    heroImage.onload =
+      function(){
+
+        heroImage.classList.add("show");
+
+      };
+
+    if(heroImage.complete){
+
+      heroImage.classList.add("show");
+
+    }
+
+    loadWebsite();
+
+  }
 );
-
-if(heroImage){
-
-heroImage.src =
-DEFAULT_HERO_IMAGE;
-
-}
-
-
-/*
-   Render default content immediately.
-*/
-
-renderWebsite();
-
-
-/*
-   Then load Google Sheet data.
-*/
-
-loadWebsite();
 
 </script>
 
