@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Grow Up Communication</title>
 
- <link
-  rel="icon"
-  href="blob:https://chatgpt.com/9c81f854-f4cd-4800-bfe6-02f5cefd8931"
+<link
+ rel="icon"
+ href="https://cdn-icons-png.flaticon.com/128/16470/16470836.png"
 >
+
 <style>
 
 *{
@@ -26,8 +28,6 @@ body{
     background:#f5f5f5;
     color:#222;
 }
-
-/* HEADER */
 
 header{
     width:100%;
@@ -63,8 +63,6 @@ nav a{
 nav a:hover{
     color:red;
 }
-
-/* HERO */
 
 .hero{
     width:100%;
@@ -132,37 +130,27 @@ nav a:hover{
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* ANIMATION */
-
 @keyframes leftMove{
-
     from{
         opacity:0;
         transform:translateX(-120px);
     }
-
     to{
         opacity:1;
         transform:translateX(0);
     }
-
 }
 
 @keyframes rightMove{
-
     from{
         opacity:0;
         transform:translateX(120px);
     }
-
     to{
         opacity:1;
         transform:translateX(0);
     }
-
 }
-
-/* TITLE */
 
 .section-title{
     text-align:center;
@@ -177,8 +165,6 @@ nav a:hover{
 .section-title p{
     color:#777;
 }
-
-/* PACKAGE */
 
 .packages{
     padding:100px 8%;
@@ -260,8 +246,6 @@ nav a:hover{
     background:#111;
 }
 
-/* FEATURES */
-
 .features{
     padding:100px 8%;
     background:#eef2f5;
@@ -300,8 +284,6 @@ nav a:hover{
     color:red;
 }
 
-/* SERVER */
-
 .server{
     padding:100px 8%;
     background:#fff;
@@ -330,8 +312,6 @@ nav a:hover{
     color:#fff;
 }
 
-/* COVERAGE */
-
 .coverage{
     padding:100px 8%;
     background:#eef2f5;
@@ -359,8 +339,6 @@ nav a:hover{
     border-color:red;
 }
 
-/* CONTACT */
-
 .contact{
     padding:100px 8%;
     background:#fff;
@@ -383,8 +361,6 @@ nav a:hover{
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
-/* FOOTER */
-
 footer{
     background:#111827;
     color:#fff;
@@ -392,7 +368,11 @@ footer{
     padding:25px;
 }
 
-/* RESPONSIVE */
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#777;
+}
 
 @media(max-width:900px){
 
@@ -425,11 +405,9 @@ footer{
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-<div class="logo">
+<div class="logo" id="companyName">
 Grow <span>Up</span>
 </div>
 
@@ -443,38 +421,40 @@ Grow <span>Up</span>
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-text">
 
-<h4>FAST • RELIABLE • UNLIMITED</h4>
+<h4 id="heroSmall">FAST • RELIABLE • UNLIMITED</h4>
 
-<h1>
+<h1 id="heroTitle">
 Experience Lightning <br>
 Fast <span>Internet</span>
 </h1>
 
-<p>
+<p id="heroDescription">
 Grow Up Communication provides ultra-fast internet
 service for gaming, streaming, office work and
 24/7 online experience.
 </p>
 
-<a href="#" class="hero-btn">GET STARTED</a>
+<a href="#packages" class="hero-btn" id="heroButton">
+GET STARTED
+</a>
 
 </div>
 
 <div class="hero-image">
 
-<img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop" alt="Internet">
+<img
+id="heroImage"
+src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop"
+alt="Internet"
+>
 
 </div>
 
 </section>
-
-<!-- PACKAGES -->
 
 <section class="packages" id="packages">
 
@@ -487,65 +467,63 @@ service for gaming, streaming, office work and
 
 <div class="card">
 <div class="card-top red">
-<h3>20 Mbps</h3>
-<h1>500৳</h1>
+<h3 id="package1Speed">20 Mbps</h3>
+<h1 id="package1Price">500৳</h1>
 </div>
 
 <div class="card-body">
-<p>Unlimited Internet</p>
-<p>Youtube & Facebook</p>
-<p>24/7 Support</p>
-<a href="#" class="btn">CONTACT NOW</a>
+<p id="package1Item1">Unlimited Internet</p>
+<p id="package1Item2">Youtube & Facebook</p>
+<p id="package1Item3">24/7 Support</p>
+<a href="#contact" class="btn">CONTACT NOW</a>
 </div>
 </div>
 
 <div class="card">
 <div class="card-top blue">
-<h3>30 Mbps</h3>
-<h1>700৳</h1>
+<h3 id="package2Speed">30 Mbps</h3>
+<h1 id="package2Price">700৳</h1>
 </div>
 
 <div class="card-body">
-<p>Unlimited Internet</p>
-<p>Gaming Support</p>
-<p>24/7 Support</p>
-<a href="#" class="btn">CONTACT NOW</a>
+<p id="package2Item1">Unlimited Internet</p>
+<p id="package2Item2">Gaming Support</p>
+<p id="package2Item3">24/7 Support</p>
+<a href="#contact" class="btn">CONTACT NOW</a>
 </div>
 </div>
 
 <div class="card">
 <div class="card-top orange">
-<h3>40 Mbps</h3>
-<h1>1000৳</h1>
+<h3 id="package3Speed">40 Mbps</h3>
+<h1 id="package3Price">1000৳</h1>
 </div>
 
 <div class="card-body">
-<p>Unlimited Internet</p>
-<p>Streaming Support</p>
-<p>24/7 Support</p>
-<a href="#" class="btn">CONTACT NOW</a>
+<p id="package3Item1">Unlimited Internet</p>
+<p id="package3Item2">Streaming Support</p>
+<p id="package3Item3">24/7 Support</p>
+<a href="#contact" class="btn">CONTACT NOW</a>
 </div>
 </div>
 
 <div class="card">
 <div class="card-top green">
-<h3>50 Mbps</h3>
-<h1>1500৳</h1>
+<h3 id="package4Speed">50 Mbps</h3>
+<h1 id="package4Price">1500৳</h1>
 </div>
 
 <div class="card-body">
-<p>Unlimited Internet</p>
-<p>4K Streaming</p>
-<p>Priority Support</p>
-<a href="#" class="btn">CONTACT NOW</a>
+<p id="package4Item1">Unlimited Internet</p>
+<p id="package4Item2">4K Streaming</p>
+<p id="package4Item3">Priority Support</p>
+<a href="#contact" class="btn">CONTACT NOW</a>
 </div>
 </div>
 
 </div>
 
 </section>
-
-<!-- FEATURES -->
 
 <section class="features" id="features">
 
@@ -557,34 +535,32 @@ service for gaming, streaming, office work and
 <div class="feature-container">
 
 <div class="feature-box">
-<div class="icon">⚡</div>
-<h3>Fast Internet</h3>
-<p>Enjoy super fast internet speed for gaming and streaming.</p>
+<div class="icon" id="feature1Icon">⚡</div>
+<h3 id="feature1Title">Fast Internet</h3>
+<p id="feature1Text">Enjoy super fast internet speed for gaming and streaming.</p>
 </div>
 
 <div class="feature-box">
-<div class="icon">🌐</div>
-<h3>Fiber Connection</h3>
-<p>Stable fiber optic internet with ultra-low latency.</p>
+<div class="icon" id="feature2Icon">🌐</div>
+<h3 id="feature2Title">Fiber Connection</h3>
+<p id="feature2Text">Stable fiber optic internet with ultra-low latency.</p>
 </div>
 
 <div class="feature-box">
-<div class="icon">🔒</div>
-<h3>Dedicated Bandwidth</h3>
-<p>Smooth browsing and uninterrupted connection.</p>
+<div class="icon" id="feature3Icon">🔒</div>
+<h3 id="feature3Title">Dedicated Bandwidth</h3>
+<p id="feature3Text">Smooth browsing and uninterrupted connection.</p>
 </div>
 
 <div class="feature-box">
-<div class="icon">🛠</div>
-<h3>24/7 Support</h3>
-<p>Our support team is always ready to help you.</p>
+<div class="icon" id="feature4Icon">🛠</div>
+<h3 id="feature4Title">24/7 Support</h3>
+<p id="feature4Text">Our support team is always ready to help you.</p>
 </div>
 
 </div>
 
 </section>
-
-<!-- SERVER -->
 
 <section class="server">
 
@@ -593,7 +569,7 @@ service for gaming, streaming, office work and
 <p>Click below to visit websites</p>
 </div>
 
-<div class="server-box">
+<div class="server-box" id="serverBox">
 
 <a href="https://google.com" target="_blank" class="server-item">
 GOOGLE FTP
@@ -623,27 +599,24 @@ BDIX SERVER
 
 </section>
 
-<!-- COVERAGE -->
-
 <section class="coverage" id="coverage">
 
 <div class="section-title">
 <h2>OUR COVERAGE AREA</h2>
-<p>Write your area names below</p>
+<p>Available internet service areas</p>
 </div>
 
 <div class="coverage-grid">
 
-<div class="coverage-box">AREA 1</div>
-<div class="coverage-box">AREA 2</div>
-<div class="coverage-box">Haji ashraf ali road</div>
-<div class="coverage-box">AREA 4</div>
-<div class="coverage-box">AREA 5</div>
+<div class="coverage-box" id="area1">AREA 1</div>
+<div class="coverage-box" id="area2">AREA 2</div>
+<div class="coverage-box" id="area3">Haji ashraf ali road</div>
+<div class="coverage-box" id="area4">AREA 4</div>
+<div class="coverage-box" id="area5">AREA 5</div>
+
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
@@ -656,28 +629,204 @@ BDIX SERVER
 
 <div class="contact-item">
 <h3>📞 Phone</h3>
-<p>+880 1826-705233</p>
+<p id="phone">+880 1826-705233</p>
 </div>
 
 <div class="contact-item">
 <h3>📧 Email</h3>
-<p>rahiyanemon33@gmail.com</p>
+<p id="email">rahiyanemon33@gmail.com</p>
 </div>
 
 <div class="contact-item">
 <h3>📍 Address</h3>
-<p>Chittagong, Bangladesh</p>
+<p id="address">Chittagong, Bangladesh</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- FOOTER -->
-
-<footer>
+<footer id="footer">
 © 2026 Grow Up Communication. All Rights Reserved.
 </footer>
+
+<script>
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwsrBm8cD4yYOTyuJkW8YHrJj0yBnobPHOdVaE6jWn0mEi0Hh8rg8buOZBWKn-Lq362/exec";
+
+
+function setText(id,value){
+
+    const el=document.getElementById(id);
+
+    if(el && value !== undefined && value !== null){
+        el.textContent=value;
+    }
+
+}
+
+
+function loadWebsite(){
+
+    fetch(API_URL)
+
+    .then(response=>response.json())
+
+    .then(result=>{
+
+        if(!result.success){
+
+            console.log(result.message);
+
+            return;
+
+        }
+
+        const d=result.data;
+
+        setText("heroSmall",d.heroSmall);
+        setText("heroDescription",d.heroDescription);
+        setText("heroButton",d.heroButton);
+
+        /* COMPANY */
+
+        const company=document.getElementById("companyName");
+
+        if(company && d.companyName){
+
+            const words=String(d.companyName).trim().split(" ");
+
+            if(words.length>1){
+
+                const last=words.pop();
+
+                company.innerHTML=
+                words.join(" ")+" <span>"+last+"</span>";
+
+            }else{
+
+                company.textContent=d.companyName;
+
+            }
+
+        }
+
+        /* HERO TITLE */
+
+        if(d.heroTitle){
+
+            const title=document.getElementById("heroTitle");
+
+            const parts=String(d.heroTitle).split(" ");
+
+            if(parts.length>=2){
+
+                const last=parts.pop();
+
+                title.innerHTML=
+                parts.join(" ")+" <span>"+last+"</span>";
+
+            }else{
+
+                title.textContent=d.heroTitle;
+
+            }
+
+        }
+
+        /* IMAGE */
+
+        if(d.heroImage){
+
+            document.getElementById("heroImage").src=d.heroImage;
+
+        }
+
+        /* PACKAGES */
+
+        for(let i=1;i<=4;i++){
+
+            setText("package"+i+"Speed",d["package"+i+"Speed"]);
+            setText("package"+i+"Price",d["package"+i+"Price"]);
+            setText("package"+i+"Item1",d["package"+i+"Item1"]);
+            setText("package"+i+"Item2",d["package"+i+"Item2"]);
+            setText("package"+i+"Item3",d["package"+i+"Item3"]);
+
+        }
+
+        /* FEATURES */
+
+        for(let i=1;i<=4;i++){
+
+            setText("feature"+i+"Icon",d["feature"+i+"Icon"]);
+            setText("feature"+i+"Title",d["feature"+i+"Title"]);
+            setText("feature"+i+"Text",d["feature"+i+"Text"]);
+
+        }
+
+        /* AREAS */
+
+        for(let i=1;i<=5;i++){
+
+            setText("area"+i,d["area"+i]);
+
+        }
+
+        /* CONTACT */
+
+        setText("phone",d.phone);
+        setText("email",d.email);
+        setText("address",d.address);
+        setText("footer",d.footer);
+
+        /* SERVERS */
+
+        const serverBox=document.getElementById("serverBox");
+
+        let serverHTML="";
+
+        for(let i=1;i<=6;i++){
+
+            const name=d["server"+i+"Name"];
+            const link=d["server"+i+"Link"];
+
+            if(name && link){
+
+                serverHTML+=`
+                <a
+                href="${link}"
+                target="_blank"
+                class="server-item"
+                >
+                ${name}
+                </a>
+                `;
+
+            }
+
+        }
+
+        if(serverHTML){
+
+            serverBox.innerHTML=serverHTML;
+
+        }
+
+    })
+
+    .catch(error=>{
+
+        console.log("Website data loading error:",error);
+
+    });
+
+}
+
+
+loadWebsite();
+
+</script>
 
 </body>
 </html>
